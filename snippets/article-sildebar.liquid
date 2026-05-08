@@ -1,0 +1,98 @@
+<div class="title-wrapper-with-link">
+  <h2 class="h2">{{ 'blogs.article.sidebar' | t }}</h2>
+  <button class="sidebar-close" type="button" aria-label="{{ 'accessibility.close' | t }}">
+    {% render 'icon-close' %}
+  </button>
+</div>
+{%- for block in section.blocks -%}
+        {%- case block.type -%}
+            {%- when 'categories' -%}
+                <div class="blog-categories">
+              <div class="blog-heading-wrapper">
+                  {% if block.settings.heading != blank %}
+                      <h2 class="heading inline-richtext color-{{ section.settings.heading_color_scheme }} content-container"><span>{{ block.settings.heading }}</span></h2>
+                  {% endif %}
+              </div>
+              {{ block.settings.blog_categories }}
+            </div>
+        {%- when 'Banner' -%}
+          <div class="blog-instagram">
+            <div class="blog-heading-wrapper">
+              {% if block.settings.heading != blank %}
+                  <h2 class="heading inline-richtext color-{{ section.settings.heading_color_scheme }} content-container"><span>{{ block.settings.heading }}</span></h2>
+              {% endif %}
+          </div>
+          {% if block.settings.link != blank %}<a class="banner_link" href="{{ block.settings.link }}" title="{{ 'wbcustomlabel.wballtext.banner' | t }}" class="focus-inset">{% endif %}
+          {% if block.settings.image != blank %}
+          <img loading="lazy" src="{{ block.settings.image | image_url: width: 400, height: 400 }}"
+            class="logo-bar__image img-fluid mx-auto lazyload global-media-settings" alt="{{ block.settings.image.alt }}" height="{{ block.settings.image.height }}" width="{{ block.settings.image.width }}">
+          {% else %}
+            {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+            {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
+            <div class="dummysvg">{{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}</div>
+          {% endif %}
+        {% if block.settings.link != blank %}</a>{% endif %}
+        </div>
+        {%- when 'Products' -%}
+        <div class="blog-Products">
+      <div class="blog-heading-wrapper">
+          {% if block.settings.heading != blank %}
+              <h2 class="heading inline-richtext color-{{ section.settings.heading_color_scheme }} content-container"><span>{{ block.settings.heading }}</span></h2>
+          {% endif %}
+      </div>
+      {% if block.settings.blog_product != blank %}
+        {%- for product in block.settings.blog_product -%}
+           <ul class="blog-productcard">
+                {% render 'card-product-sponsored', card_product: product , cards_style: block.settings.card_style %}
+            </ul> 
+            {% style %}
+              .blog-productcard .card.card--card{
+                background-color: {{ block.settings.bg_card }};
+                color: {{ block.settings.bg_text }};
+              }
+            {% endstyle %}
+        {% endfor %}
+    {% endif %}
+  </div>
+{%- when 'Tag' -%}
+    <div class="blog-tag">
+    <div class="blog-heading-wrapper">
+        {% if block.settings.heading != blank %}
+            <h2 class="heading inline-richtext color-{{ section.settings.heading_color_scheme }} content-container"><span>{{ block.settings.heading }}</span></h2>
+        {% endif %}
+    </div>
+  <ul class="article_tags_wrapper">
+    <li>
+      {%- for tag in blog.all_tags -%}
+        <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+      {%- endfor -%}
+    </li>
+</ul>
+</div>
+{%- when 'recentpost' -%}
+    <div class="blog-post">
+  <div class="blog-heading-wrapper">
+      {% if block.settings.heading != blank %}
+          <h2 class="heading inline-richtext color-{{ section.settings.heading_color_scheme }} content-container"><span>{{ block.settings.heading }}</span></h2>
+      {% endif %}
+  </div>
+    {% assign your_blog_handle_here = block.settings.blog_recentview %}
+{% assign how_many_articles_to_show = 3 %}
+<ul class="recent-posts-list">
+  {% for article in blogs[your_blog_handle_here].articles limit: how_many_articles_to_show %}
+    <li>
+      {% if article.image %}
+        <img src="{{ article.image.src | image_url: width: 100 }}" class="global-media-settings" loading="lazy" alt="{{ article.image.alt | escape }}" height="{{ article.image.height }}" width="{{ article.image.width }}" />
+      {% endif %}
+      <div>
+      <h2>
+        <a href="{{ article.url }}">{{ article.title }}</a>
+      </h2>
+      <p>{{ article.published_at | date: "%B %d, %Y" }}</p>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+</div>
+    {%- endcase -%}
+  {% endfor %}

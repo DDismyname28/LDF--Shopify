@@ -1,0 +1,255 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "h0",
+        "head_align": "left",
+        "heading_color_scheme": "background-1",
+        "head_space": false,
+        "padding_top": 0,
+        "padding_bottom": 4
+      }
+    },
+    "da98eb36-c09b-44c2-ba56-446635fa3d53": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16209783947321__da98eb36-c09b-44c2-ba56-446635fa3d53-heading-1": {
+          "type": "heading",
+          "settings": {
+            "subheading": "Upgrade Your Audio Experience With Our Headphone Deals.",
+            "heading": "<strong>Unparalleled Audio Excellence</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "template--16209783947321__da98eb36-c09b-44c2-ba56-446635fa3d53-text-1": {
+          "type": "text",
+          "settings": {
+            "show_icon": "hide",
+            "content_icon": "snowflake",
+            "text": "<p>Experience the Ultimate Audio Clarity with Cutting-Edge Headphone Technology. Immerse yourself in the world of high-quality sound with our top-notch headphones.</p>",
+            "text_style": "body"
+          }
+        },
+        "template--16209783947321__da98eb36-c09b-44c2-ba56-446635fa3d53-author-text-1": {
+          "type": "author-text",
+          "settings": {
+            "authorimage": "",
+            "image_corners": "circle",
+            "authorname": "Angelo H. Lott",
+            "authorpos": "Product manager"
+          }
+        },
+        "template--16209783947321__da98eb36-c09b-44c2-ba56-446635fa3d53-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "",
+            "link_window": true,
+            "view_all_style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "template--16209783947321__da98eb36-c09b-44c2-ba56-446635fa3d53-heading-1",
+        "template--16209783947321__da98eb36-c09b-44c2-ba56-446635fa3d53-text-1",
+        "template--16209783947321__da98eb36-c09b-44c2-ba56-446635fa3d53-author-text-1",
+        "template--16209783947321__da98eb36-c09b-44c2-ba56-446635fa3d53-button-1"
+      ],
+      "settings": {
+        "image": "",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "color_scheme": "inverse",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "8c459c67-fef9-40df-8bf0-0b14cf7d4ff9": {
+      "type": "counter",
+      "blocks": {
+        "template--16209783947321__8c459c67-fef9-40df-8bf0-0b14cf7d4ff9-counter-1": {
+          "type": "counter",
+          "settings": {
+            "counthead": "1000",
+            "countdesc": "Years of experience"
+          }
+        },
+        "template--16209783947321__8c459c67-fef9-40df-8bf0-0b14cf7d4ff9-counter-2": {
+          "type": "counter",
+          "settings": {
+            "counthead": "5859",
+            "countdesc": "Happy customers"
+          }
+        },
+        "template--16209783947321__8c459c67-fef9-40df-8bf0-0b14cf7d4ff9-counter-3": {
+          "type": "counter",
+          "settings": {
+            "counthead": "5260",
+            "countdesc": "Products in stock"
+          }
+        },
+        "template--16209783947321__8c459c67-fef9-40df-8bf0-0b14cf7d4ff9-counter-4": {
+          "type": "counter",
+          "settings": {
+            "counthead": "9685",
+            "countdesc": "One week delivery"
+          }
+        },
+        "counter_zez3iK": {
+          "type": "counter",
+          "settings": {
+            "counthead": "100",
+            "countdesc": "Score on ecommerce"
+          }
+        }
+      },
+      "block_order": [
+        "template--16209783947321__8c459c67-fef9-40df-8bf0-0b14cf7d4ff9-counter-1",
+        "template--16209783947321__8c459c67-fef9-40df-8bf0-0b14cf7d4ff9-counter-2",
+        "template--16209783947321__8c459c67-fef9-40df-8bf0-0b14cf7d4ff9-counter-3",
+        "template--16209783947321__8c459c67-fef9-40df-8bf0-0b14cf7d4ff9-counter-4",
+        "counter_zez3iK"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h0",
+        "head_align": "left",
+        "heading_color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
+        "head_space": true,
+        "columns_desktop": 6,
+        "color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "testimonial_zDeaMU": {
+      "type": "testimonial",
+      "blocks": {
+        "quote_37wLN3": {
+          "type": "quote",
+          "settings": {
+            "rev_title": "",
+            "display_review": true,
+            "display_review_text": true,
+            "star_rating": 5,
+            "quote": "<p>\"I'm judging these earphones with extremely critical ear and I think they perform extremely well.\"</p>",
+            "image": "",
+            "author": "Nadine R. Creech",
+            "authorsub": "CEO",
+            "color_scheme": ""
+          }
+        },
+        "quote_N4TY9L": {
+          "type": "quote",
+          "settings": {
+            "rev_title": "",
+            "display_review": true,
+            "display_review_text": true,
+            "star_rating": 5,
+            "quote": "<p>’’I recently purchased these headphones and by the audio quality. The bass is deep and punchy.’’</p>",
+            "image": "",
+            "author": "Angelo H. Lott",
+            "authorsub": "Finance manager",
+            "color_scheme": ""
+          }
+        },
+        "quote_DdzrVD": {
+          "type": "quote",
+          "settings": {
+            "rev_title": "",
+            "display_review": true,
+            "display_review_text": true,
+            "star_rating": 5,
+            "quote": "<p>’’These headphones seamlessly connect to all my devices. The Bluetooth pairing is hassle-free’’</p>",
+            "image": "",
+            "author": "Alexander Ball",
+            "authorsub": "Product manager",
+            "color_scheme": ""
+          }
+        },
+        "quote_rb7MA9": {
+          "type": "quote",
+          "settings": {
+            "rev_title": "",
+            "display_review": true,
+            "display_review_text": true,
+            "star_rating": 4.5,
+            "quote": "<p>\"They have definitely secured their place as top of the line, noise cancelling, earbuds in my book.’’</p>",
+            "image": "",
+            "author": "Alone Boy",
+            "authorsub": "Product manager",
+            "color_scheme": ""
+          }
+        },
+        "quote_6FBEXe": {
+          "type": "quote",
+          "settings": {
+            "rev_title": "",
+            "display_review": true,
+            "display_review_text": true,
+            "star_rating": 3,
+            "quote": "<p>’’Not only do these headphones deliver exceptional audio, but they also look and feel great.’’</p>",
+            "image": "",
+            "author": "Stefanie Rashford",
+            "authorsub": "CEO",
+            "color_scheme": ""
+          }
+        }
+      },
+      "block_order": [
+        "quote_37wLN3",
+        "quote_N4TY9L",
+        "quote_DdzrVD",
+        "quote_rb7MA9",
+        "quote_6FBEXe"
+      ],
+      "settings": {
+        "title": "Loved By Customers",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "description": "",
+        "description_style": "body",
+        "text_size": "small",
+        "author_img_position": "below",
+        "author_direction": "column",
+        "image_corners": "rounded",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "arrow_position": "inline",
+        "column_alignment": "center",
+        "space_around": 20,
+        "quote_img": false,
+        "quote_color": "#ffbb40",
+        "star_ratingclr": "#ffbb40",
+        "color_scheme": "",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "da98eb36-c09b-44c2-ba56-446635fa3d53",
+    "8c459c67-fef9-40df-8bf0-0b14cf7d4ff9",
+    "testimonial_zDeaMU"
+  ]
+}

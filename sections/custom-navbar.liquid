@@ -1,0 +1,202 @@
+<header class="custom-navbar">
+  <div class="custom-navbar__inner">
+    <a href="{{ routes.root_url }}" class="custom-navbar__logo">
+      {% if section.settings.logo != blank %}
+        {{ section.settings.logo | image_url: width: 200 | image_tag: alt: shop.name }}
+      {% else %}
+        LOGO
+      {% endif %}
+    </a>
+
+    <nav class="custom-navbar__nav">
+      {% for link in section.settings.menu.links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="custom-navbar__actions">
+        <div class="custom-navbar__links">
+            <a href="/collections/all">Shop</a>
+            <a href="/collections">Collections</a>
+            <a href="/pages/events">Events</a>
+            <a href="/pages/about">About</a>
+        </div>
+
+        <a href="{{ routes.account_login_url }}" class="custom-navbar__login">
+            {{ section.settings.login_text }}
+        </a>
+
+        <a href="{{ routes.search_url }}" class="custom-navbar__link">Search</a>
+
+        <a href="{{ routes.cart_url }}" class="custom-navbar__link">
+            Cart ({{ cart.item_count }})
+        </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .custom-navbar {
+    width: 100%;
+    background: #f8f6f2;
+    padding: 10px 12px;
+    position: sticky;
+  }
+
+  .custom-navbar__inner {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+    border: 1px solid #dedbd6;
+    border-radius: 4px;
+    padding: 0 28px;
+    background: #f8f6f2;
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: 32px;
+  }
+
+  .custom-navbar__logo {
+    width: 100px;
+    height: 36px;
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b21f24;
+    font-weight: 700;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .custom-navbar__logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .custom-navbar__nav {
+    display: none;
+  }
+
+  .custom-navbar__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 28px;
+    margin-left: auto;
+  }
+
+  .custom-navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 88px;
+    margin-right: 36px;
+  }
+
+  .custom-navbar__links a,
+  .custom-navbar__link {
+    color: #1d1d1d;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-regular);
+    font-size: 14px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .custom-navbar__login {
+    background: var(--crimson);
+    color: var(--cream);
+    min-width: 172px;
+    height: 34px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-bold);
+    font-size: 14px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .custom-navbar__links {
+      gap: 40px;
+      margin-right: 16px;
+    }
+
+    .custom-navbar__actions {
+      gap: 18px;
+    }
+
+    .custom-navbar__login {
+      min-width: 130px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .custom-navbar__inner {
+      padding: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .custom-navbar__logo {
+      margin-right: auto;
+    }
+
+    .custom-navbar__actions {
+      width: 100%;
+      margin-left: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .custom-navbar__links {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-right: 0;
+      order: -1;
+    }
+
+    .custom-navbar__login {
+      min-width: 120px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom navbar",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "login_text",
+      "label": "Login button text",
+      "default": "LOGIN"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom navbar"
+    }
+  ]
+}
+{% endschema %}

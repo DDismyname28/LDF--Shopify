@@ -1,0 +1,134 @@
+.iconbanner .grid {
+    border-radius: var(--text-boxes-radius);
+    justify-content: center;
+    padding: 10px;
+}
+.iconbanner .wb_test_content {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.wb_test_imag .placeholder-svg {
+  border-radius: 0
+}
+.iconbanner .wb_test_imag {
+    max-width: 200px;
+}
+.iconbanner .center .wb_test_imag {
+    margin-left: auto;
+    margin-right: auto;
+}
+.iconbanner .multis-svg.truck {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgb(var(--color-button));
+    border: 1px solid rgb(var(--color-button));
+    outline: rgba(var(--color-foreground),.2) solid 7px;
+    margin-right: 7px;
+    transition: all var(--duration-long) ease;
+}
+.iconbanner .multicolumn-list__item:hover .multis-svg.truck{
+    transform: scale(1.04);
+}
+.iconbanner .flex_direction--column .multis-svg.truck{
+    display: inline-flex;
+}
+.iconbanner .grid .center .multis-svg.truck {
+    margin: 0 auto;
+}
+.iconbanner .multicolumn-list__item .underlined-link:hover .multis-svg svg path{
+    fill: rgb(var(--color-link-hover));
+}
+.iconbanner .multicolumn-list__item a.link .multis-svg svg,
+.iconbanner .multicolumn-list__item a.link .multis-svg svg path{
+    fill: rgb(var(--color-foreground));
+}
+.iconbanner .multis-svg svg,
+.iconbanner .multicolumn-list__item a.button .multis-svg svg path{
+    fill: rgb(var(--color-button-text));
+}
+.iconbanner .multicolumn-list__item a.button.button--secondary:hover .multis-svg svg path, .iconbanner .multicolumn-list__item a.button:hover .multis-svg svg path{
+    fill: rgb(var(--color-button-hover-text));
+}
+.iconbanner .multicolumn-list__item .underlined-link .multis-svg svg path{
+    transition: all var(--duration-long) ease;
+}
+.iconbanner .multis-svg.bag svg{
+    width: 14px;
+    height: 14px;
+}
+.iconbanner .link,
+.iconbanner .button {
+    column-gap: 8px;
+}
+.iconbanner .rtl{
+    direction: rtl;
+}
+.iconbanner .ltr{
+    direction: ltr;
+}
+.iconbanner .h3 {
+    font-size: calc(var(--font-heading-scale) * 2.6rem);
+    font-weight: var(--font-body-weight-bold);
+    margin: 0;
+}
+.iconbanner p {
+    font-size: calc(var(--font-body-scale) * 18px);
+    font-weight: var(--font-body-weight-medium);
+    margin: 0;
+    line-height: normal;
+}
+.iconbanner .text-with-icon_card__info {
+    display: grid;
+    row-gap: 10px;
+    direction: initial;
+}
+.iconbanner .wb_home_sbtn {
+    direction: initial;
+}
+@media (max-width: 1440px) {
+    .iconbanner .h3 {
+        font-size: calc(var(--font-heading-scale) * 2rem);
+    }
+    .iconbanner p {
+        font-size: calc(var(--font-body-scale) * 16px);
+    }
+    .iconbanner .text-with-icon_card__info {
+        row-gap: 8px;
+    }
+}
+@media (max-width: 1250px) {
+    .iconbanner .h3 {
+        font-size: calc(var(--font-heading-scale) * 1.6rem);
+    }
+    .iconbanner p {
+        font-size: calc(var(--font-body-scale) * 14px);
+    }
+}
+@media (max-width: 992px) {
+    .iconbanner .grid {
+        justify-content: center;
+    }
+    .iconbanner .wb_test_imag{
+        max-width: 150px;
+    }
+}
+@media (max-width: 768px) {
+    .iconbanner .grid {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .iconbanner .button {
+        font-size: calc(var(--font-body-scale) * 14px);
+    }
+    .iconbanner .flex_direction--row, .iconbanner .flex_direction--column {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

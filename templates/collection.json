@@ -1,0 +1,267 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_image": true,
+        "show_collection_description": true,
+        "content_alignment": "center",
+        "hero_layout": "overlay",
+        "coll_bgcolor": "#000000",
+        "coll_color": "#ffffff",
+        "coll_overlay": 30,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "collection_list_nPArci": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_fQpd8r": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "showtext": "",
+            "customb_style": "solid"
+          }
+        },
+        "featured_collection_CbL4gj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "showtext": "",
+            "customb_style": "solid"
+          }
+        },
+        "featured_collection_jHbgP8": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "showtext": "",
+            "customb_style": "solid"
+          }
+        },
+        "featured_collection_im6LPe": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "showtext": "",
+            "customb_style": "solid"
+          }
+        },
+        "featured_collection_3pTxTp": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "showtext": "",
+            "customb_style": "solid"
+          }
+        },
+        "featured_collection_xp9n63": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "showtext": "",
+            "customb_style": "solid"
+          }
+        },
+        "featured_collection_K3ncqC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "showtext": "",
+            "customb_style": "solid"
+          }
+        },
+        "featured_collection_9JMJdC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "showtext": "",
+            "customb_style": "solid"
+          }
+        },
+        "featured_collection_LHrXwm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "showtext": "",
+            "customb_style": "solid"
+          }
+        },
+        "featured_collection_G9Hmax": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "showtext": "",
+            "customb_style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_fQpd8r",
+        "featured_collection_CbL4gj",
+        "featured_collection_jHbgP8",
+        "featured_collection_im6LPe",
+        "featured_collection_3pTxTp",
+        "featured_collection_xp9n63",
+        "featured_collection_K3ncqC",
+        "featured_collection_9JMJdC",
+        "featured_collection_LHrXwm",
+        "featured_collection_G9Hmax"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "title": "Shop By Categories",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "description": "",
+        "description_style": "body",
+        "show_view_all": false,
+        "view_button_pos": "bottom",
+        "button_label": "View all",
+        "button_url": "",
+        "view_all_style": "link",
+        "arrow_position": "inline",
+        "image_ratio": "square",
+        "columns_desktop": 9,
+        "rows": 1,
+        "card_flex_direction": "column",
+        "design_type": "below",
+        "design_align": "center",
+        "show_circle": false,
+        "catheading_size": "small",
+        "blockcolor_scheme": "",
+        "columns_mobile": "2",
+        "padding_top": 32,
+        "padding_bottom": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "6b0ca242-8226-447c-9d68-3d626e4786ad": {
+          "type": "media_promotion",
+          "settings": {
+            "color_scheme": "background-1",
+            "img_position": 1,
+            "image_overlay_opacity": 0,
+            "heading": "50% OFF ON DRAWN.",
+            "heading_size": "h0",
+            "subheading": "<p>Take advantage of this incredible</p>",
+            "text": "",
+            "text_style": "body",
+            "button_label_1": "Shop now",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "outline",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "top-center",
+            "desktop_content_alignment": "left"
+          }
+        },
+        "040d4e2f-84f2-4653-80e6-74dab392b0a1": {
+          "type": "media_promotion",
+          "settings": {
+            "color_scheme": "background-1",
+            "img_position": 7,
+            "image_overlay_opacity": 0,
+            "heading": "EXCLUSIVE OFFER",
+            "heading_size": "h0",
+            "subheading": "<p>Get up to 40% off</p>",
+            "text": "<p>Get the Perfect Toast Every Time! </p>",
+            "text_style": "body",
+            "button_label_1": "Buy now",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "outline",
+            "show_text_box": false,
+            "container_overlay_opacity": 50,
+            "desktop_content_position": "top-left",
+            "desktop_content_alignment": "left"
+          }
+        },
+        "media_promotion_iPKWUc": {
+          "type": "media_promotion",
+          "settings": {
+            "color_scheme": "background-1",
+            "img_position": 9,
+            "image_overlay_opacity": 0,
+            "heading": "ENJOY A <strong>FLAT 50% OFF</strong>",
+            "heading_size": "h0",
+            "subheading": "<p>For a limited time,</p>",
+            "text": "<p>Don't miss chance to level up gaming experience!</p>",
+            "text_style": "body",
+            "button_label_1": "Shop now",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "solid",
+            "show_text_box": false,
+            "container_overlay_opacity": 30,
+            "desktop_content_position": "top-left",
+            "desktop_content_alignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "6b0ca242-8226-447c-9d68-3d626e4786ad",
+        "040d4e2f-84f2-4653-80e6-74dab392b0a1",
+        "media_promotion_iPKWUc"
+      ],
+      "settings": {
+        "products_per_page": 12,
+        "default_grid": "four_col",
+        "card_style": "standard",
+        "show_count_timer": true,
+        "enable_listdesc": true,
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sticky": false,
+        "enable_sorting": true,
+        "enable_fill_category": true,
+        "menu": "",
+        "pagination_type": "paged",
+        "columns_mobile": "2",
+        "padding_top": 32,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "collection_list_nPArci",
+    "product-grid"
+  ]
+}

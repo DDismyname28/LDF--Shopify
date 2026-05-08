@@ -1,0 +1,81 @@
+.announcement--bar .headannunce .slider {
+    flex-wrap: inherit;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+}
+.announcement--bar .headannunce .slider__slide {
+    max-width: 100%;
+    width: 100%;
+}
+.announcement--bar .headannunce {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.announcement--bar .announcement-bar {
+    padding: 8px 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+    justify-content: center;
+    line-height: 1.5;
+}
+.announcement--bar .slider-button{
+    min-width: calc(3.8rem + var(--buttons-border-width) * 2);
+}
+.localization-wrapper.announce_item {
+    text-align: end;
+}
+.announcement--bar .list-social__item .list-social__link {
+    padding-left: 0;
+}
+.announcement-bar .link{
+    text-align: center;
+    word-break: break-word;
+    cursor: unset;
+}
+@media (min-width:992px){
+    .announcement--bar .localization-wrapper,
+    .announcement--bar .announce_social{
+        width: 25%;
+    }
+    .announcement--bar .announce__text{
+        width: 50%;
+    }
+    .announcement-bar .link {
+        padding: 0 10px;
+        font-size: calc(var(--font-body-scale) * 14px);
+    } 
+    .announcement--bar .global_headannunce {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+}
+@media (max-width: 991px){
+    .announcement--bar .slider-button{
+        min-width: calc(4.2rem + var(--buttons-border-width) * 2);
+        height: calc(4.2rem + var(--buttons-border-width) * 2);
+    }
+    .announcement--bar .list-social{
+        display: none;
+    }
+}
+@media (max-width: 767px){
+    .announcement--bar .announcement-bar p {
+        font-size: calc(var(--font-body-scale) * 11px);
+    }
+    .annoucehome.mobile_announce {
+        display: block;
+    }
+    .annoucehome {
+        display: none;
+    }
+}

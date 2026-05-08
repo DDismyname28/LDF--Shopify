@@ -1,0 +1,193 @@
+<section class="custom-feature-bar">
+  <div class="custom-feature-bar__inner">
+    {% for block in section.blocks %}
+      <div class="custom-feature-bar__item" {{ block.shopify_attributes }}>
+        <div class="custom-feature-bar__icon">
+          {% if block.settings.icon != blank %}
+            {{ block.settings.icon | image_url: width: 80 | image_tag: loading: 'lazy' }}
+          {% else %}
+            ICON
+          {% endif %}
+        </div>
+
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.text }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  .custom-feature-bar {
+    background: #f8f6f2;
+    padding: 8px 10px;
+  }
+
+  .custom-feature-bar__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 98px;
+    border: 1px solid #d7d1c8;
+    border-radius: 4px;
+    background: #f0ece4;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+  }
+
+  .custom-feature-bar__item {
+    position: relative;
+    text-align: center;
+    padding: 14px 24px 16px;
+  }
+
+  .custom-feature-bar__item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 14px;
+    bottom: 20px;
+    width: 1px;
+    background: #d9d2c7;
+  }
+
+  .custom-feature-bar__icon {
+    width: 120px;
+    height: 64px;
+    margin: 0 auto 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #1d1d1d;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .custom-feature-bar__icon:not(:has(img)) {
+    background: #fff;
+    border-radius: 2px;
+  }
+
+  .custom-feature-bar__icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .custom-feature-bar__item h3 {
+    margin: 0 0 4px;
+    color: #1d1d1d;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.1;
+  }
+
+  .custom-feature-bar__item p {
+    margin: 0;
+    color: rgba(46, 61, 52, 0.55);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: var(--font-weight-regular);
+    line-height: 1.2;
+  }
+
+  @media screen and (max-width: 900px) {
+    .custom-feature-bar__inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .custom-feature-bar__item:nth-child(2)::after {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    .custom-feature-bar__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .custom-feature-bar__item::after {
+      display: none;
+    }
+
+    .custom-feature-bar__item {
+      border-bottom: 1px solid #d9d2c7;
+    }
+
+    .custom-feature-bar__item:last-child {
+      border-bottom: 0;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom feature bar",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Trade Pricing"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Login for wholesale rates"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom feature bar",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Trade Pricing",
+            "text": "Login for wholesale rates"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Bulk Orders Welcome",
+            "text": "Volume discounts available"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Expert Support",
+            "text": "Decorators helping decorators"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Fast Shipping",
+            "text": "Ships within 48hrs"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

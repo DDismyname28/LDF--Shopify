@@ -1,0 +1,98 @@
+.newsletter__subheading ol:last-child, .newsletter__subheading ul:last-child {
+  margin-bottom: 0;
+}
+.news_fl .media>img, .news_fl .banner__media {
+  border-radius: 0
+}
+.newsletter__wrapper {
+  padding-right: calc(4rem / var(--font-body-scale));
+  padding-left: calc(4rem / var(--font-body-scale));
+}
+@media screen and (min-width: 768px) {
+  .newsletter__wrapper {
+    padding-right: 6rem;
+    padding-left: 6rem;
+  }
+}
+.newsletter__wrapper > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.newsletter__wrapper > * + * {
+  margin-top: 2rem;
+}
+.newsletter__wrapper > * + .newsletter-form {
+  margin-top: 3rem;
+}
+.newsletter__subheading {
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.newsletter .newsletter__subheading{
+  display: inline-flex;
+  align-items: center;
+}
+.newsletter .newsletter__subheading input[type="radio"]{
+  margin: 0 5px 0 0;
+  width: 1.3em;
+  height: 1.3em;
+}
+.newsletter .newsletter__subheading input[type="radio"]:checked {
+  accent-color: rgb(var(--color-foreground));
+}
+.newsletter__wrapper .newsletter-form__field-wrapper {
+  max-width: 36rem;
+}
+.newsletter-form__field-wrapper .newsletter-form__message {
+  margin-top: 1.5rem;
+}
+.newsletter__button {
+  margin-top: 3rem;
+  width: fit-content;
+}
+.newsletter__wrapper button.newsletter-form__button{
+  background-color: transparent;
+}
+.newsletter__wrapper .newsletter-form__field-wrapper .field__input:focus {
+  box-shadow: none;
+}
+@media screen and (min-width: 768px) {
+  .newsletter__button {
+    flex-shrink: 0;
+    margin: 0 0 0 1rem;
+  }
+}
+@media (max-width: 767px){
+  .newsletter__wrapper {
+    padding-right: calc(1rem / var(--font-body-scale));
+    padding-left: calc(1rem / var(--font-body-scale));
+  }
+}
+/* =================== hero-banner =============================== */
+.hero-banner  .newsletter__subheading{
+  font-size: 18px;
+}
+.hero-banner p{
+  color: rgba(var(--color-foreground));
+}
+.hero-banner-wrapper > * + * {
+  margin-top: 1.5rem;
+}
+.hero-banner-wrapper .rich-text__buttons{
+  margin-top: 4rem;
+}
+.hero-banner-wrapper .rich-text__buttons .button{
+  padding: 6px 3rem;
+}
+@media screen and (min-width: 768px){
+  .hero-banner .hero-banner-wrapper .h0{
+    font-size: calc(var(--font-heading-scale) * 8rem);
+  }
+  .hero-banner .hero-banner-wrapper .h1{
+    font-size: calc(var(--font-heading-scale) * 6rem);
+  }
+  .hero-banner .hero-banner-wrapper .h2{
+    font-size: calc(var(--font-heading-scale) * 4rem);
+  }
+}

@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "e3ee854b-16a6-46d9-b496-7ee03f4540e6": {
+          "type": "categories",
+          "settings": {
+            "heading": "Blog Categories",
+            "blog_categories": "<p>News</p><p>Electronics</p>"
+          }
+        },
+        "b1102e3e-3535-4948-903d-c00e448da345": {
+          "type": "Products",
+          "settings": {
+            "heading": "Sale Products",
+            "blog_product": []
+          }
+        },
+        "e51601f5-9c20-484a-bd12-e88a50842f78": {
+          "type": "Tag",
+          "settings": {
+            "heading": "Blog Tags"
+          }
+        },
+        "cb5da0f6-3e73-4857-9e4f-beabf9bb2943": {
+          "type": "recentpost",
+          "settings": {
+            "heading": "Recent Post",
+            "blog_recentview": "news"
+          }
+        },
+        "4b6bed87-cad9-46fc-8a6d-df0467ba4e11": {
+          "type": "Banner",
+          "settings": {
+            "heading": "Most Popular",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "e3ee854b-16a6-46d9-b496-7ee03f4540e6",
+        "b1102e3e-3535-4948-903d-c00e448da345",
+        "e51601f5-9c20-484a-bd12-e88a50842f78",
+        "cb5da0f6-3e73-4857-9e4f-beabf9bb2943",
+        "4b6bed87-cad9-46fc-8a6d-df0467ba4e11"
+      ],
+      "settings": {
+        "show_sidebar": true,
+        "sidebar_position": "left",
+        "heading_color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
+        "image_height": "medium",
+        "blog_show_date": true,
+        "show_tag": true,
+        "blog_show_author": true,
+        "image_corners": "circle",
+        "share_label": "Shares",
+        "show_social": true,
+        "color_scheme": "inverse",
+        "blog_space": false,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

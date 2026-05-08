@@ -1,0 +1,478 @@
+{%- liquid
+  assign enable_popup = false
+  if section.settings.show_on_all and request.page_type != 'customers/register' and request.page_type != 'customers/login'
+    assign enable_popup = true
+  elsif section.settings.show_on_homepage and request.page_type == 'index' or section.settings.show_on_product_category and request.page_type == 'product' or request.page_type == 'collection'
+    assign enable_popup = true
+  endif
+-%}
+<link rel="preload" as="style" href="{{ 'section-popup.css' | asset_url }}">
+{{ 'section-popup.css' | asset_url | stylesheet_tag }}
+{%- if enable_popup -%}
+  <div class="notification-banner notification-banner--banner popup popup--{{ section.settings.position }}"
+      data-open-trigger="{{ section.settings.trigger_open }}"
+      data-open-delay-number="{{ section.settings.open_time_delay }}"
+      data-open-scroll-position="{{ section.settings.open_scroll_position }}"
+      data-open-scroll-type="{{ section.settings.open_scroll_type }}"
+      data-close-trigger="{{ section.settings.trigger_close }}"
+      data-close-delay-number="{{ section.settings.close_time_delay }}"
+      data-close-scroll-position="{{ section.settings.close_scroll_position }}"
+      data-close-scroll-type="{{ section.settings.close_scroll_type }}"
+      data-open-animation="{{ section.settings.open_animation }}"
+      data-exit-animation="{{ section.settings.close_animation }}"
+      data-overlay="{{ section.settings.show_overlay }}"
+      data-mobile-disable="{{ section.settings.mobile_disable }}"
+      data-body-scroll-disable="{{ section.settings.disable_scrolling }}"
+      data-overlay-close="{{ section.settings.overlay_close }}"
+      data-esc-close="{{ section.settings.esc_close }}"
+      data-f4-close="{{ section.settings.f4_close }}"
+      data-id="{{ section.id }}"
+      style="max-width: {{ section.settings.width | append: 'px' }}"
+  >
+      <div class="popup-wrap content-container color-{{ section.settings.color_scheme }} gradient">
+          <div class="popup-container">
+              <div class="popup-outer popup-outer-image--{{ section.settings.image_position }}">
+                  {%- if section.settings.image -%}
+                    <div class="notification-banner__image" {%- if section.settings.image_position == 'top' or section.settings.image_position == 'bottom' -%}style="padding-bottom: {{ 100.0 | divided_by: section.settings.image.aspect_ratio }}%;"{%- endif -%}>
+                      <img
+                          srcset="
+                              {%- if section.settings.image.width >= 375 -%}{{ section.settings.image | image_url: width: 375 }} 375w,{%- endif -%}
+                              {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                              {{ section.settings.image | image_url }} {{ section.settings.image.width }}w
+                          "
+                          sizes="100vw"
+                          src="{{ section.settings.image | image_url: width: 1500 }}"
+                          loading="lazy"
+                          alt="{{ section.settings.image.alt | escape }}"
+                          width="{{ section.settings.image.width }}"
+                          height="{{ section.settings.image.width | divided_by: section.settings.image.aspect_ratio }}"
+                          style="object-fit: {{ section.settings.image_fit }}"
+                      >
+                    </div>
+                  {%- endif -%}
+                  <div class="notification-banner__content">
+                      <div class="popup-wraper-text">
+                        {%- if section.settings.heading -%}
+                          <h2 class="popup-heading">{{ section.settings.heading }}</h2>
+                        {%- endif -%}
+                        {%- if section.settings.text -%}
+                          {{ section.settings.text }}
+                        {%- endif -%}
+                      </div>
+                      {%- if section.settings.show_button -%}
+                        {%- if section.settings.button_action == 'accept' -%}
+                          <button class="button popup-button popup-accept">
+                            <span>{{ section.settings.button_label }}</span>
+                          </button>
+                        {%- else -%}
+                          <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}" {% endif %} target="_blank" class="button popup-button button--primary">
+                            <span>{{ section.settings.button_label }}</span>
+                          </a>
+                        {%- endif -%}
+                      {%- endif -%}
+                      {%- if section.settings.show_close_button -%}
+                        <button type="button" class="link modal-close-button popup-close" aria-label="Close">
+                          {%- render 'icon-close' -%}
+                        </button>
+                      {%- endif -%}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  {%- if section.settings.show_overlay -%}
+    <div class="popup-overlay"></div>
+  {%- endif -%}
+{%- endif -%}
+{% schema %}
+{
+  "name": "Promotional Popup",
+  "class": "section-popup",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image-banner.settings.image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "options": [
+        {
+          "value": "contain",
+          "label": "t:sections.popup.settings.image_fit.options__1.label"
+        },
+        {
+          "value": "cover",
+          "label": "t:sections.popup.settings.image_fit.options__2.label"
+        }
+      ],
+      "default": "contain",
+      "label": "t:sections.popup.settings.image_fit.label"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.popup.settings.image_layout.options__1.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.popup.settings.image_layout.options__2.label"
+        },
+        {
+          "value": "top",
+          "label": "t:sections.popup.settings.image_layout.options__3.label"
+        },
+        {
+          "value": "bottom",
+          "label": "t:sections.popup.settings.image_layout.options__4.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.popup.settings.image_position.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.slideshow.blocks.slide.settings.heading.label",
+      "default": "10% off your first order"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.popup.settings.text.label" 
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "t:sections.popup.settings.show_button.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.all.label",
+      "default": "Button label"
+    },
+    {
+      "type": "select",
+      "id": "button_action",
+      "options": [
+        {
+          "value": "link",
+          "label": "t:sections.popup.settings.button_action.options__1.label"
+        },
+        {
+          "value": "accept",
+          "label": "t:sections.popup.settings.button_action.options__2.label"
+        }
+      ],
+      "default": "accept",
+      "label": "t:sections.all.button_action"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.all.link"
+    },
+    {
+      "type": "select",
+      "id": "position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__1.label"
+        },
+        {
+          "value": "top",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__2.label"
+        },
+        {
+          "value": "top-right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__3.label"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__4.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__5.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__6.label"
+        },
+        {
+          "value": "bottom-left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__7.label"
+        },
+        {
+          "value": "bottom",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__8.label"
+        },
+        {
+          "value": "bottom-right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__9.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.popup.settings.position.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.popup.settings.triggers.content"
+    },
+    {
+      "type": "select",
+      "id": "trigger_open",
+      "options": [
+        {
+          "value": "delay",
+          "label": "t:sections.popup.settings.trigger_open.options__1.label"
+        },
+        {
+          "value": "scroll",
+          "label": "t:sections.popup.settings.trigger_open.options__2.label"
+        },
+        {
+          "value": "exit",
+          "label": "t:sections.popup.settings.trigger_open.options__3.label"
+        }
+      ],
+      "default": "delay",
+      "label": "t:sections.popup.settings.trigger_open.label"
+    },
+    {
+      "type": "range",
+      "id": "open_time_delay",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "sec",
+      "label": "t:sections.popup.settings.open_time_delay.label",
+      "default": 1
+    },
+    {
+      "type": "select",
+      "id": "open_scroll_type",
+      "options": [
+        {
+          "value": "px",
+          "label": "t:sections.popup.settings.open_scroll_type.options__1.label"
+        },
+        {
+          "value": "%",
+          "label": "t:sections.popup.settings.open_scroll_type.options__2.label"
+        }
+      ],
+      "default": "%",
+      "label": "t:sections.popup.settings.open_scroll_type.label"
+    },
+    {
+      "type": "text",
+      "id": "open_scroll_position",
+      "label": "t:sections.popup.settings.open_scroll_position.label",
+      "default": "50"
+    },
+    {
+      "type": "select",
+      "id": "trigger_close",
+      "options": [
+        {
+          "value": "delay",
+          "label": "t:sections.popup.settings.trigger_open.options__1.label"
+        },
+        {
+          "value": "scroll",
+          "label": "t:sections.popup.settings.trigger_open.options__2.label"
+        },
+        {
+          "value": "none",
+          "label": "t:sections.popup.settings.trigger_close.options__3.label"
+        }
+      ],
+      "default": "none",
+      "label": "t:sections.popup.settings.trigger_close.label"
+    },
+    {
+      "type": "range",
+      "id": "close_time_delay",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "sec",
+      "label": "t:sections.popup.settings.close_time_delay.label",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "close_scroll_type",
+      "options": [
+        {
+          "value": "px",
+          "label": "t:sections.popup.settings.open_scroll_type.options__1.label"
+        },
+        {
+          "value": "%",
+          "label": "t:sections.popup.settings.open_scroll_type.options__2.label"
+        }
+      ],
+      "default": "%",
+      "label": "t:sections.popup.settings.close_scroll_type.label"
+    },
+    {
+      "type": "text",
+      "id": "close_scroll_position",
+      "label": "t:sections.popup.settings.close_scroll_position.label",
+      "default": "50"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_close_button",
+      "label": "t:sections.popup.settings.show_close_button.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.popup.settings.style.content"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "min": 200,
+      "max": 1920,
+      "step": 20,
+      "unit": "px",
+      "label": "t:sections.popup.settings.width.label",
+      "default": 260
+    },
+    {
+      "type": "select",
+      "id": "open_animation",
+      "options": [
+        {
+          "value": "popupOpenFade",
+          "label": "t:sections.popup.settings.open_animation.options__1.label"
+        },
+        {
+          "value": "popupOpenSlide",
+          "label": "t:sections.popup.settings.open_animation.options__2.label"
+        },
+        {
+          "value": "popupOpenZoom",
+          "label": "t:sections.popup.settings.open_animation.options__3.label"
+        },
+        {
+          "value": "popupOpenSlideFade",
+          "label": "t:sections.popup.settings.open_animation.options__4.label"
+        }
+      ],
+      "default": "popupOpenFade",
+      "label": "t:sections.popup.settings.open_animation.label"
+    },
+    {
+      "type": "select",
+      "id": "close_animation",
+      "options": [
+        {
+          "value": "popupExitFade",
+          "label": "t:sections.popup.settings.open_animation.options__1.label"
+        },
+        {
+          "value": "popupExitSlide",
+          "label": "t:sections.popup.settings.open_animation.options__2.label"
+        },
+        {
+          "value": "popupExitZoom",
+          "label": "t:sections.popup.settings.open_animation.options__3.label"
+        },
+        {
+          "value": "popupExitSlideFade",
+          "label": "t:sections.popup.settings.open_animation.options__4.label"
+        }
+      ],
+      "default": "popupExitFade",
+      "label": "t:sections.popup.settings.close_animation.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "t:sections.popup.settings.show_overlay.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.popup.settings.advanced.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_disable",
+      "label": "t:sections.popup.settings.mobile_disable.label",
+      "info": "t:sections.popup.settings.mobile_disable.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_scrolling",
+      "label": "t:sections.popup.settings.disable_scrolling.label",
+      "info": "t:sections.popup.settings.disable_scrolling.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "overlay_close",
+      "label": "t:sections.popup.settings.overlay_close.label",
+      "info": "t:sections.popup.settings.overlay_close.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "esc_close",
+      "label": "t:sections.popup.settings.esc_close.label",
+      "info": "Checking this will cause popup to close when user presses ESC key"
+    },
+    {
+      "type": "checkbox",
+      "id": "f4_close",
+      "label": "t:sections.popup.settings.f4_close.label",
+      "info": "t:sections.popup.settings.f4_close.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_homepage",
+      "label": "t:sections.popup.settings.show_on_homepage.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_product_category",
+      "label": "t:sections.popup.settings.show_on_product_category.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_all",
+      "label": "t:sections.popup.settings.show_on_all.label",
+      "info": "t:sections.popup.settings.show_on_all.info"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promotional Popup"
+    }
+  ],
+  "enabled_on": {
+    "groups": [
+      "custom.overlay"
+    ]
+  }
+}
+{% endschema %}

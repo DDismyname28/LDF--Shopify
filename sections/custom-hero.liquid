@@ -1,0 +1,213 @@
+<section class="custom-hero">
+  <div class="custom-hero__content">
+    <div class="custom-hero__text">
+      <div class="custom-hero__eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+
+      <h1>{{ section.settings.heading }}</h1>
+
+      <p>{{ section.settings.subheading }}</p>
+
+      <div class="custom-hero__buttons">
+        <a href="{{ section.settings.primary_link }}" class="custom-hero__btn custom-hero__btn--primary">
+          {{ section.settings.primary_text }}
+        </a>
+
+        <a href="{{ section.settings.secondary_link }}" class="custom-hero__btn custom-hero__btn--secondary">
+          {{ section.settings.secondary_text }}
+        </a>
+      </div>
+    </div>
+
+    <div class="custom-hero__media">
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 1200 | image_tag: class: 'custom-hero__image', loading: 'lazy' }}
+      {% else %}
+        <span>Lifestyle / Install Photography</span>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .custom-hero {
+    background: #f8f6f2; 
+    padding: 8px 0;
+  }
+
+  .custom-hero__content {
+    max-width: 1280px;
+    margin: 0 auto; 
+    font-family: var(--font-body);
+    background: var(--crimson);
+    border-radius: 4px;
+    padding: 34px 45px;
+
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+    gap: 72px;
+  }
+
+  .custom-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    font-size: 11px;
+    font-family: var(--font-body);
+  
+    padding: 7px 12px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+
+  .custom-hero h1 {
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-bold);
+    font-size: 42px;
+    line-height: 1.22;
+    
+    margin: 0 0 14px;
+    max-width: 620px;
+  }
+
+  .custom-hero p {
+    color: rgba(255,255,255,0.72);
+    font-family: var(--font-body);
+    font-size: 14px;
+    margin: 0 0 18px;
+  }
+
+  .custom-hero__buttons {
+    display: flex;
+    gap: 16px;
+  }
+
+  .custom-hero__btn {
+    min-width: 218px;
+    height: 43px;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custom-hero__btn--primary {
+    background: var(--cream);
+    color: var(--crimson);
+  }
+
+  .custom-hero__btn--secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid var(--cream);
+  }
+
+  .custom-hero__media {
+    min-height: 298px;
+    background: rgba(80, 0, 0, 0.25);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.35);
+    font-size: 12px;
+    overflow: hidden;
+  }
+
+  .custom-hero__image {
+    width: 100%;
+    height: 100%;
+    min-height: 298px;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media screen and (max-width: 900px) {
+    .custom-hero {
+      padding: 32px 20px;
+    }
+
+    .custom-hero__content {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .custom-hero h1 {
+      font-size: 34px;
+    }
+
+    .custom-hero__buttons {
+      flex-direction: column;
+    }
+
+    .custom-hero__btn {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "PROFESSIONAL LIGHTING SUPPLY"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Headline to go here\nand here and here and here."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Built for decorators who want to level up."
+    },
+    {
+      "type": "text",
+      "id": "primary_text",
+      "label": "Primary button text",
+      "default": "SHOP ALL PRODUCTS"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_text",
+      "label": "Secondary button text",
+      "default": "CTA TO GO HERE"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom hero"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,123 @@
+<section class="custom-cta-banner">
+  <div class="custom-cta-banner__inner">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.text }}</p>
+
+    <a href="{{ section.settings.button_link }}" class="custom-cta-banner__button">
+      {{ section.settings.button_text }}
+    </a>
+  </div>
+</section>
+
+<style>
+  .custom-cta-banner {
+    background: #f8f6f2;
+    padding: 8px 10px;
+  }
+
+  .custom-cta-banner__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 250px;
+    background: var(--forest);
+    border-radius: 4px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 40px 24px;
+  }
+
+  .custom-cta-banner__inner h2 {
+    margin: 0 0 14px;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 30px;
+    line-height: 1.15;
+    font-weight: var(--font-weight-black);
+  }
+
+  .custom-cta-banner__inner p {
+    margin: 0 0 24px;
+    color: rgba(255,255,255,0.68);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .custom-cta-banner__button {
+    min-width: 255px;
+    height: 50px;
+    background: var(--crimson);
+    color: #fff;
+    border-radius: 4px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 700px) {
+    .custom-cta-banner__inner {
+      min-height: 220px;
+      padding: 36px 20px;
+    }
+
+    .custom-cta-banner__inner h2 {
+      font-size: 25px;
+    }
+
+    .custom-cta-banner__inner p {
+      font-size: 14px;
+    }
+
+    .custom-cta-banner__button {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom CTA banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built for professionals like you."
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Apply for a trade account to unlock wholesale pricing, bulk ordering, and dedicated support."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "CTA HERE"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom CTA banner"
+    }
+  ]
+}
+{% endschema %}

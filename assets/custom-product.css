@@ -1,0 +1,183 @@
+/* Product Info */
+.custom-product-page {
+  font-family: "Lato", sans-serif;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.product__tag-badges a {
+  font-family: "Lato", sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 14px 28px;
+  border-radius: 3px;
+  color: #978c7b;
+  background-color: #f0ece4;
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+.product__tag-badges a:hover {
+  color: #ffffff;
+  font-weight: 700;
+  background-color: #a91f23;
+}
+.product__tag-badges a.tag-1 {
+  background-color: #a91f23;
+  font-weight: 700;
+  color: #ffffff;
+}
+.custom-product-page .product__title {
+  font-size: 26px !important;
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.custom-product-page .product__variant-title {
+  font-size: 13px;
+  color: #978c7b;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+.custom-product-page .product__rating-row {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.custom-product-page .product__star {
+  color: #a91f23; /* crimson color for stars */
+}
+.custom-product-page a.product__rating-link,
+.custom-product-page .product__stars,
+.custom-product-page .product__rating-score {
+  margin-right: 8px;
+  display: flex;
+  align-items: baseline;
+  color: #978c7b;
+}
+.custom-product-page .product__rating-score {
+  color: #384863;
+  font-weight: 700;
+}
+.custom-product-page .product__install-photos-link {
+  color: #a91f23;
+  font-weight: 700;
+}
+.custom-product-page .product__wholesale-notice {
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 3px;
+  padding: 10px 40px;
+  border: 1px solid #c8c2b8;
+  background-color: #f0ece4;
+}
+.custom-product-page .product__wholesale-notice p {
+  margin: 0;
+  color: #a91f23;
+}
+.custom-product-page .product__wholesale-notice a {
+  margin-left: 8px;
+  color: #384863;
+  font-weight: 400;
+  text-decoration: none;
+}
+.custom-product-page .product__price-row,
+.custom-product-page .product__bulk-pricing {
+  font-size: 12px;
+  display: flex;
+  color: #2e3d34;
+  font-weight: 700;
+  align-items: baseline;
+  border: 1px solid #c8e0c8;
+  border-radius: 3px;
+  padding: 10px 40px;
+}
+.custom-product-page .product__price-col {
+  margin-right: 14px;
+}
+.custom-product-page .product__price-value {
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 18px;
+}
+.custom-product-page .product__price-label-msrp,
+.custom-product-page .product__price-value-msrp {
+  color: #978c7b;
+  font-weight: 400;
+}
+.custom-product-page .product__bulk-pricing h3 {
+  color: #978c7b;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+/* Product Metafields Tabs - Product Page */
+.product-tabs__nav {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-family: "Lato", sans-serif;
+}
+.product-tabs__nav ul {
+  margin-right: 20px;
+  margin-left: 20px;
+  display: block;
+}
+ul.product-tabs__nav {
+  border: 1px solid #e0ddd8;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.product-tabs__item {
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  color: #978c7b;
+  padding: 10px 40px;
+  cursor: pointer;
+  position: relative;
+  list-style: none;
+}
+.product-tabs__item.active {
+  color: #a50000; /* crimson text */
+  font-weight: 700;
+}
+.product-tabs__content {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+}
+.product-tabs__item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #a50000; /* crimson underline */
+}
+.product-tabs__panel {
+  display: none;
+  margin-top: 0 40px;
+}
+.product-tabs__panel.active {
+  display: block;
+  border: 1px solid #e0ddd8;
+  max-width: var(--page-width);
+  margin: 0 40px;
+}
+.product-tabs__panel {
+  padding: 40px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+#ProductTabs {
+  background-color: #ffffff;
+  display: block;
+  margin: 24px auto;
+  max-width: var(--page-width);
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+}

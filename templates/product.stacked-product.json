@@ -1,0 +1,368 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "65491c3f-abb9-4bd5-9728-1b439626a36f": {
+          "type": "sku",
+          "disabled": true,
+          "settings": {
+            "text_style": "body"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "6334601c-bd31-449a-8cf9-0021eef3d9fa": {
+          "type": "offer",
+          "settings": {
+            "heading": "Available Offers",
+            "icon": "tag",
+            "content": "<p>Instant 10% Discount On Winter Banks Credit/Debit Cards EMI and CreditCard</p>",
+            "icon2": "tag",
+            "content2": "<p>Fastest Delivery Tomorrow With Vip Dealorder Within 1 Hr 8 Mins.</p>",
+            "icon_color": "#17af40"
+          }
+        },
+        "9c089a03-57b4-47ec-9cee-287b7a879611": {
+          "type": "countdown_timer",
+          "settings": {
+            "count_text": "Hurry Up! Sale End In:",
+            "count_bgcolor": "#b53333",
+            "count_textcolor": "#ffffff"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "show_colorswatch": true
+          }
+        },
+        "4cd2d0c0-c935-4cc8-a56e-fd40a599db48": {
+          "type": "stock_countdown",
+          "settings": {
+            "max_stock": 150,
+            "limited_stock_cut_off": 10,
+            "limited_stock_message": "Only {stock_number} units left",
+            "instock_message": "In stock ({stock_number} units), ready to be shipped",
+            "continue_selling_message": "Re-stocking soon",
+            "limited_stock_color": "#ff0000",
+            "in_stock_color": "#008a00",
+            "continue_selling_color": "#ff0000"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "19669d92-b27c-451d-b38e-a72e760b57e0": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "truck",
+            "heading_1": "Daily Deals",
+            "icon_2": "return",
+            "heading_2": "Return Policy",
+            "icon_3": "support",
+            "heading_3": "Payment Method",
+            "icon_4": "lock",
+            "heading_4": "Help Center 24/7"
+          }
+        },
+        "3bfd39a7-fdb4-427d-9d97-7d9616d54a07": {
+          "type": "product-payment",
+          "settings": {
+            "pay_text": "<strong>Secure Checkout With</strong>"
+          }
+        },
+        "complementary_4AF7QY": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs Well With",
+            "heading_size": "h1",
+            "heading_color_scheme": "background-1",
+            "make_collapsible_row": true,
+            "icon": "none",
+            "product_list_limit": 7,
+            "products_per_page": 4,
+            "card_style": "standard",
+            "image_ratio": "square",
+            "show_secondary_image": false,
+            "display_product_type1": false,
+            "show_vendor": false,
+            "enable_quick_add": false
+          }
+        },
+        "product_meta_Jgd4YR": {
+          "type": "product_meta",
+          "settings": {
+            "show_vendor": true,
+            "display_product_type": true,
+            "display_tags": true
+          }
+        },
+        "share_button_YYPDhy": {
+          "type": "share_button",
+          "settings": {
+            "share_facebook": true,
+            "share_twitter": true,
+            "share_pinterest": true
+          }
+        },
+        "description_WJ7LmT": {
+          "type": "description",
+          "settings": {}
+        },
+        "3f2119c3-4c6a-43f7-b988-831ab0996550": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Product Details",
+            "icon": "flashsale",
+            "default_open": false,
+            "content": "<p><strong>Flight Range:</strong> Up to 1,000 meters (3,280 feet)</p><p><strong>Maximum Speed:</strong> 45 kilometers per hour (28 miles per hour)</p><p><strong>Remote Control: </strong>Ergonomically designed remote controller with intuitive</p><p><strong>controlsCompatibility:</strong> Compatible with iOS and Android smartphones for easy app-based controlWeight: Lightweight design for improved flight performance and portability</p>",
+            "page": ""
+          }
+        },
+        "22aae836-e973-4b0c-a7d9-c9ae69669267": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping And Return",
+            "icon": "check_mark",
+            "default_open": false,
+            "content": "<p>For all orders exceeding a value of 100USD shipping is offered for free.</p><p>Returns will be accepted for up to 10 days of Customer’s receipt or tracking number on unworn items. You, as a Customer, are obliged to inform us via email before you return the item.</p><p>Otherwise, standard shipping charges apply. Check out our delivery Terms & Conditions for more details.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "65491c3f-abb9-4bd5-9728-1b439626a36f",
+        "title",
+        "price",
+        "6334601c-bd31-449a-8cf9-0021eef3d9fa",
+        "9c089a03-57b4-47ec-9cee-287b7a879611",
+        "variant_picker",
+        "4cd2d0c0-c935-4cc8-a56e-fd40a599db48",
+        "buy_buttons",
+        "19669d92-b27c-451d-b38e-a72e760b57e0",
+        "3bfd39a7-fdb4-427d-9d97-7d9616d54a07",
+        "complementary_4AF7QY",
+        "product_meta_Jgd4YR",
+        "share_button_YYPDhy",
+        "description_WJ7LmT",
+        "3f2119c3-4c6a-43f7-b988-831ab0996550",
+        "22aae836-e973-4b0c-a7d9-c9ae69669267"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "mobile_thumbnails": "show",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "quick_order_list_AmaygD": {
+      "type": "quick-order-list",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_image": true,
+        "show_sku": false,
+        "hide_quick": false,
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "collage_rpnw8y": {
+      "type": "collage",
+      "blocks": {
+        "image_WykzWN": {
+          "type": "image",
+          "settings": {
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "image_overlay_opacity": 0,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h2",
+            "text": "",
+            "text_style": "body",
+            "button_label_1": "",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "solid",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "middle-left",
+            "desktop_content_alignment": "left",
+            "color_scheme": "",
+            "image_behavior": "none"
+          }
+        },
+        "image_bNFBHL": {
+          "type": "image",
+          "settings": {
+            "enable_video_looping": false,
+            "auto_play_video": true,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "subheading": "",
+            "heading": "Listening To Music Or Taking Calls",
+            "heading_size": "h2",
+            "text": "<p>Audio devices that can be worn over the ears or inserted into the ear canal.</p>",
+            "text_style": "body",
+            "button_label_1": "",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "link",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "middle-right",
+            "desktop_content_alignment": "left",
+            "color_scheme": "accent-2",
+            "image_behavior": "none"
+          }
+        },
+        "image_mh8UiA": {
+          "type": "image",
+          "settings": {
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "subheading": "",
+            "heading": "The Smart Maxtsa  Mobile Photography",
+            "heading_size": "h2",
+            "text": "<p>Discover the art of iPhone photography with our expert tips and techniques. Capture stunning photos with your device.</p>",
+            "text_style": "body",
+            "button_label_1": "",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "link",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "top-center",
+            "desktop_content_alignment": "left",
+            "color_scheme": "accent-2",
+            "image_behavior": "none"
+          }
+        },
+        "image_enWqPA": {
+          "type": "image",
+          "settings": {
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "subheading": "",
+            "heading": "Introducing The Ultimate Gaming Remote:",
+            "heading_size": "h2",
+            "text": "<p>Take your gaming experience to the next level with our ultimate gaming remote. Precision control at your fingertips.</p>",
+            "text_style": "body",
+            "button_label_1": "",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "link",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "top-center",
+            "desktop_content_alignment": "left",
+            "color_scheme": "accent-2",
+            "image_behavior": "none"
+          }
+        }
+      },
+      "block_order": [
+        "image_WykzWN",
+        "image_bNFBHL",
+        "image_mh8UiA",
+        "image_enWqPA"
+      ],
+      "settings": {
+        "full_width": false,
+        "section_color_scheme": "",
+        "title": "",
+        "heading_size": "h0",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "description": "",
+        "description_style": "body",
+        "image_height": "small",
+        "image_layout": "alternate-left",
+        "gap_between_image": 20,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
+        "title": "You May Also Like",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "background-1",
+        "head_space": true,
+        "description": "",
+        "description_style": "body",
+        "products_to_show": 5,
+        "columns_desktop": 4,
+        "show__slider": true,
+        "arrow_position": "inline",
+        "card_style": "standard",
+        "show_count_timer": false,
+        "columns_mobile": "2",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "quick_order_list_AmaygD",
+    "collage_rpnw8y",
+    "related-products"
+  ]
+}

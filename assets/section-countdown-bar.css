@@ -1,0 +1,177 @@
+/* Feature collection and drawer timer */
+.wb_product_countdown .time span {
+    display: block;
+    font-size: 12px;
+    font-weight: var(--font-body-weight-medium);
+    line-height: normal;
+}
+.wb_product_countdown .time {
+    text-align: center;
+    position: relative;
+    padding: 8px;
+    border-radius: var(--text-boxes-radius);
+    min-width: 80px;
+}
+.wb_product_countdown .time .count {
+    font-size: calc(var(--font-body-scale) * 30px);
+    font-weight: var(--font-body-weight-bold);
+    margin: 0;
+    line-height: 32px;
+}
+.wb_product_countdown .time:after {
+    content: ":";
+    position: absolute;
+    right: -7px;
+    top: 0;
+    bottom: 0;
+    font-size: calc(var(--font-body-scale) * 28px);
+}
+.wb_product_countdown .time:last-child::after{
+    display: none;
+}
+.countdown-heading-wrapper .heading, .countdown-heading-wrapper p{
+    margin: 0;
+}
+.countdown-heading-wrapper p{
+    font-size: calc(var(--font-body-scale) * 24px);
+    font-weight: var(--font-body-weight-medium);
+}
+.countdown_wrapper svg {
+    height: 26px;
+    margin-right: 5px;
+}
+.countdown-link-wrapper a.link svg {
+    fill: rgb(var(--color-foreground));
+    transition: unset;
+}
+.countdown-link-wrapper a.link svg path {
+    transition: all var(--duration-long) ease;
+}
+.countdown-link-wrapper a.link:hover svg{
+    fill: rgb(var(--color-link-hover));
+    
+}
+.countdown-link-wrapper a.button svg {
+    fill: rgb(var(--color-button-text))
+}
+.countdown-link-wrapper a.button:hover svg{
+    fill: rgb(var(--color-button-hover-text));
+}
+.countdown_wrapper{
+    padding: 20px 40px;
+    border-radius: var(--text-boxes-radius);
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.countdown-heading-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 8px;
+}
+.wb_product_countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.countdown-heading-wrapper svg{
+    margin-right: 0;
+    fill: rgba(var(--color-foreground));
+    margin-bottom: 3px;
+}
+.countdown__main {
+    padding: 10px;
+}
+.countdown_wrapper .countdown_item{
+    width: calc(33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+    max-width: calc(33% - var(--grid-desktop-horizontal-spacing) * 3 / 10);
+}
+.countdown_wrapper .countdown-link-wrapper {
+    word-break: break-word;
+}
+.countdown_wrapper .button.button--secondary{
+    gap: 0;
+}
+/* Feature collection and drawer timer Over */
+@media(min-width: 768px){
+    .countdown_wrapper .countdown-link-wrapper{
+        text-align: end;
+    }
+}
+@media (max-width: 1099px){
+    .countdown_wrapper .countdown-heading-wrapper .h2,
+    .countdown_wrapper .countdown-heading-wrapper .img_subdesc p{
+        font-size: calc(var(--font-heading-scale) * 1.8rem);
+    }
+    .countdown_wrapper .countdown-heading-wrapper .multis-svg{
+        margin-bottom: 5px;
+    }
+}
+@media (max-width: 991px){
+    .countdown-heading-wrapper p {
+        font-size: calc(var(--font-body-scale) * 16px);
+    }
+    .wb_product_countdown .time .count {
+        font-size: calc(var(--font-body-scale) * 26px);
+    }
+    .wb_product_countdown .time {   
+        min-width: 60px;
+    }
+    .countdown-link-wrapper span{
+        font-size: calc(var(--font-body-scale) * 14px);
+    }
+    .countdown_wrapper{
+        padding: 15px;
+        row-gap: 10px;
+    }
+    .wb_product_countdown {
+        justify-content: flex-start;
+    }
+    .countdown_wrapper .main_cdays{
+        padding-left: 0;
+    }
+    .countdown-heading-wrapper, .wb_product_countdown {
+        justify-content: left;
+        flex-wrap: nowrap;
+    }
+}
+@media (max-width: 767px) {
+  .countdown_wrapper .grid__item {
+      display: flex;
+      justify-content: center;
+  }
+  .countdown_wrapper{
+      display: grid;
+      row-gap: 5px;
+      padding: 15px;
+      justify-content: center;
+  }
+}
+@media (max-width: 575px){
+    .drawer__inner .wb_product_countdown .time {
+        min-width: unset;
+        padding: 3px 10px;
+    }
+    .drawer__inner .wb_product_countdown .time:after {
+        right: -7px;
+        top: -11px; 
+    }
+    .countdown-heading-wrapper p {
+        font-size: calc(var(--font-body-scale) * 16px);
+        line-height: normal;
+    }
+    .wb_product_countdown .time .count {
+        font-size: calc(var(--font-body-scale) * 20px);
+    }
+    .wb_product_countdown .time span {
+        font-size: calc(var(--font-body-scale) * 12px);
+    }
+    .countdown__main {
+        padding: 8px;
+    }
+}

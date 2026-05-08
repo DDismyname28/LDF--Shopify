@@ -1,0 +1,60 @@
+{% for block in blocks %}
+    {%- liquid 
+      assign case_title = block.settings.menuname | downcase
+      assign lower_title = title | downcase
+    -%}
+    {% if lower_title == case_title %}
+      {% case block.type %}
+        {% when 'menu_banner' %}
+          <div class="offer_aside_banner {{ block.settings.desktop_content_alignment }} color-{{ block.settings.banner_color_scheme }} gradient">
+            {%- if block.settings.button_label_1 == blank and block.settings.button_link_1 != blank -%}
+              <a class="full-width-link" href="{{ block.settings.button_link_1 }}"></a>
+            {%- endif -%}
+            <div class="global-media-settings media media--{{ block.settings.banner_image_ratio }}" {% if block.settings.banner_image_ratio == 'adapt' and block.settings.offer_banner != blank %} style="padding-bottom: {{ 1 | divided_by: block.settings.offer_banner.aspect_ratio | times: 100 }}%;"{% endif %}
+               {% if block.settings.banner_image_ratio == 'adapt' and block.settings.offer_banner == blank %} style="padding-bottom: 100%;"{% endif %} >
+              {% if block.settings.offer_banner %}
+                {{ block.settings.offer_banner | image_url: width: 400 | image_tag: 
+                  loading: 'lazy',
+                  height: height,
+                  sizes: "100vw",
+                  widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+              {% else %}
+                  {%- assign placeholder_slide = forloop.index | modulo: 2 -%}
+                  {%- if placeholder_slide == 1 -%}
+                  {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- else -%}
+                  {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+              {% endif %}
+            </div>
+            <div class="offer_banner_content wbtxt--{{ block.settings.box_align }}">
+              <div>
+                {% if block.settings.subheading != blank %}
+                  <div class="banner__subheading">
+                    {{ block.settings.subheading }} 
+                  </div>
+                {% endif %}
+                {% if block.settings.heading != blank %}
+                  <h3 class="banner__heading inline-richtext {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                    {{ block.settings.heading }}
+                  </h3>
+                {% endif %}
+                {%- if block.settings.button_label_1 != blank -%}
+                  <a
+                    {% if block.settings.button_link_1 == blank %}
+                    role="link" aria-disabled="true"
+                    {% else %}
+                    href="{{ block.settings.button_link_1 }}"
+                    {% endif %}
+                    {% if block.settings.link_window %} target="_blank" {% endif %}
+                    class="{% if block.settings.view_all_style == 'link' %} link underlined-link{% elsif block.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}">
+                    <span>{{- block.settings.button_label_1 | escape -}}</span>
+                  </a>
+                {%- endif -%}
+              </div>
+            </div>
+          
+          </div>
+      {% endcase %}
+    {% endif %}
+{% endfor %}

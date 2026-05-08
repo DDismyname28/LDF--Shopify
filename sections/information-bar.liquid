@@ -1,0 +1,214 @@
+{{ 'information-bar.css' | asset_url | stylesheet_tag }}
+<div class="section-{{ section.id }}-padding infobar color-{{ section.settings.color_scheme }} {% if section.settings.secondary_background %}background-secondary{% else %}gradient{% endif %} {% if section.settings.secondary_background %} isolate{% endif %}">
+  <div class="page-width">
+    <div class="gradient color-{{ section.settings.color_scheme }} info_wrapper {% if section.settings.secondary_background == false %} isolate{% endif %}">
+      {%- unless section.settings.title == blank -%}
+        <div class="{{ section.settings.head_align }} title-wrapper-with-link title-wrapper color-{{ section.settings.heading_color_scheme }} content-container">
+          <div class="heading inline-richtext">
+            {%- if section.settings.title != blank -%} 
+              <h2 class="{{ section.settings.heading_size }}">
+                  {{ section.settings.title }}
+              </h2>
+            {%- endif %}
+          </div>
+        </div>
+      {%- endunless -%}
+      <div class="infobar_inner">
+        {% if section.settings.subheading != blank %}
+          <h5>{{ section.settings.subheading }} </h5>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h3 class="{{ section.settings.h_size }} {% if section.settings.subheading != blank and section.settings.button_label != blank %} text-center{% endif %}">{{ section.settings.heading }} </h3>
+        {% endif %}
+        {% if section.settings.button_label != blank %}
+          <button class="button button--primary"><span>{{ section.settings.button_label }}</span></button>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{%- style -%}
+.section-{{ section.id }}-padding .infobar_inner {
+  padding: {{ section.settings.space_around }}px;
+}
+{% if section.settings.head_space %}
+  .section-{{ section.id }}-padding .title-wrapper-with-link {
+    padding: 10px 20px;
+  }
+{% endif %}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+@media screen and (max-width: 991px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+  }
+}
+{%- endstyle -%}
+{% schema %}
+{
+  "name": "t:sections.information-bar.name",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer",
+      "custom.overlay"
+    ]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "inverse"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.heading.content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:sections.all.heading.title"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h0",
+      "label": "t:sections.all.heading.size"
+    },
+    {
+      "type": "select",
+      "id": "head_align",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.featured-collection.settings.head_alignment.options1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.featured-collection.settings.head_alignment.options2.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.all.heading.alignment"
+    },
+    {
+      "type": "color_scheme",
+      "id": "heading_color_scheme",
+      "label": "t:sections.all.heading_color_scheme.label",
+      "default": "background-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "head_space",
+      "default": true,
+      "label": "t:sections.all.heading_space.label"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "default": "<p>Sub heading</p>",
+      "label": "t:sections.image-banner.blocks.heading.settings.subheading.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.heading.content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Heading",
+      "label": "t:sections.all.heading.title"
+    },
+    {
+      "type": "select",
+      "id": "h_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h0",
+      "label": "t:sections.all.heading.size"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Apply Coupon:coupen code",
+      "label": "Coupen code"
+    },
+    {
+      "type": "range",
+      "id": "space_around",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Spacing around information bar",
+      "default": 10
+    },
+    {
+      "type": "checkbox",
+      "id": "secondary_background",
+      "default": true,
+      "label": "t:sections.featured-product.settings.secondary_background.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.information-bar.presets.name"
+    }
+  ]
+}
+{% endschema %}

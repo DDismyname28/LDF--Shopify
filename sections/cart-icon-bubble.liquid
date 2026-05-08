@@ -1,0 +1,33 @@
+<div class="wbhcart">
+  <a href="{{ routes.cart_url }}" class="focus-inset underline-remove {% if settings.wb_cartnumber == 'wb_shopqty' %}leftcart{% endif %}" id="cart-icon-bubble">
+        <span class="svgbg">
+            {%- if settings.wb_carticon == 'wb_shopcart' -%}
+            {% render 'icon-hcart' %}
+            {%- else -%}
+            {% render 'icon-hcartbag' %}
+            {%- endif -%}
+        </span>
+        {%- if settings.wb_cartnumber == 'wb_shopqty' -%}
+            <span class="wbhcartitem">{{ cart.item_count }}</span>
+        {%- elsif settings.wb_cartnumber == 'wb_shoptotal' -%}
+            <span class="wbcarthtotal text-left">
+                <span>{{ 'templates.cart.cart' | t }}</span>
+                {%- if settings.currency_code_enabled -%}
+                <strong>{{ cart.total_price | money_with_currency }}</strong>
+                {%- else -%}
+                <strong>{{ cart.total_price | money }}</strong>
+                {%- endif -%}
+            </span>
+        {%- else -%}
+            <span class="wbhcartitem wbqtyboth">{{ cart.item_count }}</span>
+                <span class="wbcarthtotal text-left">
+                <span>{{ 'templates.cart.cart' | t }}</span>
+                {%- if settings.currency_code_enabled -%}
+                <strong>{{ cart.total_price | money_with_currency }}</strong>
+                {%- else -%}
+                <strong>{{ cart.total_price | money }}</strong>
+                {%- endif -%}
+                </span>
+        {%- endif -%}
+  </a>
+</div>

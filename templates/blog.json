@@ -1,0 +1,85 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "blocks": {
+        "cef8201f-048b-4ff2-bd44-6b72dd7ceb2e": {
+          "type": "categories",
+          "settings": {
+            "heading": "Blog Categories",
+            "blog_categories": "<p>News</p><p>Electronics</p>"
+          }
+        },
+        "bf51eb80-2ea9-44a7-b6a3-ef334e8e7dcf": {
+          "type": "Products",
+          "settings": {
+            "heading": "Sale Products",
+            "card_style": "standard",
+            "bg_card": "rgba(0,0,0,0)",
+            "bg_text": "rgba(0,0,0,0)",
+            "blog_product": []
+          }
+        },
+        "09227102-5b1f-4dd5-83d9-c5bcff0a356b": {
+          "type": "Tag",
+          "disabled": true,
+          "settings": {
+            "heading": "Blog tags"
+          }
+        },
+        "3e3b907d-8472-424b-9e6d-ac08944863c5": {
+          "type": "recentpost",
+          "settings": {
+            "heading": "Recent Post",
+            "blog_recentview": "news"
+          }
+        },
+        "965c9cac-718e-4da4-895b-617e4fe69bde": {
+          "type": "Banner",
+          "settings": {
+            "heading": "Trending Now",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "cef8201f-048b-4ff2-bd44-6b72dd7ceb2e",
+        "bf51eb80-2ea9-44a7-b6a3-ef334e8e7dcf",
+        "09227102-5b1f-4dd5-83d9-c5bcff0a356b",
+        "3e3b907d-8472-424b-9e6d-ac08944863c5",
+        "965c9cac-718e-4da4-895b-617e4fe69bde"
+      ],
+      "settings": {
+        "headingmain_color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
+        "show_sidebar": true,
+        "sidebar_position": "left",
+        "heading_color_scheme": "",
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "medium",
+        "columns_desktop": 2,
+        "date_position": "below",
+        "show_date": true,
+        "show_author": true,
+        "show_cmment": true,
+        "show_read_more_button": true,
+        "secerpt": "truncate",
+        "read_more_style": "link",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

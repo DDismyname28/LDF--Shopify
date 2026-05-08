@@ -1,0 +1,129 @@
+.collapsible-content {
+  position: relative;
+  z-index: 0;
+}
+.collapsible-content .accordion:not(.content-container):first-child{
+  border-top: none;
+}
+.collapsible-content .accordion:not(.content-container):last-of-type{
+  border-bottom: none;
+}
+.accordion summary::after {
+  content: "+";
+  font-size: 25px;
+  position: absolute;
+  margin-bottom: 5px;
+  right: 0;
+}
+.accordion summary.active::after {
+  content: "-";
+}
+.collapsible-content .accordion summary{
+  align-items: center;
+  padding: 1.5rem 0;
+}
+.collapsible-content .accordion .collp_border summary {
+  border: 1px solid rgba(var(--color-foreground));
+  padding: 8px 10px;
+  margin-bottom: 10px;
+}
+.collapsible-content .accordion:last-child .collp_border summary:not(.active){
+  margin-bottom: 0;
+}
+.collapsible-content .accordion .collp_border summary:after {
+  right: 15px;
+  margin-bottom: 0px
+}
+.collapsible-content__media--small {
+  height: 19.4rem;
+}
+.collapsible-content__media--large {
+  height: 43.5rem;
+}
+.collapsible-content__media--medium {
+  height: 32.5rem;
+}
+.collapsible-content .accordion__content{
+  padding: 0 2rem;
+}
+.collapsible-content .accordion summary:has(.accordion__title:only-child) ~ .wbcollapse_cont .accordion__content{
+  padding: 0;
+}
+.collapsible-content .accordion summary:has(.accordionicon) ~ .wbcollapse_cont .accordion__content{
+  padding-left: 42px;
+}
+.collapsible-content__header {
+  word-break: break-word; 
+}
+.collapsible-row-layout .accordion:not(:first-child):not(.color-background-1) {
+  margin-top: 1rem;
+}
+.collapsible-row-layout .accordion {
+  margin-bottom: 1.5rem;
+  padding: 0 12px;
+}
+.collapsible-row-layout .accordion .accordion__content {
+  padding-top: 0;
+}
+.collapsible-content-wrapper-narrow {
+  margin: 0 auto;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+.collapsible-content .accordion__content img{
+  width: 100%;
+}
+.collapsible-content .accordion .icon-accordion path{
+  fill: rgb(var(--color-button-text));
+}
+.collapse.wbcollapse_cont img{
+  margin-top: 15px;
+}
+.collapsible-content__heading{
+  display: flex;
+  align-items: center;
+}
+.collapsible-content .collapsible-content__heading {
+  display: block;
+}
+.collapsible-content .title-wrapper-with-link{
+  justify-content: flex-start;
+} 
+@media screen and (min-width: 768px) {
+  .collapsible-content .accordion {
+    margin-top: 0;
+  }
+  .collapsible-content__grid--reverse {
+    flex-direction: row-reverse;
+  }
+  .collapsible-content__media--small {
+    height: 31.4rem;
+  }
+  .collapsible-content__media--medium {
+    height: 50.5rem;
+  }
+  .collapsible-content__media--large {
+    height: 69.5rem;
+  }
+}
+/* check for flexbox gap in older Safari versions */
+@supports not (inset: 10px) {
+  @media screen and (min-width: 768px) {
+    .collapsible-content__grid:not(.collapsible-content__grid--reverse) .grid__item:last-child,
+    .collapsible-content__grid--reverse .collapsible-content__grid-item {
+      padding-left: 5rem;
+      padding-right: 0;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .collapsible-content__grid:not(.collapsible-content__grid--reverse) .grid__item:last-child,
+    .collapsible-content__grid--reverse .collapsible-content__grid-item {
+      padding-left: 7rem;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .collapsible-content .collapsible-content__grid .accordion__title{
+    max-width: calc(100% - 7.5rem);
+  }
+}

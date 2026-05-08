@@ -1,0 +1,1412 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_hero_yDE34b": {
+      "type": "custom-hero",
+      "name": "Custom hero",
+      "settings": {
+        "eyebrow": "PROFESSIONAL LIGHTING SUPPLY",
+        "heading": "Headline to go here\nand here and here and here.",
+        "subheading": "Built for decorators who want to level up.",
+        "primary_text": "SHOP ALL PRODUCTS",
+        "primary_link": "",
+        "secondary_text": "CTA TO GO HERE",
+        "secondary_link": "",
+        "image": "shopify://shop_images/20251010_110740.jpg"
+      }
+    },
+    "trust_bar_btPctj": {
+      "type": "trust-bar",
+      "blocks": {
+        "feature_MC8Emq": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/489999.png",
+            "title": "Trade Pricing",
+            "text": "Login for wholesale rates"
+          }
+        },
+        "feature_6fridx": {
+          "type": "feature",
+          "settings": {
+            "title": "Bulk Orders Welcome",
+            "text": "Volume discounts available"
+          }
+        },
+        "feature_Qd6z6y": {
+          "type": "feature",
+          "settings": {
+            "title": "Expert Support",
+            "text": "Decorators helping decorators"
+          }
+        },
+        "feature_LggXDC": {
+          "type": "feature",
+          "settings": {
+            "title": "Fast Shipping",
+            "text": "Ships within 48hrs"
+          }
+        }
+      },
+      "block_order": [
+        "feature_MC8Emq",
+        "feature_6fridx",
+        "feature_Qd6z6y",
+        "feature_LggXDC"
+      ],
+      "name": "Custom feature bar",
+      "settings": {}
+    },
+    "custom_categories_HLYbVj": {
+      "type": "custom-categories",
+      "blocks": {
+        "category_ratrUJ": {
+          "type": "category",
+          "settings": {
+            "collection": "3d-lit-statues"
+          }
+        },
+        "category_7BgCJz": {
+          "type": "category",
+          "settings": {
+            "collection": "c9"
+          }
+        },
+        "category_Nzdixa": {
+          "type": "category",
+          "settings": {
+            "collection": "ball-ornaments"
+          }
+        },
+        "category_yVKPxn": {
+          "type": "category",
+          "settings": {
+            "collection": "bulbs-cord"
+          }
+        }
+      },
+      "block_order": [
+        "category_ratrUJ",
+        "category_7BgCJz",
+        "category_Nzdixa",
+        "category_yVKPxn"
+      ],
+      "name": "Custom category grid",
+      "settings": {
+        "eyebrow": "COLLECTIONS",
+        "heading": "Shop by Category"
+      }
+    },
+    "custom_bestsellers_xjfVrP": {
+      "type": "custom-bestsellers",
+      "name": "Custom bestsellers",
+      "settings": {
+        "eyebrow": "MOST POPULAR",
+        "heading": "Bestsellers",
+        "collection": "bestsellers",
+        "product_limit": 4
+      }
+    },
+    "custom_cta_Qk9kgc": {
+      "type": "custom-cta",
+      "name": "Custom CTA banner",
+      "settings": {
+        "heading": "Built for professionals like you.",
+        "text": "Apply for a trade account to unlock wholesale pricing, bulk ordering, and dedicated support.",
+        "button_text": "CTA HERE",
+        "button_link": ""
+      }
+    },
+    "custom_events_jc6tEF": {
+      "type": "custom-events",
+      "name": "Custom events feature",
+      "settings": {
+        "feature_image": "shopify://shop_images/72614L-WW-1.jpg",
+        "heading": "Event or Project Feature",
+        "text": "Short description — link to full post or gallery",
+        "blog": "test"
+      }
+    },
+    "rich_text_B7E8LA": {
+      "type": "rich-text",
+      "blocks": {
+        "text_7TfwiR": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body",
+            "custom_text": "<div>\nEmbrace World Electronics Day with a tech-savvy delight! <span style=\"color: #E71D36;\"><b> Save 20% off </b></span>\n</div>",
+            "show_icon": "present-icon",
+            "content_icon": "fire"
+          }
+        }
+      },
+      "block_order": [
+        "text_7TfwiR"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "color_scheme": "",
+        "space_around": 0,
+        "desktop_content_size": "large",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "f4fc861e-a8e9-4733-8984-e73213d48588": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_XqKjwJ": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "accent-2",
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "text_caption": "",
+            "outline_text": false,
+            "heading": "SMART PHONE",
+            "heading_size": "h0",
+            "font_color": "",
+            "subheading": "<p>Mega Music Sale</p>",
+            "description": "<p style=\"color:#FFC029;\">02-06 Sep</p>",
+            "text_style": "subtitle",
+            "button_label": "Shop now",
+            "link": "",
+            "link_window": true,
+            "view_all_style": "solid",
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "template--16209783881785__f4fc861e-a8e9-4733-8984-e73213d48588-slide-2": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "accent-2",
+            "enable_video_looping": false,
+            "auto_play_video": true,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "text_caption": "",
+            "outline_text": true,
+            "heading": "ELECTRONICS",
+            "heading_size": "h0",
+            "font_color": "",
+            "subheading": "<p>MUSIC FEST</p>",
+            "description": "<p>20-22 MAY</p>",
+            "text_style": "body",
+            "button_label": "Shop now",
+            "link": "",
+            "link_window": true,
+            "view_all_style": "solid",
+            "box_align": "bottom-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "d893846c-b07f-49c2-9753-4f9a852137f9": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "accent-2",
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "text_caption": "",
+            "outline_text": true,
+            "heading": "TABLETS",
+            "heading_size": "h0",
+            "font_color": "",
+            "subheading": "<p>Buy and get 10% off on selected items</p>",
+            "description": "",
+            "text_style": "body",
+            "button_label": "Shop Now",
+            "link": "",
+            "link_window": true,
+            "view_all_style": "solid",
+            "box_align": "bottom-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_XqKjwJ",
+        "template--16209783881785__f4fc861e-a8e9-4733-8984-e73213d48588-slide-2",
+        "d893846c-b07f-49c2-9753-4f9a852137f9"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "grid",
+        "color_scheme": "",
+        "slide_heading_font": "poppins_n8",
+        "default_font": false,
+        "slide_height": "adapt_image",
+        "slider_visual": "dots",
+        "pagenation_foreground": "#ffffff",
+        "pagenation_background": "rgba(0,0,0,0)",
+        "pagenet_corner_radius": 10,
+        "slider_alignment": "center",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "accessibility_info": "Slideshow about our brand",
+        "show_srolling_bar": true,
+        "top_scrolling": false,
+        "transparent_bg": false,
+        "wb_marktext": "Electronics Extravaganza: Unmissable Deals!",
+        "mark_space": 30,
+        "mark_speed": 12,
+        "font_size": 16,
+        "marq_diection": "right_left",
+        "seprater": "dots",
+        "marquee_color_scheme": "",
+        "text_padding_top": 12,
+        "text_padding_bottom": 12,
+        "show_text_below": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "7ff50e69-760a-4d45-ae67-4ede3191d751": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_wLnNQW": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "3mm-micro-lights",
+            "title": "3MM Micro Lights",
+            "url": "",
+            "showtext": "",
+            "customb_style": "solid"
+          }
+        },
+        "featured_collection_DGYLmj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "c9",
+            "title": "C9",
+            "url": "",
+            "showtext": "",
+            "customb_style": "link"
+          }
+        },
+        "template--16209783881785__7ff50e69-760a-4d45-ae67-4ede3191d751-featured_collection-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Tablets",
+            "url": "",
+            "showtext": "",
+            "customb_style": "link"
+          }
+        },
+        "featured_collection_XTmTbd": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Gaming",
+            "url": "",
+            "showtext": "",
+            "customb_style": "link"
+          }
+        },
+        "featured_collection_eMHBBC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Fridge",
+            "url": "",
+            "showtext": "",
+            "customb_style": "link"
+          }
+        },
+        "featured_collection_bFiRwb": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Laptops",
+            "url": "",
+            "showtext": "",
+            "customb_style": "link"
+          }
+        },
+        "featured_collection_tqbACq": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Toaster",
+            "url": "",
+            "showtext": "",
+            "customb_style": "link"
+          }
+        },
+        "featured_collection_LM6Vnq": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Charger",
+            "url": "",
+            "showtext": "",
+            "customb_style": "link"
+          }
+        },
+        "featured_collection_eQbrRa": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Television",
+            "url": "",
+            "showtext": "",
+            "customb_style": "link"
+          }
+        },
+        "featured_collection_dz6nhT": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Speaker",
+            "url": "",
+            "showtext": "",
+            "customb_style": "link"
+          }
+        },
+        "featured_collection_Wyrbwx": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Appliances",
+            "url": "",
+            "showtext": "",
+            "customb_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_wLnNQW",
+        "featured_collection_DGYLmj",
+        "template--16209783881785__7ff50e69-760a-4d45-ae67-4ede3191d751-featured_collection-1",
+        "featured_collection_XTmTbd",
+        "featured_collection_eMHBBC",
+        "featured_collection_bFiRwb",
+        "featured_collection_tqbACq",
+        "featured_collection_LM6Vnq",
+        "featured_collection_eQbrRa",
+        "featured_collection_dz6nhT",
+        "featured_collection_Wyrbwx"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "background-1",
+        "title": "Shop By Categories",
+        "heading_size": "h1",
+        "head_align": "left",
+        "heading_color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
+        "head_space": true,
+        "description": "",
+        "description_style": "body",
+        "show_view_all": true,
+        "view_button_pos": "top",
+        "button_label": "See all categories",
+        "button_url": "",
+        "view_all_style": "link",
+        "arrow_position": "inline",
+        "image_ratio": "square",
+        "columns_desktop": 9,
+        "rows": 1,
+        "card_flex_direction": "column",
+        "design_type": "below",
+        "design_align": "center",
+        "show_circle": false,
+        "catheading_size": "small",
+        "blockcolor_scheme": "background-1",
+        "columns_mobile": "2",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "featured_collection_D8P9jY": {
+      "type": "featured-collection",
+      "blocks": {
+        "heading_yefLVh": {
+          "type": "heading",
+          "settings": {
+            "icon1": "hotdeal",
+            "heading": "Deal Of The Day",
+            "heading_size": "h2",
+            "subheading": ": Ends In"
+          }
+        },
+        "date_zLwgJ9": {
+          "type": "date",
+          "settings": {
+            "wb_enddate": "2026/10/10"
+          }
+        },
+        "button_KgYzKd": {
+          "type": "button",
+          "settings": {
+            "icon2": "flash",
+            "btntxt": "Claim This Offer Now",
+            "link": "",
+            "view_all_style": "link"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yefLVh",
+        "date_zLwgJ9",
+        "button_KgYzKd"
+      ],
+      "settings": {
+        "full_width": false,
+        "color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
+        "collection": "",
+        "title": "Flash Sales",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "background-1",
+        "head_space": true,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "products_to_show": 6,
+        "columns_desktop": 5,
+        "show_row_on_desktop": 1,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "view_button_pos": "top",
+        "enable_desktop_slider": true,
+        "arrow_position": "inline",
+        "card_style": "card",
+        "show_count_timer": true,
+        "banner_position": "left",
+        "box_align": "top",
+        "text_alignment": "center",
+        "show_text_box": false,
+        "imgcolor_scheme": "background-1",
+        "show_banner_timer": false,
+        "wb_bannerdate": "",
+        "text_caption": "Sub text",
+        "outline_text": true,
+        "heading": "Heading",
+        "bnrheading_size": "h2",
+        "sub_heading": "Sub Heading",
+        "button_label": "Button label",
+        "button_link": "",
+        "link_window": true,
+        "button_style_secondary": "link",
+        "card_color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "collage_FXfDCd": {
+      "type": "collage",
+      "blocks": {
+        "image_RbBUrW": {
+          "type": "image",
+          "settings": {
+            "enable_video_looping": true,
+            "auto_play_video": true,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "subheading": "<p>GAMING DISPLAY </p>",
+            "heading": "Ultimate Gaming Display Offer",
+            "heading_size": "h1",
+            "text": "<p>Don't miss out on our exclusive offer</p>",
+            "text_style": "body",
+            "button_label_1": "Shop now",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "solid",
+            "button_label_11": "Know More",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "solid",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "top-center",
+            "desktop_content_alignment": "center",
+            "color_scheme": "inverse",
+            "image_behavior": "none"
+          }
+        },
+        "image_ky7Gt3": {
+          "type": "image",
+          "settings": {
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "subheading": "<p>VIRTUAL REALITY</p>",
+            "heading": "Exclusive VR Headset Offer",
+            "heading_size": "h2",
+            "text": "<p>Dive Into Immersive Virtual Reality</p>",
+            "text_style": "body",
+            "button_label_1": "Shop now",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "link",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "solid",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "middle-left",
+            "desktop_content_alignment": "left",
+            "color_scheme": "inverse",
+            "image_behavior": "none"
+          }
+        },
+        "image_ce33fh": {
+          "type": "image",
+          "settings": {
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "subheading": "<p>GRAPHICS</p>",
+            "heading": "Computer Graphics Accessories",
+            "heading_size": "h3",
+            "text": "<p>Save up to $50 on select iphone</p>",
+            "text_style": "body",
+            "button_label_1": "Shop Now",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "solid",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "top-left",
+            "desktop_content_alignment": "left",
+            "color_scheme": "inverse",
+            "image_behavior": "none"
+          }
+        },
+        "image_4pRmay": {
+          "type": "image",
+          "settings": {
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "subheading": "<p>VIDEO GAME</p>",
+            "heading": "Limited-Time Video Game Sale",
+            "heading_size": "h3",
+            "text": "<p>Discover amazing deals on top-rated video games!</p>",
+            "text_style": "body",
+            "button_label_1": "Shop Now",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "solid",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "top-left",
+            "desktop_content_alignment": "left",
+            "color_scheme": "inverse",
+            "image_behavior": "none"
+          }
+        }
+      },
+      "block_order": [
+        "image_RbBUrW",
+        "image_ky7Gt3",
+        "image_ce33fh",
+        "image_4pRmay"
+      ],
+      "settings": {
+        "full_width": false,
+        "section_color_scheme": "",
+        "title": "",
+        "heading_size": "h0",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "description": "",
+        "description_style": "body",
+        "image_height": "small",
+        "image_layout": "alternate-left",
+        "gap_between_image": 20,
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "3f381c47-733a-4027-b7cc-15a524815a39": {
+      "type": "text-with-icons",
+      "blocks": {
+        "template--16209783881785__3f381c47-733a-4027-b7cc-15a524815a39-image-1": {
+          "type": "image",
+          "settings": {
+            "icon1": "deal",
+            "title": "Daily Deals",
+            "demotext": "Items you love at prices that fit your budget"
+          }
+        },
+        "template--16209783881785__3f381c47-733a-4027-b7cc-15a524815a39-image-2": {
+          "type": "image",
+          "settings": {
+            "icon1": "return policy",
+            "title": "08-days Return Policy",
+            "demotext": "Merchandise must be returned within 60 days."
+          }
+        },
+        "template--16209783881785__3f381c47-733a-4027-b7cc-15a524815a39-image-3": {
+          "type": "image",
+          "settings": {
+            "icon1": "payment",
+            "title": "Secure Payment Method",
+            "demotext": "Pay with popular and secure payment methods"
+          }
+        },
+        "template--16209783881785__3f381c47-733a-4027-b7cc-15a524815a39-image-4": {
+          "type": "image",
+          "settings": {
+            "icon1": "24/7",
+            "title": "Help Center 24/7",
+            "demotext": "Want to talk to a person? choose chat or call us"
+          }
+        }
+      },
+      "block_order": [
+        "template--16209783881785__3f381c47-733a-4027-b7cc-15a524815a39-image-1",
+        "template--16209783881785__3f381c47-733a-4027-b7cc-15a524815a39-image-2",
+        "template--16209783881785__3f381c47-733a-4027-b7cc-15a524815a39-image-3",
+        "template--16209783881785__3f381c47-733a-4027-b7cc-15a524815a39-image-4"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "title": "",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
+        "head_space": true,
+        "iconwidth": 42,
+        "iconimagewidth": 30,
+        "column_alignment": "center",
+        "flex_direction": "column",
+        "text_size": "large",
+        "space_text": 12,
+        "show_seprator": true,
+        "swipe_mobile": true,
+        "margin_top": 60,
+        "margin_bottom": 60,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_B9Xn9U": {
+      "type": "featured-collection",
+      "settings": {
+        "full_width": false,
+        "color_scheme": "",
+        "collection": "",
+        "title": "Todays Popular Product",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "inverse",
+        "head_space": true,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "products_to_show": 6,
+        "columns_desktop": 5,
+        "show_row_on_desktop": 1,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "view_button_pos": "top",
+        "enable_desktop_slider": true,
+        "arrow_position": "inline",
+        "card_style": "card",
+        "show_count_timer": true,
+        "banner_position": "left",
+        "box_align": "top",
+        "text_alignment": "center",
+        "show_text_box": false,
+        "imgcolor_scheme": "",
+        "show_banner_timer": false,
+        "wb_bannerdate": "",
+        "text_caption": "Image text",
+        "outline_text": false,
+        "heading": "Heading",
+        "bnrheading_size": "h1",
+        "sub_heading": "Sub Heading",
+        "button_label": "Button label",
+        "button_link": "",
+        "link_window": true,
+        "button_style_secondary": "link",
+        "card_color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_banner_b6faWP": {
+      "type": "image-banner",
+      "blocks": {
+        "banner_with_text_yhY8hD": {
+          "type": "banner_with_text",
+          "settings": {
+            "image_overlay_opacity": 0,
+            "banner_width": 33,
+            "text_caption": "",
+            "outline_text": false,
+            "heading": "<strong>10% Off</strong>",
+            "heading_size": "h0",
+            "subheading": "<p>On the gaming device</p>",
+            "text": "<p>Gaming device day with a thrilling</p>",
+            "text_style": "body",
+            "show_banner_timer": false,
+            "wb_bannerdate": "",
+            "button_label_1": "Buy Now",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "link",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "space_around": 10,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "middle-left",
+            "desktop_content_alignment": "left",
+            "mobile_content_position": "middle-left",
+            "mobile_content_alignment": "center",
+            "color_scheme": "",
+            "image_behavior": "none"
+          }
+        },
+        "banner_with_text_NeVHiq": {
+          "type": "banner_with_text",
+          "settings": {
+            "image_overlay_opacity": 0,
+            "banner_width": 33,
+            "text_caption": "",
+            "outline_text": false,
+            "heading": "<strong>50% Off</strong>",
+            "heading_size": "h0",
+            "subheading": "<p>On the windows laptop</p>",
+            "text": "<p>Windows laptop day with a productive</p>",
+            "text_style": "body",
+            "show_banner_timer": false,
+            "wb_bannerdate": "",
+            "button_label_1": "Buy Now",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "link",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "space_around": 10,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "middle-left",
+            "desktop_content_alignment": "left",
+            "mobile_content_position": "middle-left",
+            "mobile_content_alignment": "center",
+            "color_scheme": "background-1",
+            "image_behavior": "none"
+          }
+        },
+        "banner_with_text_pG7Hdr": {
+          "type": "banner_with_text",
+          "settings": {
+            "image_overlay_opacity": 0,
+            "banner_width": 33,
+            "text_caption": "",
+            "outline_text": false,
+            "heading": "<strong>30% Off</strong>",
+            "heading_size": "h0",
+            "subheading": "<p>On the windows watch</p>",
+            "text": "<p>Windows watch day with a productive</p>",
+            "text_style": "body",
+            "show_banner_timer": false,
+            "wb_bannerdate": "",
+            "button_label_1": "Buy Now",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "link",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "space_around": 10,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "middle-left",
+            "desktop_content_alignment": "left",
+            "mobile_content_position": "middle-left",
+            "mobile_content_alignment": "center",
+            "color_scheme": "",
+            "image_behavior": "none"
+          }
+        }
+      },
+      "block_order": [
+        "banner_with_text_yhY8hD",
+        "banner_with_text_NeVHiq",
+        "banner_with_text_pG7Hdr"
+      ],
+      "settings": {
+        "full_width": false,
+        "section_color_scheme": "",
+        "title": "Our Other Offers",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "description": "",
+        "description_style": "body",
+        "show_view_all": false,
+        "button_label": "View all",
+        "button_link": "",
+        "view_all_style": "link",
+        "image_height": "adapt",
+        "show_gap": true,
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "video_BDnfdz": {
+      "type": "video",
+      "blocks": {
+        "text_G3X8az": {
+          "type": "text",
+          "settings": {
+            "text": "Experience",
+            "text_style": "body"
+          }
+        },
+        "heading_UQYRQt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Interact With A Virtual Surrounding",
+            "heading_size": "h1"
+          }
+        },
+        "text_xneGRw": {
+          "type": "text",
+          "settings": {
+            "text": "Virtual reality (VR) immersive experience that obscures the natural world.",
+            "text_style": "body"
+          }
+        },
+        "buttons_rGfDTR": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Know more",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "text_G3X8az",
+        "heading_UQYRQt",
+        "text_xneGRw",
+        "buttons_rGfDTR"
+      ],
+      "settings": {
+        "full_width": true,
+        "color_scheme": "",
+        "heading": "",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "enable_video_looping": false,
+        "show_play_icon": "play_icon",
+        "auto_play_video": false,
+        "enable_control": true,
+        "enable_mute": true,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "show_text_box": false,
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "product_with_offer_banner_L9wKn8": {
+      "type": "product_with_offer_banner",
+      "blocks": {
+        "product_card_HDNbVg": {
+          "type": "product_card",
+          "settings": {
+            "title": "Suggest For You",
+            "heading_size": "h2",
+            "head_align": "center",
+            "heading_color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
+            "head_space": true,
+            "description": "",
+            "description_style": "body",
+            "button_label": "See All Products",
+            "button_link": "",
+            "view_all_style": "link",
+            "collection": "",
+            "card_style": "card",
+            "image_ratio": "adapt",
+            "product_to_show": 3,
+            "show_secondary_image": false,
+            "show_vendor": false,
+            "enable_addtocart": true,
+            "card_color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a"
+          }
+        },
+        "banner_with_text_Fd4z6G": {
+          "type": "banner_with_text",
+          "settings": {
+            "box_align": "top",
+            "text_alignment": "center",
+            "show_text_box": false,
+            "imgcolor_scheme": "",
+            "heading": "Flagship Smartphones",
+            "bnrheading_size": "h0",
+            "sub_heading": "Up to 40% off",
+            "button_label": "Buy Now",
+            "button_link": "",
+            "link_window": true,
+            "button_style_secondary": "link"
+          }
+        },
+        "product_card_i8q9KV": {
+          "type": "product_card",
+          "settings": {
+            "title": "Suggest For You",
+            "heading_size": "h2",
+            "head_align": "center",
+            "heading_color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
+            "head_space": true,
+            "description": "",
+            "description_style": "body",
+            "button_label": "See All Products",
+            "button_link": "",
+            "view_all_style": "link",
+            "collection": "",
+            "card_style": "card",
+            "image_ratio": "adapt",
+            "product_to_show": 3,
+            "show_secondary_image": false,
+            "show_vendor": false,
+            "enable_addtocart": true,
+            "card_color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a"
+          }
+        }
+      },
+      "block_order": [
+        "product_card_HDNbVg",
+        "banner_with_text_Fd4z6G",
+        "product_card_i8q9KV"
+      ],
+      "settings": {
+        "full_width": false,
+        "color_scheme": "inverse",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "testimonial_8JDWjV": {
+      "type": "testimonial",
+      "blocks": {
+        "quote_jxWgth": {
+          "type": "quote",
+          "settings": {
+            "color_scheme": "",
+            "rev_title": "",
+            "display_review": true,
+            "star_rating": 5,
+            "display_review_text": true,
+            "quote": "<p>\"They have definitely secured their place as top of the line, noise cancelling,earbuds in my book.’’</p>",
+            "author": "Alone Boy",
+            "authorsub": "Manager"
+          }
+        },
+        "quote_ihniPz": {
+          "type": "quote",
+          "settings": {
+            "color_scheme": "",
+            "rev_title": "",
+            "display_review": true,
+            "star_rating": 4,
+            "display_review_text": true,
+            "quote": "<p>\"I'm judging these earphones with extremely critical ear and I think they perform extremely well.\"</p>",
+            "author": "Nadine R. Creech",
+            "authorsub": "CEO"
+          }
+        },
+        "quote_Piwcgb": {
+          "type": "quote",
+          "settings": {
+            "color_scheme": "",
+            "rev_title": "",
+            "display_review": true,
+            "star_rating": 3.5,
+            "display_review_text": true,
+            "quote": "<p>’’I recently purchased these headphones and by the audio quality. The bass is punchy.’’</p>",
+            "author": "Angelo H. Lott",
+            "authorsub": "Manager"
+          }
+        },
+        "quote_JTtUkM": {
+          "type": "quote",
+          "settings": {
+            "color_scheme": "",
+            "rev_title": "",
+            "display_review": true,
+            "star_rating": 4.5,
+            "display_review_text": true,
+            "quote": "<p>’’These headphones seamlessly connect to all my devices. The Bluetooth pairing is hassle-free’’</p>",
+            "author": "Alexander Ball",
+            "authorsub": "Manager"
+          }
+        },
+        "quote_F4xYFD": {
+          "type": "quote",
+          "settings": {
+            "color_scheme": "",
+            "rev_title": "",
+            "display_review": true,
+            "star_rating": 5,
+            "display_review_text": true,
+            "quote": "<p>’’Not only do these headphones deliver exceptional audio, but they also look and feel great.’’</p>",
+            "author": "Stefanie Rashford",
+            "authorsub": "CEO"
+          }
+        }
+      },
+      "block_order": [
+        "quote_jxWgth",
+        "quote_ihniPz",
+        "quote_Piwcgb",
+        "quote_JTtUkM",
+        "quote_F4xYFD"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "title": "Loved By Customers",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "description": "",
+        "description_style": "body",
+        "text_size": "small",
+        "author_img_position": "below",
+        "author_direction": "column",
+        "image_corners": "rounded",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "arrow_position": "inline",
+        "column_alignment": "center",
+        "space_around": 20,
+        "quote_img": false,
+        "quote_color": "#ffbb40",
+        "star_ratingclr": "#ffbb40",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "logo_bar_aEDqVj": {
+      "type": "logo-bar",
+      "blocks": {
+        "logo_image_8Yg4Br": {
+          "type": "logo_image",
+          "settings": {
+            "link": "",
+            "logo_title": ""
+          }
+        },
+        "logo_image_XPWdir": {
+          "type": "logo_image",
+          "settings": {
+            "link": "",
+            "logo_title": ""
+          }
+        },
+        "logo_image_rncVYT": {
+          "type": "logo_image",
+          "settings": {
+            "link": "",
+            "logo_title": ""
+          }
+        },
+        "logo_image_DXFR7q": {
+          "type": "logo_image",
+          "settings": {
+            "link": "",
+            "logo_title": ""
+          }
+        },
+        "logo_image_cQxMiK": {
+          "type": "logo_image",
+          "settings": {
+            "link": "",
+            "logo_title": ""
+          }
+        },
+        "logo_image_MzFANG": {
+          "type": "logo_image",
+          "settings": {
+            "link": "",
+            "logo_title": ""
+          }
+        },
+        "logo_image_U9xVRL": {
+          "type": "logo_image",
+          "settings": {
+            "link": "",
+            "logo_title": ""
+          }
+        },
+        "logo_image_T9Uc88": {
+          "type": "logo_image",
+          "settings": {
+            "link": "",
+            "logo_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_image_8Yg4Br",
+        "logo_image_XPWdir",
+        "logo_image_rncVYT",
+        "logo_image_DXFR7q",
+        "logo_image_cQxMiK",
+        "logo_image_MzFANG",
+        "logo_image_U9xVRL",
+        "logo_image_T9Uc88"
+      ],
+      "settings": {
+        "full_width": true,
+        "color_scheme": "",
+        "heading": "",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "auto_rotate": true,
+        "change_slides_speed": 3,
+        "columns_desktop": 7,
+        "enable_desktop_slider": true,
+        "show_title": false,
+        "columns_mobile": "3",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "featured_blog_e6jFPX": {
+      "type": "featured-blog",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Our Latest News",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "description": "",
+        "description_style": "body",
+        "show_view_all": true,
+        "view_all_label": "View All News",
+        "view_button_pos": "top",
+        "view_all_style": "link",
+        "arrow_position": "inline",
+        "blog": "",
+        "flex_direction": "column",
+        "image_height": "adapt",
+        "post_limit": 4,
+        "columns_desktop": 3,
+        "enable_desktop_slider": true,
+        "show_image": true,
+        "show_date": true,
+        "date_position": "below",
+        "show_author": true,
+        "show_comment": false,
+        "show_tag": true,
+        "tag_layout": "default",
+        "show_seprator": true,
+        "secerpt": "truncate",
+        "show_read_more_button": false,
+        "read_more_uppercase": true,
+        "read_more_style": "link",
+        "blog_card_style": "card",
+        "swipe_on_mobile": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "collapsible_content_MER3U4": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_T8rhaY": {
+          "type": "collapsible_row",
+          "settings": {
+            "default_open": true,
+            "heading": "What are tablets, and how do they differ from smartphones and laptops?",
+            "icon": "chat",
+            "row_content": "<p>Tablets are portable touchscreen devices that are larger than smartphones but more compact than laptops. They are primarily used for browsing, media consumption, and light productivity tasks.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_izcPeR": {
+          "type": "collapsible_row",
+          "settings": {
+            "default_open": false,
+            "heading": "What types of electronics products do you offer?",
+            "icon": "chat",
+            "row_content": "<p>We offer a diverse range of electronics products, including but not limited to smartphones, laptops, televisions, audio equipment, home appliances, electronic components, and accessories.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_txBVJC": {
+          "type": "collapsible_row",
+          "settings": {
+            "default_open": false,
+            "heading": "What payment methods do you accept?",
+            "icon": "chat",
+            "row_content": "<p>We accept various payment methods, including credit/debit cards, PayPal, and other secure online payment options. You can find the full list during the checkout process.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6GXkPB": {
+          "type": "collapsible_row",
+          "settings": {
+            "default_open": false,
+            "heading": "Do you offer warranties on your products?",
+            "icon": "chat",
+            "row_content": "<p>Many of our products come with manufacturer warranties. Warranty information is provided on the product pages. You can also contact our customer support for warranty details.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_T8rhaY",
+        "collapsible_row_izcPeR",
+        "collapsible_row_txBVJC",
+        "collapsible_row_6GXkPB"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "heading": "FAQs",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "description": "",
+        "description_style": "body",
+        "layout": "section",
+        "secondary_background": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "iconbanner_wGw94X": {
+      "type": "iconbanner",
+      "blocks": {
+        "image_UjiA6L": {
+          "type": "image",
+          "settings": {
+            "icon1": "truck",
+            "title": "Delivery Free On Next Day",
+            "demotext": "When Order Above $90",
+            "icon": "bag",
+            "view_all_label": "Order Now",
+            "button_link": "",
+            "view_all_style": "solid",
+            "column_direction": "ltr"
+          }
+        },
+        "image_hLYH7y": {
+          "type": "image",
+          "settings": {
+            "icon1": "none",
+            "title": "24/7*",
+            "demotext": "We are available",
+            "icon": "bag",
+            "view_all_label": "",
+            "button_link": "",
+            "view_all_style": "solid",
+            "column_direction": "rtl"
+          }
+        }
+      },
+      "block_order": [
+        "image_UjiA6L",
+        "image_hLYH7y"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "heading": "",
+        "heading_size": "h2",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "box_color_scheme": "",
+        "iconwidth": 28,
+        "column_alignment": "left",
+        "flex_direction": "row",
+        "margin_top": 60,
+        "margin_bottom": 0,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "custom_hero_yDE34b",
+    "trust_bar_btPctj",
+    "custom_categories_HLYbVj",
+    "custom_bestsellers_xjfVrP",
+    "custom_cta_Qk9kgc",
+    "custom_events_jc6tEF",
+    "rich_text_B7E8LA",
+    "f4fc861e-a8e9-4733-8984-e73213d48588",
+    "7ff50e69-760a-4d45-ae67-4ede3191d751",
+    "featured_collection_D8P9jY",
+    "collage_FXfDCd",
+    "3f381c47-733a-4027-b7cc-15a524815a39",
+    "featured_collection_B9Xn9U",
+    "image_banner_b6faWP",
+    "video_BDnfdz",
+    "product_with_offer_banner_L9wKn8",
+    "testimonial_8JDWjV",
+    "logo_bar_aEDqVj",
+    "featured_blog_e6jFPX",
+    "collapsible_content_MER3U4",
+    "iconbanner_wGw94X"
+  ]
+}

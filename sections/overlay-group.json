@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "custom.overlay",
+  "name": "Overlay Group",
+  "sections": {
+    "84ac2f7e-7788-4aaf-bc8b-54429f1d4b7a": {
+      "type": "popup",
+      "blocks": {
+        "a21764ee-4d1b-461e-9fb7-c44ff4f756da": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Join our newsletter</p>"
+          }
+        },
+        "bb7cc531-cdf1-403c-a5ac-749f3f3b22d0": {
+          "type": "subscribe_form",
+          "settings": {
+            "placeholder_input": "Enter your email",
+            "button_label": "Join",
+            "button_position": false,
+            "description": "<p>Subscribe to our newsletter and be the first to receive exciting updates, exclusive offers, and valuable insights.</p>"
+          }
+        },
+        "a4678b0b-d560-489a-9ae3-2b365a609b0b": {
+          "type": "social_links",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "a21764ee-4d1b-461e-9fb7-c44ff4f756da",
+        "bb7cc531-cdf1-403c-a5ac-749f3f3b22d0",
+        "a4678b0b-d560-489a-9ae3-2b365a609b0b"
+      ],
+      "settings": {
+        "image_layout": "left",
+        "image_fit": "cover",
+        "limit_display": 0,
+        "limit_days": "30",
+        "position": "center",
+        "content_layout": "center",
+        "trigger_open": "exit",
+        "on_click_layout": "slide_in",
+        "subscribe_text": "Get 10% off",
+        "open_time_delay": 1,
+        "open_scroll_type": "%",
+        "open_scroll_position": "50",
+        "trigger_close": "none",
+        "close_time_delay": 7,
+        "close_scroll_type": "%",
+        "close_scroll_position": "50",
+        "width": 1000,
+        "open_animation": "popupOpenSlide",
+        "close_animation": "popupExitSlide",
+        "show_overlay": true,
+        "mobile_disable": false,
+        "disable_scrolling": true,
+        "overlay_close": true,
+        "esc_close": true,
+        "f4_close": false,
+        "show_on_homepage": true,
+        "show_on_product_category": false,
+        "show_on_all": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "c9050c6e-373e-40fa-83c8-a4926e614f17": {
+      "type": "promotional-popup",
+      "disabled": true,
+      "settings": {
+        "image_fit": "contain",
+        "image_position": "left",
+        "heading": "Add promotion Here",
+        "text": "",
+        "show_button": true,
+        "button_label": "Button label",
+        "button_action": "link",
+        "button_link": "",
+        "position": "center",
+        "trigger_open": "delay",
+        "open_time_delay": 1,
+        "open_scroll_type": "px",
+        "open_scroll_position": "50",
+        "trigger_close": "scroll",
+        "close_time_delay": 3,
+        "close_scroll_type": "%",
+        "close_scroll_position": "50",
+        "show_close_button": true,
+        "width": 620,
+        "open_animation": "popupOpenFade",
+        "close_animation": "popupExitFade",
+        "show_overlay": false,
+        "mobile_disable": false,
+        "disable_scrolling": false,
+        "overlay_close": false,
+        "esc_close": false,
+        "f4_close": false,
+        "show_on_homepage": true,
+        "show_on_product_category": false,
+        "show_on_all": false,
+        "color_scheme": "accent-1"
+      }
+    }
+  },
+  "order": [
+    "84ac2f7e-7788-4aaf-bc8b-54429f1d4b7a",
+    "c9050c6e-373e-40fa-83c8-a4926e614f17"
+  ]
+}

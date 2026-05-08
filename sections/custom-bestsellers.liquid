@@ -1,0 +1,235 @@
+<section class="custom-bestsellers">
+  <div class="custom-bestsellers__inner">
+    <div class="custom-bestsellers__header">
+      <p>{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="custom-bestsellers__grid">
+      {% assign collection = section.settings.collection %}
+
+      {% if collection != blank %}
+        {% for product in collection.products limit: section.settings.product_limit %}
+          <div class="custom-bestsellers__card">
+            <a href="{{ product.url }}" class="custom-bestsellers__image">
+              {% if product.featured_image != blank %}
+                {{ product.featured_image | image_url: width: 700 | image_tag: loading: 'lazy' }}
+              {% else %}
+                <span>Product Image</span>
+              {% endif %}
+            </a>
+
+            <div class="custom-bestsellers__info">
+              <a href="{{ product.url }}" class="custom-bestsellers__title">
+                {{ product.title }}
+              </a>
+
+              {% if customer %}
+                <p class="custom-bestsellers__price">
+                  {{ product.price | money }}
+                </p>
+              {% else %}
+                <p class="custom-bestsellers__price">
+                  Login to see price
+                </p>
+              {% endif %}
+
+              <form method="post" action="/cart/add">
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                <button type="submit" class="custom-bestsellers__add">
+                  Add to Cart →
+                </button>
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..4) %}
+          <div class="custom-bestsellers__card">
+            <div class="custom-bestsellers__image">
+              <span>Product Image</span>
+            </div>
+
+            <div class="custom-bestsellers__info">
+              <p class="custom-bestsellers__title">Product Name</p>
+              <p class="custom-bestsellers__price">Login to see price</p>
+              <p class="custom-bestsellers__add">Add to Cart →</p>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .custom-bestsellers {
+    background: #f8f6f2;
+    padding: 8px 10px;
+  }
+
+  .custom-bestsellers__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #d7d1c8;
+    border-radius: 4px;
+    padding: 30px 38px 54px;
+  }
+
+  .custom-bestsellers__header {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  .custom-bestsellers__header p {
+    margin: 0 0 6px;
+    color: rgba(46, 61, 52, 0.55);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .custom-bestsellers__header h2 {
+    margin: 0;
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: 26px;
+    line-height: 1.15;
+    font-weight: var(--font-weight-black);
+  }
+
+  .custom-bestsellers__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  .custom-bestsellers__card {
+    border: 1px solid #d7d1c8;
+    border-radius: 4px;
+    background: #f8f6f2;
+    padding: 12px 14px 24px;
+  }
+
+  .custom-bestsellers__image {
+    height: 172px;
+    border-radius: 4px;
+    background: #d8d5ce;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+
+  .custom-bestsellers__image span {
+    color: rgba(46, 61, 52, 0.45);
+    font-family: var(--font-body);
+    font-size: 13px;
+  }
+
+  .custom-bestsellers__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .custom-bestsellers__info {
+    text-align: left;
+  }
+
+  .custom-bestsellers__title {
+    display: block;
+    margin: 0 0 5px;
+    color: #1d1d1d;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    text-decoration: none;
+  }
+
+  .custom-bestsellers__price {
+    margin: 0 0 7px;
+    color: var(--crimson);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: var(--font-weight-regular);
+  }
+
+  .custom-bestsellers__add {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--crimson);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 900px) {
+    .custom-bestsellers__inner {
+      padding: 28px 20px 36px;
+    }
+
+    .custom-bestsellers__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    .custom-bestsellers__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .custom-bestsellers__header h2 {
+      font-size: 24px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom bestsellers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "MOST POPULAR"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Bestsellers"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Best sellers collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Number of products",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom bestsellers"
+    }
+  ]
+}
+{% endschema %}

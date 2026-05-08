@@ -1,0 +1,75 @@
+<div class="breadcrumb-sku-wrapper">
+
+  <!-- LEFT SIDE -->
+  <div class="breadcrumb-left">
+
+    <a href="/">Shop</a>
+
+    <span class="divider">›</span>
+
+    {% if product.collections.first %}
+      <a href="{{ product.collections.first.url }}">
+        {{ product.collections.first.title }}
+      </a>
+    {% else %}
+      <span>Categories</span>
+    {% endif %}
+
+    <span class="divider">›</span>
+
+    <span class="product-title">
+      {{ product.title }}
+    </span>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="breadcrumb-right">
+    <span class="sku-label">SKU:</span>
+    <span class="sku-value">
+      {{ product.selected_or_first_available_variant.sku }}
+    </span>
+  </div>
+
+</div>
+
+<style>
+  .breadcrumb-sku-wrapper {
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    margin-bottom: 20px;
+    padding: 10px 40px;
+    border: 1px solid #C8C2B8;
+    background-color: #F0ECE4;
+    border-radius: 4px;
+    margin: 0 auto;
+  }
+  .breadcrumb-left a {
+    color: #978C7B;
+    text-decoration: none;
+  }
+  .breadcrumb-left .product-title {
+    color: #384863;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .breadcrumb-left .divider {
+    margin: 0 5px;
+    color: #999;
+  }
+  .breadcrumb-right {
+    display: flex;
+    align-items: center;
+  }
+  .sku-label, .sku-value {
+    font-weight: regular;
+    color: #978C7B;
+  } 
+  .sku-label {
+    margin-right: 5px;
+  }
+  </style>
