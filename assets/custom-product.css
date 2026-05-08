@@ -116,6 +116,8 @@
   display: flex;
 }
 .product-form-cart input[type="number"] {
+  color: #384863;
+  font-weight: 700;
   padding: 16px 20px;
   border: 1px solid #c8c2b8;
   display: inline-block;
