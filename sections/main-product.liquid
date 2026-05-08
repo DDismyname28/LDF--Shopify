@@ -190,7 +190,7 @@
     <span class="product__rating-score">{{ product.metafields.reviews.rating | round: 1 }}</span>
     <span class="product__review-count">({{ product.metafields.reviews.rating_count }} reviews)</span>
   </a>
-  <a href="/products/{{ product.handle }}#install-photos" class="product__install-photos-link">See install photos</a>
+  <a href="/products/{{ product.handle }}#install-photos" class="product__install-photos-link">See install photos →</a>
 </div>
 
 
@@ -238,7 +238,7 @@
     </div>
 
     <!-- 8. QUANTITY INPUT + ADD TO CART -->
-   <form method="post" action="/cart/add" id="ProductForm-{{ section.id }}" class="product-form">
+   <form method="post" action="/cart/add" id="ProductForm-{{ section.id }}" class="product-form-cart">
     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
     <!-- Simple quantity input (no label, no +/-) -->
