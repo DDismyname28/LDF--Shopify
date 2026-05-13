@@ -10,7 +10,8 @@
 {
   "sections": {
     "product_breadcrumb_sku": {
-      "type": "product-breadcrumb-sku"
+      "type": "product-breadcrumb-sku",
+      "settings": {}
     },
     "main": {
       "type": "main-product",
@@ -53,7 +54,8 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "show_colorswatch": true
+            "show_colorswatch": true,
+            "swatches_source": "custom-images"
           }
         },
         "4cd2d0c0-c935-4cc8-a56e-fd40a599db48": {
@@ -132,7 +134,9 @@
         },
         "description_WJ7LmT": {
           "type": "description",
-          "settings": {}
+          "settings": {
+            "show_readmore": false
+          }
         },
         "3f2119c3-4c6a-43f7-b988-831ab0996550": {
           "type": "collapsible_tab",
@@ -184,6 +188,33 @@
         "hide_variants": true,
         "enable_video_looping": false,
         "mobile_thumbnails": "show",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1778609259e1331795": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_preview_badge_nkhnmd": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "judge_me_reviews_review_widget_RLxR69": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_preview_badge_nkhnmd",
+        "judge_me_reviews_review_widget_RLxR69"
+      ],
+      "settings": {
+        "include_margins": true,
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -365,6 +396,7 @@
   "order": [
     "product_breadcrumb_sku",
     "main",
+    "1778609259e1331795",
     "quick_order_list_AmaygD",
     "collage_rpnw8y",
     "related-products"

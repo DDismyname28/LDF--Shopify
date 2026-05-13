@@ -6,433 +6,483 @@
     data-update-url="true"
     data-url="{{ product.url }}"
   >
-    
-  <link rel="preload" as="style" href="{{ 'custom-product.css' | asset_url }}">
+    <link rel="preload" as="style" href="{{ 'custom-product.css' | asset_url }}">
     {{ 'custom-product.css' | asset_url | stylesheet_tag }}
-  <link rel="preload" as="style" href="{{ 'section-main-product.css' | asset_url }}">
-  {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-  <link rel="preload" as="style" href="{{ 'component-accordion.css' | asset_url }}">
-  {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
-  <link rel="preload" as="style" href="{{ 'component-price.css' | asset_url }}">
-  {{ 'component-price.css' | asset_url | stylesheet_tag }}
-  <link rel="preload" as="style" href="{{ 'component-slider.css' | asset_url }}">
-  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
-  <link rel="preload" as="style" href="{{ 'component-loading-overlay.css' | asset_url }}">
-  {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
-  <link rel="preload" as="style" href="{{ 'component-deferred-media.css' | asset_url }}">
-  {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
-  {% unless product.has_only_default_variant %}
-    <link rel="preload" as="style" href="{{ 'component-product-variant-picker.css' | asset_url }}">
-    {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
-    <link rel="preload" as="style" href="{{ 'component-swatch-input.css' | asset_url }}">
-    {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
-    <link rel="preload" as="style" href="{{ 'component-swatch.css' | asset_url }}">
-    {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
-  {% endunless %}
-  {%- if product.quantity_price_breaks_configured? -%}
-    {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
-  {%- endif -%}
-{%- style -%}
-.section-{{ section.id }}-padding {
-  padding-top: {{ section.settings.padding_top }}px;
-  padding-bottom: {{ section.settings.padding_bottom }}px;
-}
-@media screen and (max-width: 991px) {
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
-  }
-}
-{%- endstyle -%}
-  {%- if product.quantity_price_breaks_configured? -%}
-    <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
-  {%- endif -%}
-  {% if section.settings.image_zoom == 'lightbox' %}
-    <link rel="preload" as="style" href="{{ 'photoswipe.css' | asset_url }}">
-    {{ 'photoswipe.css' | asset_url | stylesheet_tag }}
-    <link rel="preload" as="style" href="{{ 'default-skin.css' | asset_url }}">
-    {{ 'default-skin.css' | asset_url | stylesheet_tag }}
-    <script src="{{ 'photoswipe.js' | asset_url }}" async></script> 
-    <script src="{{ 'photoswipe-ui-default.js' | asset_url }}" async></script>
-  {% endif %}
-  {% if section.settings.image_zoom == 'hover' %}
-    <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
-  {% endif %}
-  {%- if request.design_mode -%}
-    <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
-  {%- endif -%}
-  {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
-  {%- if first_3d_model -%}
-    {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
-    <link
-      id="ModelViewerStyle"
-      rel="stylesheet"
-      href="{{ 'modal-viewer-ui.css' | asset_url }}"
-      media="print"
-      onload="this.media='all'"
-    >
-    <link
-      id="ModelViewerOverride"
-      rel="stylesheet"
-      href="{{ 'component-model-viewer-ui.css' | asset_url }}"
-      media="print"
-      onload="this.media='all'"
-    >
-  {%- endif -%}
-  {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-  <div class="custom-product-page product comp-product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-    <div class="{% if section.settings.image_zoom == 'lightbox' %}proplightb {% endif %} wbproleftimg grid__item product__media-wrapper {% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %} {% if section.settings.mobile_thumbnails == 'show' %} mobileshowthumb{% endif %}">
-      <div class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}">
-        {% render 'product-media-gallery', variant_images: variant_images %}
-      </div>
-      {% if section.settings.image_zoom == 'lightbox' %}
-        {% comment %}For Image Zoom{% endcomment %}
+    <link rel="preload" as="style" href="{{ 'section-main-product.css' | asset_url }}">
+    {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+    <link rel="preload" as="style" href="{{ 'component-accordion.css' | asset_url }}">
+    {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+    <link rel="preload" as="style" href="{{ 'component-price.css' | asset_url }}">
+    {{ 'component-price.css' | asset_url | stylesheet_tag }}
+    <link rel="preload" as="style" href="{{ 'component-slider.css' | asset_url }}">
+    {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+    <link rel="preload" as="style" href="{{ 'component-loading-overlay.css' | asset_url }}">
+    {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+    <link rel="preload" as="style" href="{{ 'component-deferred-media.css' | asset_url }}">
+    {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+    {% unless product.has_only_default_variant %}
+      <link rel="preload" as="style" href="{{ 'component-product-variant-picker.css' | asset_url }}">
+      {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+      <link rel="preload" as="style" href="{{ 'component-swatch-input.css' | asset_url }}">
+      {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
+      <link rel="preload" as="style" href="{{ 'component-swatch.css' | asset_url }}">
+      {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
+    {% endunless %}
+    {%- if product.quantity_price_breaks_configured? -%}
+      {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
+    {%- style -%}
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+      @media screen and (max-width: 991px) {
+        .section-{{ section.id }}-padding {
+          padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+          padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+        }
+      }
+    {%- endstyle -%}
+    {%- if product.quantity_price_breaks_configured? -%}
+      <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+    {% if section.settings.image_zoom == 'lightbox' %}
+      <link rel="preload" as="style" href="{{ 'photoswipe.css' | asset_url }}">
+      {{ 'photoswipe.css' | asset_url | stylesheet_tag }}
+      <link rel="preload" as="style" href="{{ 'default-skin.css' | asset_url }}">
+      {{ 'default-skin.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'photoswipe.js' | asset_url }}" async></script>
+      <script src="{{ 'photoswipe-ui-default.js' | asset_url }}" async></script>
+    {% endif %}
+    {% if section.settings.image_zoom == 'hover' %}
+      <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
+    {%- if request.design_mode -%}
+      <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+    {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
+    {%- if first_3d_model -%}
+      {{ 'component-product-model.css' | asset_url | stylesheet_tag }}
+      <link
+        id="ModelViewerStyle"
+        rel="stylesheet"
+        href="{{ 'modal-viewer-ui.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+      <link
+        id="ModelViewerOverride"
+        rel="stylesheet"
+        href="{{ 'component-model-viewer-ui.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+    {%- endif -%}
+    {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
+    <div class="custom-product-page product comp-product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+      <div class="{% if section.settings.image_zoom == 'lightbox' %}proplightb {% endif %} wbproleftimg grid__item product__media-wrapper {% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %} {% if section.settings.mobile_thumbnails == 'show' %} mobileshowthumb{% endif %}">
+        <div class="{% if section.settings.enable_sticky_info %}product__column-sticky{% endif %}">
+          {% render 'product-media-gallery', variant_images: variant_images %}
+        </div>
+        {% if section.settings.image_zoom == 'lightbox' %}
+          {% comment %}For Image Zoom{% endcomment %}
           <div class="spacer"></div>
           <div class="Pswp_custom">
             <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="pswp__bg"></div>
-                <div class="pswp__scroll-wrap">
-                    <div class="pswp__container">
-                        <div class="pswp__item"></div>
-                        <div class="pswp__item"></div>
-                        <div class="pswp__item"></div>
-                    </div>
-                    <div class="pswp__ui pswp__ui--hidden">
-                        <div class="pswp__top-bar">
-                            <div class="pswp__counter"></div>
-                            <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                            <button class="pswp__button pswp__button--share" title="Share"></button>
-                            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                            <div class="pswp__preloader">
-                                <div class="pswp__preloader__icn">
-                                    <div class="pswp__preloader__cut">
-                                        <div class="pswp__preloader__donut"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                        <div class="pswp__share-tooltip"></div> 
-                    </div>
-                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-                    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-                        <div class="pswp__caption">
-                            <div class="pswp__caption__center"></div>
-                        </div>
-                    </div>
+              <div class="pswp__bg"></div>
+              <div class="pswp__scroll-wrap">
+                <div class="pswp__container">
+                  <div class="pswp__item"></div>
+                  <div class="pswp__item"></div>
+                  <div class="pswp__item"></div>
                 </div>
+                <div class="pswp__ui pswp__ui--hidden">
+                  <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                      <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                          <div class="pswp__preloader__donut"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                  </div>
+                  <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                  <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                  <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <script>
             var imgsrcs = [];
-            var openPhotoSwipe = function(e) {
+            var openPhotoSwipe = function (e) {
               var pswpElement = document.querySelectorAll('.pswp')[0];
-              var options = {  
-                  index: e.currentTarget.idx,
-                  history: false,
-                  focus: false,
-                  showAnimationDuration: 0,
-                  hideAnimationDuration: 0 
+              var options = {
+                index: e.currentTarget.idx,
+                history: false,
+                focus: false,
+                showAnimationDuration: 0,
+                hideAnimationDuration: 0,
               };
-              var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, imgsrcs, options);
+              var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgsrcs, options);
               gallery.init();
             };
-            Array.from(document.querySelectorAll('.protopimg-item .product__media')).forEach(function(element, index) {
-                element.addEventListener('click', openPhotoSwipe);
-                element.idx = index;
-                var imgElement = element.getElementsByTagName('img')[0];
-                imgsrcs.push({
-                      src: imgElement.src,
-                      w: imgElement.getAttribute("data-width"),
-                      h: imgElement.getAttribute("data-height")
-                });
+            Array.from(document.querySelectorAll('.protopimg-item .product__media')).forEach(function (element, index) {
+              element.addEventListener('click', openPhotoSwipe);
+              element.idx = index;
+              var imgElement = element.getElementsByTagName('img')[0];
+              imgsrcs.push({
+                src: imgElement.src,
+                w: imgElement.getAttribute('data-width'),
+                h: imgElement.getAttribute('data-height'),
+              });
             });
           </script>
-      {% endif %}
-    </div>
-
-    <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-   <section id="ProductInfo-{{ section.id }}" class="product__info-container">
-
-    <!-- 1. TAGS -->
-{%- if product.tags.size > 0 -%}
-  <div class="product__tag-badges">
-    {%- for tag in product.tags -%}
-      <a href="/collections/all/{{ tag | handleize }}" 
-         class="product__tag-label tag-{{ forloop.index }}">
-        {{ tag | upcase }}
-      </a>
-    {%- endfor -%}
-  </div>
-{%- endif -%}
-
-
-    <!-- 2. NAME -->
-    <h1 class="product__title">{{ product.title }}</h1>
-
-    <!-- 3. VARIANT TITLE -->
-    <p class="product__variant-title">
-      {{ product.selected_or_first_available_variant.title }}
-    </p>
-
-    <!-- 4. STARS + REVIEWS -->
-<div class="product__rating-row">
-  <div class="product__stars">
-    {%- for i in (1..5) -%}
-      <svg class="product__star{% if i <= product.metafields.reviews.rating %} product__star--filled{% endif %}" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-      </svg>
-    {%- endfor -%}
-  </div>
-  <a href="/products/{{ product.handle }}#reviews" class="product__rating-link">
-    <span class="product__rating-score">{{ product.metafields.reviews.rating | round: 1 }}</span>
-    <span class="product__review-count">({{ product.metafields.reviews.rating_count }} reviews)</span>
-  </a>
-  <a href="/products/{{ product.handle }}#install-photos" class="product__install-photos-link">See install photos →</a>
-</div>
-
-
-
-
-    <!-- 5. WHOLESALE NOTICE -->
-    <!-- WHOLESALE NOTICE -->
-    {%- unless customer -%}
-      <div class="product__wholesale-notice">
-        
-          <p>Wholesale pricing available. <a href="/account/login?return_to=/products/{{ product.handle }}" class="product__wholesale-login-link">Login or apply for a wholesale account to see rates.
-        </a></p>
+        {% endif %}
       </div>
-    {%- endunless -%}
 
-
-
-
-    <!-- 6. WHOLESALE PRICE + MSRP -->
-    <div class="product__price-row">
-      <div class="product__price-col">
-        <span class="product__price-label">Wholesale price:</span>
-        <span class="product__price-value">
-          {{ product.selected_or_first_available_variant.price | money }}
-        </span>
-      </div>
-      <div class="product__price-col-msrp">
-        <span class="product__price-label-msrp">MSRP:</span>
-        <span class="product__price-value-msrp">
-          {{ product.metafields.custom.msrp | money }}
-        </span>
-      </div>
-{% comment %}       <div class="product__price-col">
-        <span class="product__price-label">Lowest Price:</span>
-        <span class="product__price-value">
-          {{ product.metafields.custom.lowest_price | money }}
-        </span>
-      </div> {% endcomment %}
-    </div>
-
-    <!-- 7. BULK PRICING TIERS -->
-    <div class="product__bulk-pricing">
-      <h3>Bulk Pricing Tiers:</h3>
-      {{ product.metafields.custom.bulk_price_tiers }}
-    </div>
-
-    <!-- 8. QUANTITY INPUT + ADD TO CART -->
-   <form method="post" action="/cart/add" id="ProductForm-{{ section.id }}" class="product-form-cart">
-    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-
-    <!-- Simple quantity input (no label, no +/-) -->
-    <input type="number" name="quantity" value="1" min="1" class="product-form__quantity-input">
-
-    <!-- Add to Cart button -->
-    <button type="submit" class="button button--primary">
-      Add to Cart
-    </button>
-  </form>
-
-
-    <!-- 9. REQUEST A QUOTE -->
-    <div class="product__quote-wrapper">
-      <a href="/pages/request-a-quote?product={{ product.handle }}" class="button button--secondary">
-        Request a Quote
-      </a>
-    </div>
-<!-- 10. SPECS DETAILS -->
-{%- if product.metafields.custom.specs_details != blank -%}
-  <div class="product__specs-details">
-    {{ product.metafields.custom.specs_details }}
-  </div>
-  <a href="{{ product.custom.spec_sheet }}" class="product__specs-link">View full spec sheet →</a>
-{%- endif -%}
-  </section>
-</div>
-
-    {%- if section.settings.media_position == 'right' -%}
-      {% comment %} Duplicate gallery to display after product content on tablet/desktop breakpoint {% endcomment %}
-      <div class="grid__item product__media-wrapper small-hide">
-        {% render 'product-media-gallery', variant_images: variant_images, is_duplicate: true %}
-      </div>
-    {%- endif -%}
-  </div>
-  {% render 'product-media-modal' variant_images: variant_images %}
-  {% assign popups = section.blocks | where: 'type', 'popup' %}
-  {%- for block in popups -%}
-    <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
-      <div
-        role="dialog"
-        aria-label="{{ block.settings.text }}"
-        aria-modal="true"
-        class="product-popup-modal__content"  
-        tabindex="-1"
-      >
-        <button
-          id="ModalClose-{{ block.id }}"
-          type="button"
-          class="product-popup-modal__toggle"
-          aria-label="{{ 'accessibility.close' | t }}"
-        >
-          {% render 'icon-close' %}
-        </button>
-        <div class="product-popup-modal__content-info">
-          <h1 class="h2">
-            {% if block.settings.page.title %}
-              {{ block.settings.page.title | escape }}
-            {% else %}
-              {{ block.settings.popup_title }}
-            {% endif %}
-          </h1>
-          {% if block.settings.page != blank %}
-            {{ block.settings.page.content }}
-          {% else %}
-            <div class="center wb_gap_image">
-              {% if block.settings.link_1 != blank %}
-                <a href="{{ block.settings.link_1 }}" title="{{ block.settings.page.title }}">
-              {% endif %}
-              {% if block.settings.image_1 != blank %} 
-                <img loading="lazy"
-                srcset="{%- if block.settings.image_1.width >= 375 -%}{{ block.settings.image_1 | image_url: width: 375 }} 375w,{%- endif -%}
-                  {%- if block.settings.image_1.width >= 550 -%}{{ block.settings.image_1 | image_url: width: 550 }} 550w,{%- endif -%}
-                  {%- if block.settings.image_1.width >= 750 -%}{{ block.settings.image_1 | image_url: width: 750 }} 750w,{%- endif -%}
-                  {%- if block.settings.image_1.width >= 1100 -%}{{ block.settings.image_1 | image_url: width: 1100 }} 1100w,{%- endif -%}
-                  {%- if block.settings.image_1.width >= 1500 -%}{{ block.settings.image_1 | image_url: width: 1500 }} 1500w,{%- endif -%}
-                  {%- if block.settings.image_1.width >= 1780 -%}{{ block.settings.image_1 | image_url: width: 1780 }} 1780w,{%- endif -%}
-                  {%- if block.settings.image_1.width >= 2000 -%}{{ block.settings.image_1 | image_url: width: 2000 }} 2000w,{%- endif -%}
-                  {%- if block.settings.image_1.width >= 3000 -%}{{ block.settings.image_1 | image_url: width: 3000 }} 3000w,{%- endif -%}
-                  {%- if block.settings.image_1.width >= 3840 -%}{{ block.settings.image_1 | image_url: width: 3840 }} 3840w,{%- endif -%}
-                  {{ block.settings.image_1 | image_url }} {{ block.settings.image_1.width }}w"
-                src="{{ block.settings.image_1 | image_url: width: 1500 }}" alt="{{ block.settings.image_1.alt }}" class="global-media-settings img-fluid mx-auto lazyload" width="{{ block.settings.image_1.width }}" height="{{ block.settings.image_1.height }}" />
-              {% else %}
-                {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
-              {% endif %}
-              {% if block.settings.link_1 != blank %}
-              </a>
-              {% endif %}
+      <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <section id="ProductInfo-{{ section.id }}" class="product__info-container">
+          <!-- 1. TAGS -->
+          {%- if product.tags.size > 0 -%}
+            <div class="product__tag-badges">
+              {%- for tag in product.tags -%}
+                <a
+                  href="/collections/all/{{ tag | handleize }}"
+                  class="product__tag-label tag-{{ forloop.index }}"
+                >
+                  {{ tag | upcase }}
+                </a>
+              {%- endfor -%}
             </div>
-            {% endif %}
-        </div>
-      </div>
-    </modal-dialog>
-  {%- endfor -%}
-  {%- if product.media.size > 0 -%}
-    <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
-  {%- endif -%}
+          {%- endif -%}
 
-{% comment %} description read more feature {% endcomment %}
-<script>
-  if (typeof readMoreButtons === 'undefined') {
-    let readMoreButtons = document.querySelector('.read-more-toggle');
-    let fadeBg = document.querySelector('.fade_bg');
-    if(readMoreButtons){
-      document.addEventListener("DOMContentLoaded", function() {
-        const contentElement = readMoreButtons.previousElementSibling;
-        const fullHeight = contentElement.scrollHeight + "px";
-        const minHeight = parseFloat(getComputedStyle(contentElement).lineHeight) * 7;
-        if (contentElement.scrollHeight <= minHeight) {
-          readMoreButtons.style.display = 'none';
-          fadeBg.style.display = 'none';
-        } else {
-          readMoreButtons.style.display = 'inline';
-          fadeBg.style.display = 'block';
+          <!-- 2. NAME -->
+          <h1 class="product__title">{{ product.title }}</h1>
+
+          <!-- 3. VARIANT TITLE -->
+          <p class="product__variant-title">
+            {{ product.selected_or_first_available_variant.title }}
+          </p>
+
+          <!-- 4. STARS + REVIEWS -->
+          <div class="product__rating-row">
+            <div class="product__stars">
+              {%- for i in (1..5) -%}
+                <svg
+                  class="product__star{% if i <= product.metafields.reviews.rating %} product__star--filled{% endif %}"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+              {%- endfor -%}
+            </div>
+            <a href="/products/{{ product.handle }}#reviews" class="product__rating-link">
+              <span class="product__rating-score">{{ product.metafields.reviews.rating | round: 1 }}</span>
+              <span class="product__review-count">({{ product.metafields.reviews.rating_count }} reviews)</span>
+            </a>
+            <a href="/products/{{ product.handle }}#install-photos" class="product__install-photos-link"
+              >See install photos →</a
+            >
+          </div>
+
+          <!-- 5. WHOLESALE NOTICE -->
+          <!-- WHOLESALE NOTICE -->
+          {%- unless customer -%}
+            <div class="product__wholesale-notice">
+              <p>
+                Wholesale pricing available.
+                <a href="/account/login?return_to=/products/{{ product.handle }}" class="product__wholesale-login-link"
+                  >Login or apply for a wholesale account to see rates.
+                </a>
+              </p>
+            </div>
+          {%- endunless -%}
+
+          <!-- 6. WHOLESALE PRICE + MSRP -->
+          <div class="product__price-row">
+            <div class="product__price-col">
+              <span class="product__price-label">Wholesale price:</span>
+              <span class="product__price-value">
+                {{ product.selected_or_first_available_variant.price | money }}
+              </span>
+            </div>
+            <div class="product__price-col-msrp">
+              <span class="product__price-label-msrp">MSRP:</span>
+              <span class="product__price-value-msrp">
+                {{ product.metafields.custom.msrp | money }}
+              </span>
+            </div>
+            {% comment %}
+              <div class="product__price-col">
+                <span class="product__price-label">Lowest Price:</span>
+                <span class="product__price-value">
+                  {{ product.metafields.custom.lowest_price | money }}
+                </span>
+              </div>
+            {% endcomment %}
+          </div>
+
+          <!-- 7. BULK PRICING TIERS -->
+          <div class="product__bulk-pricing">
+            <h3>Bulk Pricing Tiers:</h3>
+            {{ product.metafields.custom.bulk_price_tiers }}
+          </div>
+
+          <!-- 8. QUANTITY INPUT + ADD TO CART -->
+          <form method="post" action="/cart/add" id="ProductForm-{{ section.id }}" class="product-form-cart">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+            <!-- Quantity input with +/- controls (text input) -->
+            <div class="product-form__quantity-wrapper">
+              <button type="button" class="qty-btn qty-minus">−</button>
+              <input
+                type="text"
+                name="quantity"
+                value="1"
+                class="product-form__quantity-input"
+                id="Quantity-{{ section.id }}"
+              >
+              <button type="button" class="qty-btn qty-plus">+</button>
+            </div>
+
+            <!-- Add to Cart button -->
+            <button type="submit" class="button button--primary">Add to Cart</button>
+          </form>
+
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              var form = document.getElementById('ProductForm-{{ section.id }}');
+              var minusBtn = form.querySelector('.qty-minus');
+              var plusBtn = form.querySelector('.qty-plus');
+              var qtyInput = form.querySelector('.product-form__quantity-input');
+
+              function sanitizeValue(val) {
+                var num = parseInt(val, 10);
+                if (isNaN(num) || num < 1) num = 1;
+                return num;
+              }
+
+              minusBtn.addEventListener('click', function () {
+                qtyInput.value = sanitizeValue(qtyInput.value) - 1;
+                if (parseInt(qtyInput.value, 10) < 1) qtyInput.value = 1;
+              });
+
+              plusBtn.addEventListener('click', function () {
+                qtyInput.value = sanitizeValue(qtyInput.value) + 1;
+              });
+
+              qtyInput.addEventListener('input', function () {
+                qtyInput.value = sanitizeValue(qtyInput.value);
+              });
+            });
+          </script>
+
+          <!-- 9. REQUEST A QUOTE -->
+          <div class="product__quote-wrapper">
+            <a href="/pages/request-a-quote?product={{ product.handle }}" class="button button--secondary">
+              Request a Quote
+            </a>
+          </div>
+          {% comment %}
+            <!-- 10. SPECS DETAILS -->
+            {%- if product.metafields.custom.specs_details != blank -%}
+              <div class="product__specs-details">
+                {{ product.metafields.custom.specs_details }}
+              </div>
+              <a href="{{ product.custom.spec_sheet }}" class="product__specs-link">View full spec sheet →</a>
+            {%- endif -%}
+          {% endcomment %}
+        </section>
+      </div>
+
+      {%- if section.settings.media_position == 'right' -%}
+        {% comment %} Duplicate gallery to display after product content on tablet/desktop breakpoint {% endcomment %}
+        <div class="grid__item product__media-wrapper small-hide">
+          {% render 'product-media-gallery', variant_images: variant_images, is_duplicate: true %}
+        </div>
+      {%- endif -%}
+    </div>
+    {% render 'product-media-modal', variant_images: variant_images %}
+    {% assign popups = section.blocks | where: 'type', 'popup' %}
+    {%- for block in popups -%}
+      <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
+        <div
+          role="dialog"
+          aria-label="{{ block.settings.text }}"
+          aria-modal="true"
+          class="product-popup-modal__content"
+          tabindex="-1"
+        >
+          <button
+            id="ModalClose-{{ block.id }}"
+            type="button"
+            class="product-popup-modal__toggle"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            {% render 'icon-close' %}
+          </button>
+          <div class="product-popup-modal__content-info">
+            <h1 class="h2">
+              {% if block.settings.page.title %}
+                {{ block.settings.page.title | escape }}
+              {% else %}
+                {{ block.settings.popup_title }}
+              {% endif %}
+            </h1>
+            {% if block.settings.page != blank %}
+              {{ block.settings.page.content }}
+            {% else %}
+              <div class="center wb_gap_image">
+                {% if block.settings.link_1 != blank %}
+                  <a href="{{ block.settings.link_1 }}" title="{{ block.settings.page.title }}">
+                {% endif %}
+                {% if block.settings.image_1 != blank %}
+                  <img
+                    loading="lazy"
+                    srcset="
+                      {%- if block.settings.image_1.width >= 375 -%}{{ block.settings.image_1 | image_url: width: 375 }} 375w,{%- endif -%}
+                      {%- if block.settings.image_1.width >= 550 -%}{{ block.settings.image_1 | image_url: width: 550 }} 550w,{%- endif -%}
+                      {%- if block.settings.image_1.width >= 750 -%}{{ block.settings.image_1 | image_url: width: 750 }} 750w,{%- endif -%}
+                      {%- if block.settings.image_1.width >= 1100 -%}{{ block.settings.image_1 | image_url: width: 1100 }} 1100w,{%- endif -%}
+                      {%- if block.settings.image_1.width >= 1500 -%}{{ block.settings.image_1 | image_url: width: 1500 }} 1500w,{%- endif -%}
+                      {%- if block.settings.image_1.width >= 1780 -%}{{ block.settings.image_1 | image_url: width: 1780 }} 1780w,{%- endif -%}
+                      {%- if block.settings.image_1.width >= 2000 -%}{{ block.settings.image_1 | image_url: width: 2000 }} 2000w,{%- endif -%}
+                      {%- if block.settings.image_1.width >= 3000 -%}{{ block.settings.image_1 | image_url: width: 3000 }} 3000w,{%- endif -%}
+                      {%- if block.settings.image_1.width >= 3840 -%}{{ block.settings.image_1 | image_url: width: 3840 }} 3840w,{%- endif -%}
+                      {{ block.settings.image_1 | image_url }} {{ block.settings.image_1.width }}w
+                    "
+                    src="{{ block.settings.image_1 | image_url: width: 1500 }}"
+                    alt="{{ block.settings.image_1.alt }}"
+                    class="global-media-settings img-fluid mx-auto lazyload"
+                    width="{{ block.settings.image_1.width }}"
+                    height="{{ block.settings.image_1.height }}"
+                  >
+                {% else %}
+                  {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+                {% if block.settings.link_1 != blank %}
+                  </a>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </modal-dialog>
+    {%- endfor -%}
+    {%- if product.media.size > 0 -%}
+      <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {% comment %} description read more feature {% endcomment %}
+    <script>
+      if (typeof readMoreButtons === 'undefined') {
+        let readMoreButtons = document.querySelector('.read-more-toggle');
+        let fadeBg = document.querySelector('.fade_bg');
+        if(readMoreButtons){
+          document.addEventListener("DOMContentLoaded", function() {
+            const contentElement = readMoreButtons.previousElementSibling;
+            const fullHeight = contentElement.scrollHeight + "px";
+            const minHeight = parseFloat(getComputedStyle(contentElement).lineHeight) * 7;
+            if (contentElement.scrollHeight <= minHeight) {
+              readMoreButtons.style.display = 'none';
+              fadeBg.style.display = 'none';
+            } else {
+              readMoreButtons.style.display = 'inline';
+              fadeBg.style.display = 'block';
+            }
+            readMoreButtons.addEventListener('click', function() {
+              const isExpanded = contentElement.classList.toggle('expanded');
+              this.textContent = isExpanded ? '{{ 'products.facets.show_less' | t }}' : '{{ 'products.facets.show_more' | t }}';
+              if (isExpanded) {
+                contentElement.style.maxHeight = fullHeight;
+              } else {
+                contentElement.style.maxHeight = fullHeight;
+                  setTimeout(() => {
+                    contentElement.style.maxHeight = "10em";
+                  }, 90);
+              }
+            });
+          });
         }
-        readMoreButtons.addEventListener('click', function() {
-          const isExpanded = contentElement.classList.toggle('expanded');
-          this.textContent = isExpanded ? '{{ 'products.facets.show_less' | t }}' : '{{ 'products.facets.show_more' | t }}';
-          if (isExpanded) {
-            contentElement.style.maxHeight = fullHeight; 
-          } else {
-            contentElement.style.maxHeight = fullHeight;
-              setTimeout(() => {
-                contentElement.style.maxHeight = "10em";
-              }, 90);
-          }
-        });
-      });
-    }
-  }
-</script>
-  
-  {%- if first_3d_model -%}
-    <script type="application/json" id="ProductJSON-{{ product.id }}">
-      {{ product.media | where: 'media_type', 'model' | json }}
+      }
     </script>
-    <script src="{{ 'product-model.js' | asset_url }}" defer></script>
-  {%- endif -%}
-  {%- liquid
-    if product.selected_or_first_available_variant.featured_media
-      assign seo_media = product.selected_or_first_available_variant.featured_media
-    else
-      assign seo_media = product.featured_media
-    endif
-  -%}
-  
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org/",
-      "@type": "Product",
-      "name": {{ product.title | json }},
-      "url": {{ request.origin | append: product.url | json }},
-      {% if seo_media -%}
-        "image": [
-          {{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}
-        ],
-      {%- endif %}
-      "description": {{ product.description | strip_html | json }},
-      {% if product.selected_or_first_available_variant.sku != blank -%}
-        "sku": {{ product.selected_or_first_available_variant.sku | json }},
-      {%- endif %}
-      "brand": {
-        "@type": "Brand",
-        "name": {{ product.vendor | json }}
-      },
-      "offers": [
-        {%- for variant in product.variants -%}
-          {
-            "@type" : "Offer",
-            {%- if variant.sku != blank -%}
-              "sku": {{ variant.sku | json }},
-            {%- endif -%}
-            {%- if variant.barcode.size == 12 -%}
-              "gtin12": {{ variant.barcode }},
-            {%- endif -%}
-            {%- if variant.barcode.size == 13 -%}
-              "gtin13": {{ variant.barcode }},
-            {%- endif -%}
-            {%- if variant.barcode.size == 14 -%}
-              "gtin14": {{ variant.barcode }},
-            {%- endif -%}
-            "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-            "price" : {{ variant.price | divided_by: 100.00 | json }},
-            "priceCurrency" : {{ cart.currency.iso_code | json }},
-            "url" : {{ request.origin | append: variant.url | json }}
-          }{% unless forloop.last %},{% endunless %}
-        {%- endfor -%}
-      ]
-    }
-  </script>
+
+    {%- if first_3d_model -%}
+      <script type="application/json" id="ProductJSON-{{ product.id }}">
+        {{ product.media | where: 'media_type', 'model' | json }}
+      </script>
+      <script src="{{ 'product-model.js' | asset_url }}" defer></script>
+    {%- endif -%}
+    {%- liquid
+      if product.selected_or_first_available_variant.featured_media
+        assign seo_media = product.selected_or_first_available_variant.featured_media
+      else
+        assign seo_media = product.featured_media
+      endif
+    -%}
+
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": {{ product.title | json }},
+        "url": {{ request.origin | append: product.url | json }},
+        {% if seo_media -%}
+          "image": [
+            {{ seo_media | image_url: width: 1920 | prepend: "https:" | json }}
+          ],
+        {%- endif %}
+        "description": {{ product.description | strip_html | json }},
+        {% if product.selected_or_first_available_variant.sku != blank -%}
+          "sku": {{ product.selected_or_first_available_variant.sku | json }},
+        {%- endif %}
+        "brand": {
+          "@type": "Brand",
+          "name": {{ product.vendor | json }}
+        },
+        "offers": [
+          {%- for variant in product.variants -%}
+            {
+              "@type" : "Offer",
+              {%- if variant.sku != blank -%}
+                "sku": {{ variant.sku | json }},
+              {%- endif -%}
+              {%- if variant.barcode.size == 12 -%}
+                "gtin12": {{ variant.barcode }},
+              {%- endif -%}
+              {%- if variant.barcode.size == 13 -%}
+                "gtin13": {{ variant.barcode }},
+              {%- endif -%}
+              {%- if variant.barcode.size == 14 -%}
+                "gtin14": {{ variant.barcode }},
+              {%- endif -%}
+              "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+              "price" : {{ variant.price | divided_by: 100.00 | json }},
+              "priceCurrency" : {{ cart.currency.iso_code | json }},
+              "url" : {{ request.origin | append: variant.url | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]
+      }
+    </script>
   </product-info>
 </section>
-
 
 <section class="product-tabs" id="ProductTabs">
   <ul class="product-tabs__nav">
@@ -458,28 +508,32 @@
   </div>
 </section>
 
+{% comment %}
+  <div id="judgeme_product_reviews" data-product-title="{{ product.title }}" data-id="{{ product.id }}">
+    {{ product.metafields.judgeme.badge }}
+  </div>
+{% endcomment %}
+
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  var tabs = document.querySelectorAll("#ProductTabs .product-tabs__item");
-  var panels = document.querySelectorAll("#ProductTabs .product-tabs__panel");
+  document.addEventListener('DOMContentLoaded', function () {
+    var tabs = document.querySelectorAll('#ProductTabs .product-tabs__item');
+    var panels = document.querySelectorAll('#ProductTabs .product-tabs__panel');
 
-  tabs.forEach(function(tab) {
-    tab.addEventListener("click", function() {
-      var target = tab.getAttribute("data-tab");
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var target = tab.getAttribute('data-tab');
 
-      // remove active from all
-      tabs.forEach(t => t.classList.remove("active"));
-      panels.forEach(p => p.classList.remove("active"));
+        // remove active from all
+        tabs.forEach((t) => t.classList.remove('active'));
+        panels.forEach((p) => p.classList.remove('active'));
 
-      // add active to clicked tab + panel
-      tab.classList.add("active");
-      document.getElementById("tab-" + target).classList.add("active");
+        // add active to clicked tab + panel
+        tab.classList.add('active');
+        document.getElementById('tab-' + target).classList.add('active');
+      });
     });
   });
-});
 </script>
-
-
 
 {% schema %}
 {
@@ -525,7 +579,7 @@ document.addEventListener("DOMContentLoaded", function() {
           "id": "pagination",
           "default": false,
           "label": "Show product pagination"
-        },
+        }
       ]
     },
     {

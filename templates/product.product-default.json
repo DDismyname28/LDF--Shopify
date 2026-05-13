@@ -50,7 +50,8 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "show_colorswatch": true
+            "show_colorswatch": true,
+            "swatches_source": "custom-images"
           }
         },
         "4cd2d0c0-c935-4cc8-a56e-fd40a599db48": {
@@ -129,7 +130,9 @@
         },
         "description_WJ7LmT": {
           "type": "description",
-          "settings": {}
+          "settings": {
+            "show_readmore": false
+          }
         },
         "3f2119c3-4c6a-43f7-b988-831ab0996550": {
           "type": "collapsible_tab",
@@ -193,6 +196,28 @@
         "show_image": true,
         "show_sku": false,
         "hide_quick": false,
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "1778601831f72dfdcc": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_RwkN3W": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": true,
+            "empty_state": "other_products_reviews"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_RwkN3W"
+      ],
+      "settings": {
+        "include_margins": true,
         "padding_top": 60,
         "padding_bottom": 0
       }
@@ -362,6 +387,7 @@
   "order": [
     "main",
     "quick_order_list_AmaygD",
+    "1778601831f72dfdcc",
     "collage_rpnw8y",
     "related-products"
   ]
