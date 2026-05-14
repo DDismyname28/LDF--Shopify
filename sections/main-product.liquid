@@ -199,6 +199,13 @@
               >See install photos →</a
             >
           </div>
+          <!-- PRODUCT OVERVIEW (conditional) -->
+          {%- if product.metafields.custom.product_overview != blank -%}
+            <div class="product__overview">
+              <span class="product__overview-heading">Product Overview:</span>
+              <span class="product__overview-content">{{ product.metafields.custom.product_overview }}</span>
+            </div>
+          {%- endif -%}
 
           <!-- 5. WHOLESALE NOTICE -->
           <!-- WHOLESALE NOTICE -->
@@ -497,7 +504,37 @@
       {{ product.metafields.custom.product_overview }}
     </div>
     <div class="product-tabs__panel" id="tab-specs">
-      {{ product.metafields.custom.specs_details }}
+      {%- if product.metafields.custom.specs_details != blank -%}
+        <div class="product-specs-table">
+          <!-- Header -->
+          <div class="spec-row spec-header">
+            <span class="spec-name">Spec</span>
+            <span class="spec-value">Value</span>
+          </div>
+
+          {% assign specs_lines = product.metafields.custom.specs_details
+            | strip_html
+            | newline_to_br
+            | split: '<br />'
+          %}
+
+          {% for line in specs_lines %}
+            {% assign parts = line | split: ':' %}
+
+            {% if parts.size > 1 %}
+              <div class="spec-row">
+                <span class="spec-name">
+                  {{ parts[0] | strip }}
+                </span>
+
+                <span class="spec-value">
+                  {{ parts[1] | strip }}
+                </span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {%- endif -%}
     </div>
     <div class="product-tabs__panel" id="tab-install">
       {{ product.metafields.custom.install_guide }}
