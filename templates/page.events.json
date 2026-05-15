@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner"
+    },
+    "featured_event": {
+      "type": "next-up-event"
+    }
+  },
+  "order": ["hero", "featured_event"]
+}

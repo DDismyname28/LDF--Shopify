@@ -1,0 +1,36 @@
+{% assign events = shop.metaobjects.events_and_trainings.values %}
+
+{% if events != blank %}
+  <section class="next-up-event">
+    {% for event in events %}
+      <div class="event-wrapper">
+        <div class="event-image">
+          {% if event.category.value != blank %}
+            <span class="event-tag">{{ event.category.value }}</span>
+          {% endif %}
+
+          {% if event.featured_image.value != blank %}
+            <img src="{{ event.featured_image.value | image_url: width: 900 }}" alt="{{ event.title.value }}">
+          {% endif %}
+        </div>
+
+        <div class="event-details">
+          <h4 class="next-up">NEXT UP</h4>
+          <h2 class="event-title">{{ event.title.value }}</h2>
+
+          <p class="event-meta">
+            📅 {{ event.event_date.value }} · 📍 {{ event.location.value }} · ⏰ {{ event.time.value }}
+          </p>
+
+          <p class="event-description">
+            {{ event.description.value }}
+          </p>
+
+          {% if event.registration_url.value != blank %}
+            <a href="{{ event.registration_url.value }}" class="register-btn"> REGISTER NOW ➜ </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+{% endif %}
