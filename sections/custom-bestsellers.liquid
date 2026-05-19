@@ -3,6 +3,11 @@
     <div class="custom-bestsellers__header">
       <p>{{ section.settings.eyebrow }}</p>
       <h2>{{ section.settings.heading }}</h2>
+        {% if section.settings.subtext != blank %}
+          <span class="custom-category-grid__subtext">
+            {{ section.settings.subtext }}
+          </span>
+        {% endif %}
     </div>
 
     <div class="custom-bestsellers__grid">
@@ -59,21 +64,27 @@
         {% endfor %}
       {% endif %}
     </div>
+    {% if section.settings.link_text != blank %}
+      <div class="custom-category-grid__link-wrap">
+        <a href="{{ section.settings.link_url }}" class="custom-category-grid__link">
+          {{ section.settings.link_text }} →
+        </a>
+      </div>
+    {% endif %}
   </div>
 </section>
 
 <style>
   .custom-bestsellers {
-    background: #f8f6f2;
-    padding: 8px 10px;
+    background: #fff;
+    padding: 0px 10px;
   }
 
   .custom-bestsellers__inner {
     max-width: 1280px;
     margin: 0 auto;
     background: #fff;
-    border: 1px solid #d7d1c8;
-    border-radius: 4px;
+  
     padding: 30px 38px 54px;
   }
 
@@ -193,6 +204,32 @@
       font-size: 24px;
     }
   }
+
+    .custom-category-grid__subtext {
+    display: block;
+    margin-top: 6px;
+    color: rgba(46, 61, 52, 0.55);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: var(--font-weight-regular);
+  }
+
+  .custom-category-grid__link-wrap {
+    text-align: center;
+    margin-top: 22px;
+  }
+
+  .custom-category-grid__link {
+    color: #c51616;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+  }
+
+  .custom-category-grid__link:hover {
+    text-decoration: underline;
+  }
 </style>
 
 {% schema %}
@@ -210,6 +247,23 @@
       "id": "heading",
       "label": "Heading",
       "default": "Bestsellers"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Browse our full range of categories"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text",
+      "default": "Download Full Catalog"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
     },
     {
       "type": "collection",

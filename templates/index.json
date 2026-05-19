@@ -11,6 +11,9 @@
   "sections": {
     "custom_hero_yDE34b": {
       "type": "custom-hero",
+      "custom_css": [
+        "& {margin: 0px !important;}"
+      ],
       "name": "Custom hero",
       "settings": {
         "eyebrow": "PROFESSIONAL LIGHTING SUPPLY",
@@ -29,14 +32,19 @@
         "feature_MC8Emq": {
           "type": "feature",
           "settings": {
-            "icon": "shopify://shop_images/489999.png",
-            "title": "Trade Pricing",
+            "icon": "shopify://shop_images/percent.svg",
+            "icon_color": "#ffffff",
+            "icon_bg_color": "#a91f23",
+            "title": "Wholesale Pricing",
             "text": "Login for wholesale rates"
           }
         },
         "feature_6fridx": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/layers.svg",
+            "icon_color": "#ffffff",
+            "icon_bg_color": "#a91f23",
             "title": "Bulk Orders Welcome",
             "text": "Volume discounts available"
           }
@@ -44,6 +52,9 @@
         "feature_Qd6z6y": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/headset.svg",
+            "icon_color": "#ffffff",
+            "icon_bg_color": "#a91f23",
             "title": "Expert Support",
             "text": "Decorators helping decorators"
           }
@@ -51,6 +62,9 @@
         "feature_LggXDC": {
           "type": "feature",
           "settings": {
+            "icon": "shopify://shop_images/truck.svg",
+            "icon_color": "#ffffff",
+            "icon_bg_color": "#a91f23",
             "title": "Fast Shipping",
             "text": "Ships within 48hrs"
           }
@@ -102,16 +116,21 @@
       "name": "Custom category grid",
       "settings": {
         "eyebrow": "COLLECTIONS",
-        "heading": "Shop by Category"
+        "heading": "Shop by Category",
+        "link_text": "Download Full Catalog",
+        "link_url": ""
       }
     },
     "custom_bestsellers_xjfVrP": {
       "type": "custom-bestsellers",
       "name": "Custom bestsellers",
       "settings": {
-        "eyebrow": "MOST POPULAR",
-        "heading": "Bestsellers",
-        "collection": "bestsellers",
+        "eyebrow": "",
+        "heading": "Shop the Season",
+        "subtext": "Browse our full range of categories",
+        "link_text": "See all seasonal products",
+        "link_url": "",
+        "collection": "shop-the-season",
         "product_limit": 4
       }
     },
@@ -121,18 +140,50 @@
       "settings": {
         "heading": "Built for professionals like you.",
         "text": "Apply for a trade account to unlock wholesale pricing, bulk ordering, and dedicated support.",
-        "button_text": "CTA HERE",
-        "button_link": ""
+        "button_text": "APPLY FOR WHOLESALE",
+        "button_link": "",
+        "secondary_button_text": "WHOLESALE LOGIN",
+        "secondary_button_link": ""
       }
     },
     "custom_events_jc6tEF": {
       "type": "custom-events",
       "name": "Custom events feature",
       "settings": {
-        "feature_image": "shopify://shop_images/72614L-WW-1.jpg",
-        "heading": "Event or Project Feature",
-        "text": "Short description — link to full post or gallery",
         "blog": "test"
+      }
+    },
+    "custom_team_dT7GTT": {
+      "type": "custom-team",
+      "blocks": {
+        "member_qcCRnj": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/Jimmy_OMNI.png",
+            "name": "Team Member Name",
+            "role": "ROLE / TITLE",
+            "quote": "Short quote from the team member — something real, personal, and on-brand about why they love what they do.",
+            "description": "2–3 sentence bio. What they do at LFD, their background, what makes them great at it. Written in brand voice — warm, real, no corporate fluff.",
+            "link": "shopify://blogs/test"
+          }
+        }
+      },
+      "block_order": [
+        "member_qcCRnj"
+      ],
+      "name": "Meet the team",
+      "settings": {
+        "eyebrow": "THE PEOPLE BEHIND THE PRODUCTS",
+        "button_text": "READ THEIR STORY →",
+        "secondary_button_text": "READ THEIR STORY→",
+        "secondary_button_link": ""
+      }
+    },
+    "custom_quote_UBdFVA": {
+      "type": "custom-quote",
+      "name": "Custom quote banner",
+      "settings": {
+        "text": "Lighting the path to customer success through personalized relationships and innovative products."
       }
     },
     "rich_text_B7E8LA": {
@@ -474,6 +525,7 @@
         "date_zLwgJ9",
         "button_KgYzKd"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
@@ -641,6 +693,7 @@
         "image_ce33fh",
         "image_4pRmay"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "section_color_scheme": "",
@@ -700,6 +753,7 @@
         "template--16209783881785__3f381c47-733a-4027-b7cc-15a524815a39-image-3",
         "template--16209783881785__3f381c47-733a-4027-b7cc-15a524815a39-image-4"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "background-1",
         "title": "",
@@ -723,6 +777,7 @@
     },
     "featured_collection_B9Xn9U": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "full_width": false,
         "color_scheme": "",
@@ -876,6 +931,7 @@
         "banner_with_text_NeVHiq",
         "banner_with_text_pG7Hdr"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "section_color_scheme": "",
@@ -936,6 +992,7 @@
         "text_xneGRw",
         "buttons_rGfDTR"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "color_scheme": "",
@@ -1029,6 +1086,7 @@
         "banner_with_text_Fd4z6G",
         "product_card_i8q9KV"
       ],
+      "disabled": true,
       "settings": {
         "full_width": false,
         "color_scheme": "inverse",
@@ -1112,6 +1170,7 @@
         "quote_JTtUkM",
         "quote_F4xYFD"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "title": "Loved By Customers",
@@ -1208,6 +1267,7 @@
         "logo_image_U9xVRL",
         "logo_image_T9Uc88"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "color_scheme": "",
@@ -1229,6 +1289,7 @@
     },
     "featured_blog_e6jFPX": {
       "type": "featured-blog",
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "heading": "Our Latest News",
@@ -1317,6 +1378,7 @@
         "collapsible_row_txBVJC",
         "collapsible_row_6GXkPB"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "heading": "FAQs",
@@ -1368,6 +1430,7 @@
         "image_UjiA6L",
         "image_hLYH7y"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "heading": "",
@@ -1393,6 +1456,8 @@
     "custom_bestsellers_xjfVrP",
     "custom_cta_Qk9kgc",
     "custom_events_jc6tEF",
+    "custom_team_dT7GTT",
+    "custom_quote_UBdFVA",
     "rich_text_B7E8LA",
     "f4fc861e-a8e9-4733-8984-e73213d48588",
     "7ff50e69-760a-4d45-ae67-4ede3191d751",

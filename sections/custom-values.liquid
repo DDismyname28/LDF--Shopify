@@ -1,0 +1,175 @@
+<section class="values-grid">
+  <div class="values-grid__inner">
+
+    <div class="values-grid__header">
+      <div class="values-grid__eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="values-grid__grid">
+      {% for block in section.blocks %}
+        <div class="values-grid__card" {{ block.shopify_attributes }}>
+          
+          {% if block.settings.icon != blank %}
+            <div class="values-grid__icon">
+              {{ block.settings.icon | image_url: width: 80 | image_tag }}
+            </div>
+          {% endif %}
+
+          <h3>{{ block.settings.title }}</h3>
+
+          <div class="values-grid__text">
+            {{ block.settings.text | newline_to_br }}
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .values-grid {
+    background: #ffffff;
+    padding: 48px 24px 64px;
+  }
+
+  .values-grid__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .values-grid__header {
+    margin-bottom: 28px;
+  }
+
+  .values-grid__eyebrow {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgba(60, 55, 45, 0.55);
+    margin-bottom: 6px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .values-grid h2 {
+    font-family: var(--font-heading);
+    font-size: 34px;
+    line-height: 1.2;
+    color: #2f3b52;
+    margin: 0;
+  }
+
+  .values-grid__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+
+  .values-grid__card {
+    background: #f8f6f2;
+    border: 1px solid rgba(60, 55, 45, 0.12);
+    border-radius: 8px;
+    padding: 22px 22px 26px;
+  }
+
+  .values-grid__icon {
+    margin-bottom: 14px;
+  }
+
+  .values-grid__icon img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .values-grid__card h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    color: #2f3b52;
+    margin: 0 0 8px;
+  }
+
+  .values-grid__text {
+    font-family: var(--font-accent);
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(40, 40, 40, 0.7);
+  }
+
+  @media screen and (max-width: 1000px) {
+    .values-grid__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .values-grid__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+      padding: 36px 18px 48px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Values grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "WHAT WE STAND FOR"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Values"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Value title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Value description goes here."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Values grid",
+      "blocks": [
+        { "type": "value" },
+        { "type": "value" },
+        { "type": "value" },
+        { "type": "value" }
+      ]
+    }
+  ]
+}
+{% endschema %}
