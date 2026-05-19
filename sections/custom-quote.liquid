@@ -1,0 +1,67 @@
+<section class="custom-quote-banner">
+  <div class="custom-quote-banner__inner">
+    <p>{{ section.settings.text }}</p>
+  </div>
+</section>
+
+<style>
+  .custom-quote-banner {
+    background: var(--crimson);
+    padding: 0px 10px;
+  }
+
+  .custom-quote-banner__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    background: var(--crimson);
+
+    padding: 40px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+.custom-quote-banner__inner p {
+  margin: 0;
+  color: #fff;
+
+  font-family: var(--font-body);
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 400;
+  font-style: italic;
+
+  max-width: 600px;
+}
+
+  @media screen and (max-width: 700px) {
+    .custom-quote-banner__inner {
+      padding: 30px 18px;
+    }
+
+    .custom-quote-banner__inner p {
+      font-size: 18px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Custom quote banner",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Quote text",
+      "default": "Professional-grade lighting that helps decorators work smarter, stand out, and make more."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom quote banner"
+    }
+  ]
+}
+{% endschema %}

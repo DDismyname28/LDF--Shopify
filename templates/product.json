@@ -9,10 +9,6 @@
  */
 {
   "sections": {
-    "product_breadcrumb_sku": {
-      "type": "product-breadcrumb-sku",
-      "settings": {}
-    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -54,8 +50,7 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "show_colorswatch": true,
-            "swatches_source": "custom-images"
+            "show_colorswatch": true
           }
         },
         "4cd2d0c0-c935-4cc8-a56e-fd40a599db48": {
@@ -134,9 +129,7 @@
         },
         "description_WJ7LmT": {
           "type": "description",
-          "settings": {
-            "show_readmore": false
-          }
+          "settings": {}
         },
         "3f2119c3-4c6a-43f7-b988-831ab0996550": {
           "type": "collapsible_tab",
@@ -192,36 +185,159 @@
         "padding_bottom": 0
       }
     },
-    "1778609259e1331795": {
-      "type": "apps",
+    "quick_order_list_AmaygD": {
+      "type": "quick-order-list",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_image": true,
+        "show_sku": false,
+        "hide_quick": false,
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "collage_rpnw8y": {
+      "type": "collage",
       "blocks": {
-        "judge_me_reviews_preview_badge_nkhnmd": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        },
-        "judge_me_reviews_review_widget_RLxR69": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "image_WykzWN": {
+          "type": "image",
           "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "image_overlay_opacity": 0,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h2",
+            "text": "",
+            "text_style": "body",
+            "button_label_1": "",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "solid",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "middle-left",
+            "desktop_content_alignment": "left",
+            "color_scheme": "",
+            "image_behavior": "none"
+          }
+        },
+        "image_bNFBHL": {
+          "type": "image",
+          "settings": {
+            "enable_video_looping": false,
+            "auto_play_video": true,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "subheading": "",
+            "heading": "Listening To Music Or Taking Calls",
+            "heading_size": "h2",
+            "text": "<p>Audio devices that can be worn over the ears or inserted into the ear canal.</p>",
+            "text_style": "body",
+            "button_label_1": "",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "link",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "middle-right",
+            "desktop_content_alignment": "left",
+            "color_scheme": "accent-2",
+            "image_behavior": "none"
+          }
+        },
+        "image_mh8UiA": {
+          "type": "image",
+          "settings": {
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "subheading": "",
+            "heading": "The Smart Maxtsa  Mobile Photography",
+            "heading_size": "h2",
+            "text": "<p>Discover the art of iPhone photography with our expert tips and techniques. Capture stunning photos with your device.</p>",
+            "text_style": "body",
+            "button_label_1": "",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "link",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "top-center",
+            "desktop_content_alignment": "left",
+            "color_scheme": "accent-2",
+            "image_behavior": "none"
+          }
+        },
+        "image_enWqPA": {
+          "type": "image",
+          "settings": {
+            "enable_video_looping": false,
+            "auto_play_video": false,
+            "video_url": "",
+            "image_overlay_opacity": 0,
+            "subheading": "",
+            "heading": "Introducing The Ultimate Gaming Remote:",
+            "heading_size": "h2",
+            "text": "<p>Take your gaming experience to the next level with our ultimate gaming remote. Precision control at your fingertips.</p>",
+            "text_style": "body",
+            "button_label_1": "",
+            "button_link_1": "",
+            "link_window": true,
+            "view_all_style": "link",
+            "button_label_11": "",
+            "button_link_11": "",
+            "link_window1": true,
+            "view_all_style1": "link",
+            "show_text_box": false,
+            "container_overlay_opacity": 40,
+            "desktop_content_position": "top-center",
+            "desktop_content_alignment": "left",
+            "color_scheme": "accent-2",
+            "image_behavior": "none"
           }
         }
       },
       "block_order": [
-        "judge_me_reviews_preview_badge_nkhnmd",
-        "judge_me_reviews_review_widget_RLxR69"
+        "image_WykzWN",
+        "image_bNFBHL",
+        "image_mh8UiA",
+        "image_enWqPA"
       ],
       "settings": {
-        "include_margins": true,
-        "padding_top": 0,
-        "padding_bottom": 0
+        "full_width": false,
+        "section_color_scheme": "",
+        "title": "",
+        "heading_size": "h0",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": true,
+        "description": "",
+        "description_style": "body",
+        "image_height": "small",
+        "image_layout": "alternate-left",
+        "gap_between_image": 20,
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "related-products": {
       "type": "related-products",
-      "disabled": true,
       "settings": {
         "color_scheme": "scheme-abe3bc68-5409-41dd-abcf-8f9ac474947a",
         "title": "You May Also Like",
@@ -241,76 +357,12 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
-    },
-    "rich_text_whmEW3": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_cTqMPf": {
-          "type": "heading",
-          "settings": {
-            "heading": "See wholesale pricing on everything.",
-            "heading_size": "h1"
-          }
-        },
-        "text_rVt9bw": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Apply for a free wholesale account and unlock bulk pricing, exclusive rates, and dedicated support.</p>",
-            "text_style": "body",
-            "custom_text": "",
-            "show_icon": "present-icon",
-            "content_icon": "none"
-          }
-        },
-        "button_MwMyNQ": {
-          "type": "button",
-          "settings": {
-            "button_label": "APPLY FOR WHOLESALE",
-            "button_link": "{{ product.url }}",
-            "button_style_secondary": "solid",
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": "solid",
-            "link_window": true
-          }
-        },
-        "button_7RzRX6": {
-          "type": "button",
-          "settings": {
-            "button_label": "WHOLESALE LOGIN",
-            "button_link": "{{ product.url }}",
-            "button_style_secondary": "solid",
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": "link",
-            "link_window": true
-          }
-        }
-      },
-      "block_order": [
-        "heading_cTqMPf",
-        "text_rVt9bw",
-        "button_MwMyNQ",
-        "button_7RzRX6"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "full_width": false,
-        "color_scheme": "",
-        "space_around": 0,
-        "desktop_content_size": "large",
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "padding_top": 24,
-        "padding_bottom": 52
-      }
     }
   },
   "order": [
-    "product_breadcrumb_sku",
     "main",
-    "1778609259e1331795",
-    "related-products",
-    "rich_text_whmEW3"
+    "quick_order_list_AmaygD",
+    "collage_rpnw8y",
+    "related-products"
   ]
 }

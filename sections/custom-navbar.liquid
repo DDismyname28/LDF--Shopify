@@ -8,29 +8,64 @@
       {% endif %}
     </a>
 
-    <nav class="custom-navbar__nav">
-      {% for link in section.settings.menu.links %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      {% endfor %}
-    </nav>
+    <button class="custom-navbar__toggle" type="button" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
     <div class="custom-navbar__actions">
-        <div class="custom-navbar__links">
-            <a href="/collections/all">Shop</a>
-            <a href="/collections">Collections</a>
-            <a href="/pages/events">Events</a>
-            <a href="/pages/about">About</a>
+      <div class="custom-navbar__links">
+        <div class="custom-navbar__shop">
+          <a href="#"><strong>Shop▾</strong></a>
+
+          <div class="custom-navbar__dropdown">
+            
+
+            <div class="custom-navbar__dropdown-links">
+              
+              <a href="/collections/all">All Products</a>
+
+              {% for block in section.blocks %}
+                {% if block.type == 'collection_link' and block.settings.collection != blank %}
+                  <a href="{{ block.settings.collection.url }}">
+                    {{ block.settings.collection.title }}
+                  </a>
+                {% endif %}
+              {% endfor %}
+
+              <a href="{{ section.settings.catalog_link }}" class="custom-navbar__catalog">
+                {{ section.settings.catalog_text }}
+              </a>
+            </div>
+          </div>
         </div>
+        <a href="/pages/events">Events</a>
+        <a href="/pages/about">About</a>
+        <a href="/pages/create-an-account">Create an Account</a>
+        <div class="custom-navbar__support">
+          <a href="#"><strong>Support▾</strong></a>
 
-        <a href="{{ routes.account_login_url }}" class="custom-navbar__login">
-            {{ section.settings.login_text }}
-        </a>
+          <div class="custom-navbar__dropdown">
+            <div class="custom-navbar__dropdown-links">
+              <a href="/pages/contact">Contact Us</a>
+              <a href="/pages/resources">Resources</a>
+              <a href="/pages/blogs">Blogs</a>
+              <a href="/pages/faqs">FAQs</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <a href="{{ routes.search_url }}" class="custom-navbar__link">Search</a>
+      <a href="{{ routes.account_login_url }}" class="custom-navbar__login">
+        {{ section.settings.login_text }}
+      </a>
 
-        <a href="{{ routes.cart_url }}" class="custom-navbar__link">
-            Cart ({{ cart.item_count }})
-        </a>
+      <a href="{{ routes.search_url }}" class="custom-navbar__link">Search</a>
+
+      <a href="{{ routes.cart_url }}" class="custom-navbar__link">
+        Cart ({{ cart.item_count }})
+      </a>
     </div>
   </div>
 </header>
@@ -38,29 +73,35 @@
 <style>
   .custom-navbar {
     width: 100%;
-    background: #f8f6f2;
-    padding: 10px 12px;
-    position: sticky;
+    background: #ffffff;
+    padding: 0px 12px;
+    z-index: 9999;
+  }
+
+  .custom-navbar.is-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
   }
 
   .custom-navbar__inner {
     display: flex;
     align-items: center;
     min-height: 64px;
-    border: 1px solid #dedbd6;
-    border-radius: 4px;
+
     padding: 0 28px;
-    background: #f8f6f2;
+    background: #ffffff;
     max-width: 1280px;
     margin: 0 auto;
     gap: 32px;
+    position: relative;
   }
 
   .custom-navbar__logo {
-    width: 100px;
-    height: 36px;
-    background: #fff;
-    border-radius: 4px;
+    width: 130px;
+    height: 46px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,10 +117,6 @@
     object-fit: contain;
   }
 
-  .custom-navbar__nav {
-    display: none;
-  }
-
   .custom-navbar__actions {
     display: flex;
     align-items: center;
@@ -91,13 +128,13 @@
   .custom-navbar__links {
     display: flex;
     align-items: center;
-    gap: 88px;
+    gap: 60px;
     margin-right: 36px;
   }
 
   .custom-navbar__links a,
   .custom-navbar__link {
-    color: #1d1d1d;
+    color: var(--navy);
     font-family: var(--font-body);
     font-weight: var(--font-weight-regular);
     font-size: 14px;
@@ -117,59 +154,261 @@
     font-family: var(--font-body);
     font-weight: var(--font-weight-bold);
     font-size: 14px;
-    text-decoration: none;
+    text-decoration: none !important;
     white-space: nowrap;
   }
+.custom-navbar__login:hover {
+  color: #E8F9FF !important;
+}
 
-  @media screen and (max-width: 1100px) {
-    .custom-navbar__links {
-      gap: 40px;
-      margin-right: 16px;
-    }
-
-    .custom-navbar__actions {
-      gap: 18px;
-    }
-
-    .custom-navbar__login {
-      min-width: 130px;
-    }
+  .custom-navbar__toggle {
+    display: none;
+    width: 38px;
+    height: 34px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin-left: auto;
+    cursor: pointer;
   }
+
+  .custom-navbar__toggle span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: #1d1d1d;
+    margin: 6px auto;
+    transition: 0.2s ease;
+  }
+
+
+  .custom-navbar__shop {
+  position: static;
+}
+
+.custom-navbar__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #f8f6f2;
+      border: 1px solid #dedbd6;
+    border-radius: 4px;
+
+  padding: 8px 28px 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: 0.18s ease;
+  z-index: 9998;
+}
+
+.custom-navbar__shop:hover .custom-navbar__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.custom-navbar__dropdown span {
+  display: block;
+  color: #9b9186;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+
+.custom-navbar__dropdown-links {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  gap: 36px;
+}
+
+.custom-navbar__dropdown-links a {
+  color: #1d2b4f;
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.custom-navbar__dropdown-links .custom-navbar__catalog {
+  color: #b21f24;
+  font-weight: 700;
+  border-bottom: 1px solid #b21f24;
+  padding-bottom: 4px;
+}
+
+.custom-navbar__support {
+  position: static;
+}
+
+.custom-navbar__support:hover .custom-navbar__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 900px) {
+  .custom-navbar__support .custom-navbar__dropdown {
+    position: static;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    border: 0;
+    padding: 8px 0 0;
+    display: none;
+  }
+
+  .custom-navbar__support:hover .custom-navbar__dropdown {
+    display: block;
+  }
+
+  .custom-navbar__support .custom-navbar__dropdown-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .custom-navbar__support .custom-navbar__dropdown-links a {
+    padding-left: 16px;
+  }
+}
 
   @media screen and (max-width: 900px) {
     .custom-navbar__inner {
-      padding: 16px;
+      min-height: 64px;
+      padding: 0 16px;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 18px;
+      gap: 0;
     }
 
-    .custom-navbar__logo {
-      margin-right: auto;
+    .custom-navbar__toggle {
+      display: block;
     }
 
     .custom-navbar__actions {
+      display: none;
       width: 100%;
       margin-left: 0;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 16px;
+      padding: 18px 0 20px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+    }
+
+    .custom-navbar.is-open .custom-navbar__actions {
+      display: flex;
     }
 
     .custom-navbar__links {
       width: 100%;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 24px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
       margin-right: 0;
-      order: -1;
+    }
+
+    .custom-navbar__links a,
+    .custom-navbar__link {
+      display: block;
+      padding: 12px 0;
+      font-size: 15px;
+      border-top: 1px solid #dedbd6;
     }
 
     .custom-navbar__login {
-      min-width: 120px;
+      width: 100%;
+      min-width: 0;
+      height: 42px;
+      margin-top: 8px;
+    }
+
+    .custom-navbar.is-open .custom-navbar__toggle span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .custom-navbar.is-open .custom-navbar__toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .custom-navbar.is-open .custom-navbar__toggle span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    .custom-navbar__dropdown {
+      position: static;
+      width: 100%;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      border: 0;
+      padding: 8px 0 0;
+      display: none;
+    }
+
+    .custom-navbar__shop:hover .custom-navbar__dropdown {
+      display: block;
+    }
+
+    .custom-navbar__dropdown-links {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
     }
   }
+
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.querySelector('.custom-navbar');
+    const toggle = document.querySelector('.custom-navbar__toggle');
+
+    if (!navbar) return;
+
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        navbar.classList.toggle('is-open');
+      });
+    }
+
+    const placeholder = document.createElement('div');
+    placeholder.className = 'custom-navbar-placeholder';
+    placeholder.style.display = 'none';
+
+    navbar.parentNode.insertBefore(placeholder, navbar);
+
+    let navbarOffset = navbar.offsetTop;
+
+    function updateNavbar() {
+      const navbarHeight = navbar.offsetHeight;
+
+      if (window.scrollY >= navbarOffset) {
+        placeholder.style.display = 'block';
+        placeholder.style.height = navbarHeight + 'px';
+        navbar.classList.add('is-sticky');
+      } else {
+        placeholder.style.display = 'none';
+        placeholder.style.height = '0px';
+        navbar.classList.remove('is-sticky');
+      }
+    }
+
+    window.addEventListener('scroll', updateNavbar);
+
+    window.addEventListener('resize', function () {
+      navbar.classList.remove('is-sticky');
+      placeholder.style.display = 'none';
+      navbarOffset = navbar.offsetTop;
+      updateNavbar();
+    });
+
+    updateNavbar();
+  });
+</script>
+
 
 {% schema %}
 {
@@ -191,11 +430,41 @@
       "id": "login_text",
       "label": "Login button text",
       "default": "LOGIN"
+    },
+    {
+      "type": "url",
+      "id": "catalog_link",
+      "label": "Catalog link"
+    },
+    {
+      "type": "text",
+      "id": "catalog_text",
+      "label": "Catalog text",
+      "default": "Download Catalog →"
     }
   ],
+  "blocks": [
+    {
+      "type": "collection_link",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
   "presets": [
     {
-      "name": "Custom navbar"
+      "name": "Custom navbar",
+      "blocks": [
+        { "type": "collection_link" },
+        { "type": "collection_link" },
+        { "type": "collection_link" }
+      ]
     }
   ]
 }

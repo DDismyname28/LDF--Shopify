@@ -1,0 +1,267 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "h0",
+        "head_align": "left",
+        "heading_color_scheme": "",
+        "head_space": false,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "custom_our_story_6CmFiD": {
+      "type": "custom-our-story",
+      "name": "Our story banner",
+      "settings": {
+        "eyebrow": "OUR STORY",
+        "heading": "We're not just in the\nlighting business.",
+        "body": "We're in the business of building successful contractors,\ndecorators, and installers. Founded in Raleigh, NC in 2018.",
+        "note": "We only win when our customers win.",
+        "image": "shopify://shop_images/Wedding_and_Event_Lighting.jpg",
+        "placeholder_text": "Team / Warehouse Photography"
+      }
+    },
+    "custom_missions_TBELL3": {
+      "type": "custom-missions",
+      "name": "Mission columns",
+      "settings": {
+        "eyebrow": "OUR MISSION",
+        "quote": "Lighting the path to customer success through personalized relationships and innovative products.",
+        "col_1_heading": "WHAT WE DO",
+        "col_1_text": "Wholesale distributor of Christmas,\nlandscape, and permanent lighting.\nFree trainings, design help, and fast\nwarranty support.",
+        "col_1_meta": "13,000+ SKUs · 3 Distribution Centers",
+        "col_2_heading": "WHY WE DO IT",
+        "col_2_text": "We're not just selling lights — we're\nhelping people build income streams\nand real businesses. Every product,\ntraining, and support call is built\naround that belief.",
+        "col_3_heading": "WHO WE SERVE",
+        "col_3_text": "Decorators, designers, installers,\nholiday and landscape professionals,\nmunicipalities, and commercial\nvenues. Contractor-first —\nno retail competition."
+      }
+    },
+    "custom_values_DierJ3": {
+      "type": "custom-values",
+      "blocks": {
+        "value_XDjVWe": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/handshake_2.png",
+            "title": "Partnership First",
+            "text": "We don’t just ship products — we equip contractors with tools, training, and confidence to grow their businesses."
+          }
+        },
+        "value_WdMbiq": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/zap.png",
+            "title": "Innovation",
+            "text": "From Omni RGB to new product lines, we’re always looking for what’s next — and bringing it to our customers first"
+          }
+        },
+        "value_HhyENt": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/message-circle-check.png",
+            "title": "Reliability",
+            "text": "Fast shipping, clear warranty support, and real people on the phone. We show up every time."
+          }
+        },
+        "value_VDU8PE": {
+          "type": "value",
+          "settings": {
+            "icon": "shopify://shop_images/smile.png",
+            "title": "Customer Success",
+            "text": "We only win when our customers win. That’s not a tagline — it’s how every decision gets made."
+          }
+        }
+      },
+      "block_order": [
+        "value_XDjVWe",
+        "value_WdMbiq",
+        "value_HhyENt",
+        "value_VDU8PE"
+      ],
+      "name": "Values grid",
+      "settings": {
+        "eyebrow": "WHAT WE STAND FOR",
+        "heading": "Our Values"
+      }
+    },
+    "custom_timeline_G7TPJb": {
+      "type": "custom-timeline",
+      "blocks": {
+        "event_C3d9Ap": {
+          "type": "event",
+          "settings": {
+            "year": "2002",
+            "text": "Jimmy Tompkins began working in the holiday lighting industry — gaining hands-on experience that shaped the vision of becoming a trusted partner, not just a supplier.ned here."
+          }
+        },
+        "event_eqWg3n": {
+          "type": "event",
+          "settings": {
+            "year": "2018",
+            "text": "Lights for Decorators founded in Raleigh, NC — a reliable wholesale source with the knowledge, training, and support big-box stores never could offer."
+          }
+        },
+        "event_Xq47TB": {
+          "type": "event",
+          "settings": {
+            "year": "2022",
+            "text": "First satellite distribution center opened in Sarasota, FL — faster delivery and hands-on training resources beyond the local footprint."
+          }
+        },
+        "event_fEYNB6": {
+          "type": "event",
+          "settings": {
+            "year": "2024",
+            "text": "Omni RGB launched — landscape, strip, and bistro series with 16M colors and individual light control. One of the most talked-about permanent lighting products in the US."
+          }
+        },
+        "event_X8cCNP": {
+          "type": "event",
+          "settings": {
+            "year": "2025",
+            "text": "First West Coast DC opening in Phoenix, AZ. Lights Prime and Get Lit Decor launched. A national brand with a local touch."
+          }
+        },
+        "event_WRgdrL": {
+          "type": "event",
+          "settings": {
+            "year": "Today",
+            "text": "Three DCs, 13,000 SKUs, expanding e-commerce presence, and industry-leading trainings — still driven by one belief: we only win when our customers win."
+          }
+        }
+      },
+      "block_order": [
+        "event_C3d9Ap",
+        "event_eqWg3n",
+        "event_Xq47TB",
+        "event_fEYNB6",
+        "event_X8cCNP",
+        "event_WRgdrL"
+      ],
+      "name": "Timeline story",
+      "settings": {
+        "eyebrow": "HOW WE GOT HERE",
+        "heading": "Our Story"
+      }
+    },
+    "custom_team_section_fqQffV": {
+      "type": "custom-team-section",
+      "blocks": {
+        "member_N8VTWV": {
+          "type": "member",
+          "settings": {
+            "image": "shopify://shop_images/White_Gold_Playful_2505-0091-1_mk2505-0091_l.jpg",
+            "name": "Team Member",
+            "role": "Role / Title",
+            "text": "One sentence about what they do."
+          }
+        },
+        "member_KfLRTy": {
+          "type": "member",
+          "settings": {
+            "name": "Team Member",
+            "role": "Role / Title",
+            "text": "One sentence about what they do."
+          }
+        },
+        "member_xJDjCH": {
+          "type": "member",
+          "settings": {
+            "name": "Team Member",
+            "role": "Role / Title",
+            "text": "One sentence about what they do."
+          }
+        },
+        "member_nEKcJh": {
+          "type": "member",
+          "settings": {
+            "name": "Team Member",
+            "role": "Role / Title",
+            "text": "One sentence about what they do."
+          }
+        }
+      },
+      "block_order": [
+        "member_N8VTWV",
+        "member_KfLRTy",
+        "member_xJDjCH",
+        "member_nEKcJh"
+      ],
+      "name": "Team section",
+      "settings": {
+        "eyebrow": "THE PEOPLE BEHIND THE PRODUCTS",
+        "heading": "Meet the Team",
+        "featured_image": "shopify://shop_images/Jimmy_OMNI.png",
+        "featured_role": "FOUNDER + OWNER",
+        "featured_name": "Jimmy Tompkins",
+        "featured_quote": "\"We only win when our customers win.\nThat’s not a tagline — it’s how every decision at LFD gets made.”",
+        "featured_bio": "Started in the industry in 2002, founded LFD in 2018. Built this company on a simple belief: contractors deserve a wholesale partner who helps them grow, not just ships boxes.",
+        "team_label": "THE FULL TEAM",
+        "footer_note": ""
+      }
+    },
+    "custom_distribution_EYHYPn": {
+      "type": "custom-distribution",
+      "blocks": {
+        "center_xBHQaF": {
+          "type": "center",
+          "settings": {
+            "city": "Raleigh, NC",
+            "subtitle": "Headquarters + Distribution",
+            "region": "EAST COAST",
+            "established": "Est. 2018"
+          }
+        },
+        "center_qBq79D": {
+          "type": "center",
+          "settings": {
+            "city": "Sarasota, FL",
+            "subtitle": "Satellite Distribution Center",
+            "region": "SOUTHEAST",
+            "established": "Est. 2022"
+          }
+        },
+        "center_rt8EKW": {
+          "type": "center",
+          "settings": {
+            "city": "Phoenix, AZ",
+            "subtitle": "West Coast Distribution Center",
+            "region": "WEST COAST",
+            "established": "Est. 2025"
+          }
+        }
+      },
+      "block_order": [
+        "center_xBHQaF",
+        "center_qBq79D",
+        "center_rt8EKW"
+      ],
+      "name": "Distribution centers",
+      "settings": {
+        "eyebrow": "WHERE WE ARE",
+        "heading": "3 Distribution Centers"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_our_story_6CmFiD",
+    "custom_missions_TBELL3",
+    "custom_values_DierJ3",
+    "custom_timeline_G7TPJb",
+    "custom_team_section_fqQffV",
+    "custom_distribution_EYHYPn"
+  ]
+}
