@@ -569,40 +569,32 @@
 {% endcomment %}
 
 {% assign events = shop.metaobjects.events_and_trainings.values %}
-{% assign today = 'now' | date: '%Y-%m-%d' %}
+{% assign today_timestamp = 'now' | date: '%s' %}
 
-{% assign month_names = 'January,February,March,April,May,June,July,August,September,October,November,December'
-  | split: ','
-%}
+{% assign month_names = 'January,February,March,April,May,June,July,August,September,October,November,December' | split: ',' %}
 
 {% if events != blank %}
-  <section class="events-tab events-section">
+
+<section class="events-tab events-section">
+
   <!-- MAIN TABS -->
   <div class="event-tabs">
-    <button
-      class="event-tab-btn active"
-      data-tab="upcoming"
-    >
+    <button class="event-tab-btn active" data-tab="upcoming">
       Upcoming Events
     </button>
 
-    <button
-      class="event-tab-btn"
-      data-tab="past"
-    >
+    <button class="event-tab-btn" data-tab="past">
       Past Events
     </button>
   </div>
 
   <!-- FILTERS -->
   <div class="event-filters">
-    <!-- CATEGORY FILTER -->
+
     <p class="filter-label">Filter by Type</p>
     <div class="filter-group">
-      <button
-        class="filter-btn active"
-        data-category="all"
-      >
+
+      <button class="filter-btn active" data-category="all">
         All Categories
       </button>
 
@@ -622,20 +614,18 @@
           </button>
         {% endunless %}
       {% endfor %}
+
     </div>
 
-    <!-- MONTH FILTER -->
     <p class="filter-label">Filter by Month</p>
     <div class="filter-group">
-      
-      <button
-        class="month-btn active"
-        data-month="all"
-      >
+
+      <button class="month-btn active" data-month="all">
         All Months
       </button>
 
       {% for month_name in month_names %}
+
         {% assign month_exists = false %}
 
         {% for event in events %}
@@ -654,26 +644,41 @@
             {{ month_name }}
           </button>
         {% endif %}
+
       {% endfor %}
+
     </div>
+
+  </div>
+
+  <!-- COUNTER -->
+  <div class="events-count-wrapper">
+    <span class="events-count-text">
+      Showing
+      <span id="events-count">0</span>
+      <span id="events-status-label">upcoming</span>
+      events in
+      <span id="events-year">{{ 'now' | date: '%Y' }}</span>
+    </span>
   </div>
 
   <!-- EMPTY STATE -->
-  <div
-    class="no-events-message"
-    style="display:none;"
-  >
+  <div class="no-events-message" style="display:none;">
     No events found for this filter.
   </div>
 
-  <!-- EVENTS -->
-  <section class="next-up-event">
+  <!-- EVENTS LIST -->
+  <section class="event-lists-section">
+
     {% for event in events %}
+
       {% assign category = event.category.value | handleize %}
       {% assign month = event.event_date.value | date: '%B' | downcase %}
-      {% assign event_date = event.event_date.value | date: '%Y-%m-%d' %}
+      {% assign event_date_raw = event.event_date.value %}
 
-      {% if event_date >= today %}
+      {% assign event_timestamp = event_date_raw | date: '%s' %}
+
+      {% if event_date_raw != blank and event_timestamp >= today_timestamp %}
         {% assign event_status = 'upcoming' %}
       {% else %}
         {% assign event_status = 'past' %}
@@ -685,58 +690,78 @@
         data-month="{{ month }}"
         data-status="{{ event_status }}"
       >
-        <div class="event-image">
-          {% if event.category.value != blank %}
-            <span class="event-tag">
-              {{ event.category.value }}
-            </span>
-          {% endif %}
 
-          {% if event.featured_image.value != blank %}
-            <img
-              src="{{ event.featured_image.value | image_url: width: 900 }}"
-              alt="{{ event.title.value | escape }}"
-            >
-          {% endif %}
+        <!-- DATE BOX -->
+        <div class="event-date-box">
+          <span class="event-month">
+            {{ event.event_date.value | date: '%b' }}
+          </span>
+
+          <span class="event-day">
+            {{ event.event_date.value | date: '%d' }}
+          </span>
         </div>
 
-        <div class="event-details">
-          <h4 class="next-up">
-            {% if event_status == 'upcoming' %}
-              NEXT UP
-            {% else %}
-              PAST EVENT
-            {% endif %}
-          </h4>
+        <!-- CONTENT -->
+        <div class="event-content">
 
-          <h2 class="event-title">
-            {{ event.title.value }}
-          </h2>
+          {% if event.category.value != blank %}
 
-          <p class="event-meta">
-            📅 {{ event.event_date.value | date: '%B %d, %Y' }}  📍 {{ event.location.value }}  ⏰
-            {{ event.time.value }}
+            {% assign category_handle = event.category.value | handleize %}
+
+            <p class="event-category
+              {% case category_handle %}
+                {% when 'training' %}category-training
+                {% when 'trade-show' %}category-trade-show
+                {% when 'workshop' %}category-workshop
+                {% when 'seasonal-market' %}category-seasonal
+                {% when 'industry' %}category-seasonal
+              {% endcase %}
+            ">
+              {{ event.category.value }}
+            </p>
+
+          {% endif %}
+
+          <p class="event-location-time">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"/>
+              <circle cx="12" cy="8" r="2"/>
+              <path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"/>
+            </svg>
+
+            {{ event.location.value }}
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="13" r="8"/>
+              <path d="M12 9v4l2 2"/>
+            </svg>
+
+            {{ event.event_date.value | date: '%I:%M %p' }}
           </p>
 
           <p class="event-description">
             {{ event.description.value }}
           </p>
 
-          {% if event.registration_url.value != blank and event_status == 'upcoming' %}
-            <a
-              href="{{ event.registration_url.value }}"
-              class="register-btn"
-            >
-              REGISTER NOW ➜
+          {% if event.registration_url.value != blank %}
+            <a href="{{ event.registration_url.value }}" class="event-register-link">
+              RSVP / Register
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8L22 12L18 16"/>
+                <path d="M2 12H22"/>
+              </svg>
             </a>
           {% endif %}
+
         </div>
       </div>
-    {% endfor %}
-  </section>
-</section >
 
-</section >
+    {% endfor %}
+
+  </section>
+</section>
+
 {% endif %}
 
 <style>
@@ -913,9 +938,18 @@
     margin-left: 8px;
     align-items: center;
   }
+  /* Events Counts Wrapper*/
+  .events-count-wrapper {
+    color: #978c7b;
+    padding: 0 40px;
+  }
+  #events-count,
+  #events-status-label {
+    color: #000;
+    font-weight: 700;
+  }
 
   /* Tabs Event Section */
-
   .events-tab {
     border: 1px solid #c8c2b8;
     border-radius: 3px;
@@ -963,93 +997,171 @@
     background: #a91f23;
     color: #ffffff;
   }
+
+  /* Event Lists Section*/
+  .event-lists-section {
+    padding: 40px;
+  }
+  .event-lists-section .event-wrapper {
+    display: flex;
+    padding: 0;
+    background: #F0ECE4;
+    border: 1px solid #c8c2b8;
+    border-radius: 3px;
+  }
+  .event-date-box {
+    padding: 20px;
+    text-align: center;
+  }
+  .event-month {
+    display: block;
+    font-size: 12px;
+    background: red;
+    padding: 20px;
+    padding-bottom: 0;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    text-transform: uppercase;
+  }
+  .event-day {
+    display: block;
+    background: red;
+    padding: 20px;
+    padding-top: 0;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    font-size: 28px;
+    font-weight: 900;
+    margin-top: -12px;
+  }
+  .event-location-time {
+    font-size: 16px;
+    color: #978c7b;
+    display: flex;
+    align-items: center;
+  }
+  .event-location-time svg {
+    margin: 0 6px;
+    width: 16px;
+  }
+  .event-content {
+    padding: 20px;
+    padding-left: 0;
+  }
+  .event-content a {
+    color: #a91f23;
+    font-weight: 700;
+  }
+  .event-category {
+    padding: 5px 8px;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-radius: 3px;
+    display: inline-block;
+    color: #ffffff;
+  }
+  .event-category.category-training {
+    background-color: #a91f23;
+  }
+  .event-category.category-trade-show {
+    background-color: #384863;
+  }
+  .event-category.category-workshop {
+    background-color: #2e3d34;
+  }
+  .event-category.category-seasonal {
+    background-color: #978c7b;
+  }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    let activeCategory = 'all';
-    let activeMonth = 'all';
-    let activeStatus = 'upcoming';
+document.addEventListener('DOMContentLoaded', function () {
 
-    const eventCards = document.querySelectorAll('.event-wrapper');
+  let activeCategory = 'all';
+  let activeMonth = 'all';
+  let activeStatus = 'upcoming';
 
-    const categoryButtons = document.querySelectorAll('.filter-btn');
-    const monthButtons = document.querySelectorAll('.month-btn');
-    const tabButtons = document.querySelectorAll('.event-tab-btn');
+  const eventCards = document.querySelectorAll('.event-wrapper');
 
-    const noEventsMessage = document.querySelector('.no-events-message');
+  const categoryButtons = document.querySelectorAll('.filter-btn');
+  const monthButtons = document.querySelectorAll('.month-btn');
+  const tabButtons = document.querySelectorAll('.event-tab-btn');
 
-    function filterEvents() {
-      let visibleCount = 0;
+  const noEventsMessage = document.querySelector('.no-events-message');
 
-      eventCards.forEach((card) => {
-        const cardCategory = card.dataset.category;
-        const cardMonth = card.dataset.month;
-        const cardStatus = card.dataset.status;
+  const eventsCount = document.getElementById('events-count');
+  const eventsStatusLabel = document.getElementById('events-status-label');
 
-        const categoryMatch = activeCategory === 'all' || cardCategory === activeCategory;
+  function filterEvents() {
 
-        const monthMatch = activeMonth === 'all' || cardMonth === activeMonth;
+    let visibleCount = 0;
 
-        const statusMatch = cardStatus === activeStatus;
+    eventCards.forEach(card => {
 
-        if (categoryMatch && monthMatch && statusMatch) {
-          card.style.display = 'block';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      const cardCategory = (card.dataset.category || '').toLowerCase();
+      const cardMonth = (card.dataset.month || '').toLowerCase();
+      const cardStatus = (card.dataset.status || '').toLowerCase();
 
-      if (visibleCount === 0) {
-        if (activeStatus === 'upcoming') {
-          noEventsMessage.innerHTML = 'There are currently no upcoming events.';
-        } else {
-          noEventsMessage.innerHTML = 'There are currently no past events.';
-        }
+      const categoryMatch =
+        activeCategory === 'all' ||
+        cardCategory === activeCategory;
 
-        noEventsMessage.style.display = 'block';
+      const monthMatch =
+        activeMonth === 'all' ||
+        cardMonth === activeMonth;
+
+      const statusMatch =
+        cardStatus === activeStatus;
+
+      if (categoryMatch && monthMatch && statusMatch) {
+        card.style.display = '';
+        visibleCount++;
       } else {
-        noEventsMessage.style.display = 'none';
+        card.style.display = 'none';
       }
+    });
+
+    if (eventsCount) {
+      eventsCount.textContent = visibleCount;
     }
 
-    categoryButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        categoryButtons.forEach((btn) => btn.classList.remove('active'));
+    if (eventsStatusLabel) {
+      eventsStatusLabel.textContent = activeStatus;
+    }
 
-        this.classList.add('active');
+    if (noEventsMessage) {
+      noEventsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
 
-        activeCategory = this.dataset.category;
-
-        filterEvents();
-      });
+  categoryButtons.forEach(btn => {
+    btn.addEventListener('click', function () {
+      categoryButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      activeCategory = this.dataset.category;
+      filterEvents();
     });
-
-    monthButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        monthButtons.forEach((btn) => btn.classList.remove('active'));
-
-        this.classList.add('active');
-
-        activeMonth = this.dataset.month;
-
-        filterEvents();
-      });
-    });
-
-    tabButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        tabButtons.forEach((btn) => btn.classList.remove('active'));
-
-        this.classList.add('active');
-
-        activeStatus = this.dataset.tab;
-
-        filterEvents();
-      });
-    });
-
-    filterEvents();
   });
+
+  monthButtons.forEach(btn => {
+    btn.addEventListener('click', function () {
+      monthButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      activeMonth = this.dataset.month;
+      filterEvents();
+    });
+  });
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', function () {
+      tabButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      activeStatus = this.dataset.tab;
+      filterEvents();
+    });
+  });
+
+  filterEvents();
+
+});
 </script>
