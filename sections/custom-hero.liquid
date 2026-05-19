@@ -32,8 +32,8 @@
 
 <style>
   .custom-hero {
-    background: #f8f6f2; 
-    padding: 8px 0;
+    background: var(--crimson); 
+    padding: 0px 0;
   }
 
   .custom-hero__content {
@@ -42,7 +42,7 @@
     font-family: var(--font-body);
     background: var(--crimson);
     border-radius: 4px;
-    padding: 34px 45px;
+    padding: 34px ;
 
     display: grid;
     grid-template-columns: 1fr 1.1fr;
@@ -102,13 +102,23 @@
   .custom-hero__btn--primary {
     background: var(--cream);
     color: var(--crimson);
+        text-decoration: none !important;
   }
+
+  .custom-hero__btn--primary:hover {
+  color: var(--forest) !important;
+}
 
   .custom-hero__btn--secondary {
     background: transparent;
-    color: #fff;
+    color: var(--cream);
     border: 2px solid var(--cream);
+    text-decoration: none !important;
   }
+
+    .custom-hero__btn--secondary:hover {
+  color: #E8F9FF !important;
+}
 
   .custom-hero__media {
     min-height: 298px;

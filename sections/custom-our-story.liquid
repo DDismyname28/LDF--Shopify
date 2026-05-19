@@ -1,0 +1,184 @@
+<section class="our-story-banner">
+  <div class="our-story-banner__inner">
+    <div class="our-story-banner__text">
+      {% if section.settings.eyebrow != blank %}
+        <div class="our-story-banner__eyebrow">
+          {{ section.settings.eyebrow }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2>{{ section.settings.heading | newline_to_br }}</h2>
+      {% endif %}
+
+      {% if section.settings.body != blank %}
+        <div class="our-story-banner__body">
+          {{ section.settings.body | newline_to_br }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.note != blank %}
+        <div class="our-story-banner__note">
+          {{ section.settings.note }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="our-story-banner__media">
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 1400 | image_tag: class: 'our-story-banner__image', loading: 'lazy' }}
+      {% else %}
+        <span>{{ section.settings.placeholder_text }}</span>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .our-story-banner {
+    background: var(--crimson);
+    padding: 0;
+  }
+
+  .our-story-banner__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    background: var(--crimson);
+    border-radius: 4px;
+    padding: 34px 38px;
+    font-family: var(--font-body);
+
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    align-items: center;
+    gap: 78px;
+  }
+
+  .our-story-banner__eyebrow {
+    color: rgba(255,255,255,0.52);
+    font-size: 11px;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .our-story-banner h2 {
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-bold);
+    font-size: 34px;
+    line-height: 1.22;
+    margin: 0 0 20px;
+    max-width: 420px;
+  }
+
+  .our-story-banner__body {
+    color: rgba(255,255,255,0.72);
+    font-size: 15px;
+    line-height: 1.45;
+    max-width: 455px;
+    margin-bottom: 20px;
+  }
+
+  .our-story-banner__note {
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  .our-story-banner__media {
+    min-height: 194px;
+    background: rgba(80, 0, 0, 0.25);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.32);
+    font-size: 14px;
+    overflow: hidden;
+  }
+
+  .our-story-banner__image {
+    width: 100%;
+    height: 100%;
+    min-height: 194px;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media screen and (max-width: 900px) {
+    .our-story-banner {
+      padding: 24px 18px;
+    }
+
+    .our-story-banner__inner {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 32px 24px;
+    }
+
+    .our-story-banner h2 {
+      font-size: 30px;
+      max-width: 100%;
+    }
+
+    .our-story-banner__body {
+      max-width: 100%;
+    }
+
+    .our-story-banner__media,
+    .our-story-banner__image {
+      min-height: 220px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Our story banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "OUR STORY"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "We're not just in the\nlighting business."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body text",
+      "default": "We're in the business of building successful contractors,\ndecorators, and installers. Founded in Raleigh, NC in 2018."
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Italic note",
+      "default": "We only win when our customers win."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Team / warehouse image"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_text",
+      "label": "Placeholder text",
+      "default": "Team / Warehouse Photography"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our story banner"
+    }
+  ]
+}
+{% endschema %}

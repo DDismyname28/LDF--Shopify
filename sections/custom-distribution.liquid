@@ -1,0 +1,205 @@
+<section class="distribution-centers">
+  <div class="distribution-centers__inner">
+
+    <div class="distribution-centers__header">
+      <div class="distribution-centers__eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="distribution-centers__grid">
+      {% for block in section.blocks %}
+        <div class="distribution-centers__card" {{ block.shopify_attributes }}>
+          <div class="distribution-centers__pin">📍</div>
+
+          <h3>{{ block.settings.city }}</h3>
+
+          <div class="distribution-centers__subtitle">
+            {{ block.settings.subtitle }}
+          </div>
+
+          <div class="distribution-centers__region">
+            {{ block.settings.region }}
+          </div>
+
+          <div class="distribution-centers__est">
+            {{ block.settings.established }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .distribution-centers {
+    background: #fff;
+    padding: 42px 24px 36px;
+  }
+
+  .distribution-centers__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .distribution-centers__eyebrow {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgba(60,50,40,0.6);
+    margin-bottom: 6px;
+  }
+
+  .distribution-centers h2 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 0 0 24px;
+  }
+
+  .distribution-centers__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+
+  .distribution-centers__card {
+    background: #f7f5f2;
+    border: 1px solid rgba(60,50,40,0.14);
+    border-radius: 4px;
+    min-height: 154px;
+    padding: 20px 24px 18px;
+    text-align: center;
+  }
+
+  .distribution-centers__pin {
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .distribution-centers__card h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 0 0 8px;
+  }
+
+  .distribution-centers__subtitle {
+    font-family: var(--font-accent);
+    font-size: 13px;
+    color: rgba(60,50,40,0.55);
+    margin-bottom: 14px;
+  }
+
+  .distribution-centers__region {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    color: var(--crimson);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .distribution-centers__est {
+    font-family: var(--font-accent);
+    font-size: 12px;
+    color: rgba(60,50,40,0.55);
+  }
+
+  @media screen and (max-width: 900px) {
+    .distribution-centers__grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Distribution centers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "WHERE WE ARE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "3 Distribution Centers"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "center",
+      "name": "Distribution center",
+      "settings": [
+        {
+          "type": "text",
+          "id": "city",
+          "label": "City",
+          "default": "Raleigh, NC"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Headquarters + Distribution"
+        },
+        {
+          "type": "text",
+          "id": "region",
+          "label": "Region",
+          "default": "EAST COAST"
+        },
+        {
+          "type": "text",
+          "id": "established",
+          "label": "Established",
+          "default": "Est. 2018"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Distribution centers",
+      "blocks": [
+        {
+          "type": "center",
+          "settings": {
+            "city": "Raleigh, NC",
+            "subtitle": "Headquarters + Distribution",
+            "region": "EAST COAST",
+            "established": "Est. 2018"
+          }
+        },
+        {
+          "type": "center",
+          "settings": {
+            "city": "Sarasota, FL",
+            "subtitle": "Satellite Distribution Center",
+            "region": "SOUTHEAST",
+            "established": "Est. 2022"
+          }
+        },
+        {
+          "type": "center",
+          "settings": {
+            "city": "Phoenix, AZ",
+            "subtitle": "West Coast Distribution Center",
+            "region": "WEST COAST",
+            "established": "Est. 2025"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
