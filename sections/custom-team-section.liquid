@@ -1,0 +1,304 @@
+<section class="team-section">
+  <div class="team-section__inner">
+
+    <!-- Header -->
+    <div class="team-section__header">
+      <div class="team-section__eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <!-- Featured Founder -->
+    <div class="team-section__featured">
+      
+      <div class="team-section__photo">
+        {% if section.settings.featured_image != blank %}
+          {{ section.settings.featured_image | image_url: width: 800 | image_tag }}
+        {% else %}
+          <span>Founder photo</span>
+        {% endif %}
+      </div>
+
+      <div class="team-section__content">
+        <div class="team-section__role">
+          {{ section.settings.featured_role }}
+        </div>
+
+        <h3>{{ section.settings.featured_name }}</h3>
+
+        <div class="team-section__quote">
+          {{ section.settings.featured_quote }}
+        </div>
+
+        <div class="team-section__bio">
+          {{ section.settings.featured_bio }}
+        </div>
+      </div>
+
+    </div>
+
+    <div class="team-section__subheading">
+      {{ section.settings.team_label }}
+    </div>
+
+    <div class="team-section__grid">
+      {% for block in section.blocks %}
+        <div class="team-section__card" {{ block.shopify_attributes }}>
+
+          <div class="team-section__avatar">
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 200 | image_tag }}
+            {% else %}
+              <span>Photo</span>
+            {% endif %}
+          </div>
+
+          <h4>{{ block.settings.name }}</h4>
+
+          <div class="team-section__title">
+            {{ block.settings.role }}
+          </div>
+
+          <div class="team-section__desc">
+            {{ block.settings.text }}
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="team-section__footer-note">
+      {{ section.settings.footer_note }}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .team-section {
+  background: var(--cream);
+  padding: 60px 24px 80px;
+}
+
+.team-section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.team-section__eyebrow {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #978c7b;
+  margin-bottom: 6px;
+}
+
+.team-section h2 {
+  font-family: var(--font-heading);
+  font-size: 34px;
+  margin: 0 0 30px;
+  color: var(--navy);
+}
+
+/* Featured */
+.team-section__featured {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  background: #f3f1ed;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.team-section__photo {
+  background: #ddd8d2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  color: rgba(0,0,0,0.4);
+}
+
+.team-section__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-section__content {
+  padding: 28px 32px;
+}
+
+.team-section__role {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  color: var(--crimson);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+
+.team-section h3 {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  margin: 0 0 14px;
+  color: #1f2a3a;
+}
+
+/* Quote */
+.team-section__quote {
+  font-family: var(--font-accent);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--navy);
+  padding-left: 16px;
+  border-left: 3px solid var(--crimson);
+  margin-bottom: 14px;
+  width: 300px;
+}
+
+/* Bio */
+.team-section__bio {
+  font-family: var(--font-accent);
+  font-size: 14px;
+  color: var(--navy);
+  opacity: 0.75;
+  width: 450px;
+}
+
+/* Subheading */
+.team-section__subheading {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgba(60,50,40,0.6);
+  margin-bottom: 16px;
+}
+
+/* Grid */
+.team-section__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.team-section__card {
+  background: #f3f1ed;
+  border-radius: 8px;
+  padding: 22px;
+  text-align: center;
+}
+
+/* Avatar */
+.team-section__avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #ddd8d2;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.team-section__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Card text */
+.team-section__card h4 {
+  font-family: var(--font-heading);
+  margin: 0 0 4px;
+  font-size: 16px;
+  color: #1f2a3a;
+}
+
+.team-section__title {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  color: var(--crimson);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+.team-section__desc {
+  font-family: var(--font-accent);
+  font-size: 13px;
+  color: var(--navy);
+  opacity: 0.7;
+}
+
+/* Footer note */
+.team-section__footer-note {
+  text-align: center;
+  font-family: var(--font-accent);
+  font-size: 13px;
+  color: rgba(80,70,60,0.6);
+  margin-top: 16px;
+}
+
+/* Mobile */
+@media screen and (max-width: 900px) {
+  .team-section__featured {
+    grid-template-columns: 1fr;
+  }
+
+  .team-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .team-section__grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Team section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "THE PEOPLE BEHIND THE PRODUCTS", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "default": "Meet the Team", "label": "Heading" },
+
+    { "type": "image_picker", "id": "featured_image", "label": "Featured image" },
+    { "type": "text", "id": "featured_role", "default": "FOUNDER + OWNER", "label": "Role" },
+    { "type": "text", "id": "featured_name", "default": "Jimmy Tompkins", "label": "Name" },
+    { "type": "textarea", "id": "featured_quote", "default": "We only win when our customers win.", "label": "Quote" },
+    { "type": "textarea", "id": "featured_bio", "default": "Short bio goes here.", "label": "Bio" },
+
+    { "type": "text", "id": "team_label", "default": "THE FULL TEAM", "label": "Team label" },
+    { "type": "text", "id": "footer_note", "default": "+ additional team members", "label": "Footer note" }
+  ],
+  "blocks": [
+    {
+      "type": "member",
+      "name": "Team member",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "name", "default": "Team Member", "label": "Name" },
+        { "type": "text", "id": "role", "default": "Role / Title", "label": "Role" },
+        { "type": "textarea", "id": "text", "default": "One sentence about what they do.", "label": "Description" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Team section",
+      "blocks": [
+        { "type": "member" },
+        { "type": "member" },
+        { "type": "member" },
+        { "type": "member" }
+      ]
+    }
+  ]
+}
+{% endschema %}

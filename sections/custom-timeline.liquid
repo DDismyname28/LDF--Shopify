@@ -1,0 +1,197 @@
+<section class="timeline-story">
+  <div class="timeline-story__inner">
+
+    <div class="timeline-story__header">
+      <div class="timeline-story__eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="timeline-story__timeline">
+      {% for block in section.blocks %}
+        <div class="timeline-story__item" {{ block.shopify_attributes }}>
+          
+          <div class="timeline-story__marker"></div>
+
+          <div class="timeline-story__content">
+            <div class="timeline-story__year">
+              {{ block.settings.year }}
+            </div>
+            <div class="timeline-story__text">
+              {{ block.settings.text }}
+            </div>
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .timeline-story {
+    background: var(--navy);
+    padding: 60px 24px 80px;
+    color: #fff;
+    font-family: var(--font-accent);
+  }
+
+  .timeline-story__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .timeline-story__header {
+    margin-bottom: 40px;
+  }
+
+  .timeline-story__eyebrow {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+  }
+
+  .timeline-story h2 {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    margin: 0;
+    color: #fff;
+  }
+
+  .timeline-story__timeline {
+    position: relative;
+    padding-left: 56px;
+  }
+
+  .timeline-story__timeline::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--crimson);
+  }
+
+  .timeline-story__item {
+    position: relative;
+    margin-bottom: 42px;
+  }
+
+  .timeline-story__marker {
+    position: absolute;
+    left: -50px;
+    top: 15px;
+    width: 25px;
+    height: 25px;
+    background: var(--crimson);
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-story__content {
+    margin-left: 20px;
+  }
+
+  .timeline-story__year {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+
+  }
+
+  .timeline-story__text {
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.75);
+    max-width: 720px;
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 700px) {
+    .timeline-story {
+      padding: 48px 18px 64px;
+    }
+
+    .timeline-story h2 {
+      font-size: 30px;
+    }
+
+    .timeline-story__timeline {
+      padding-left: 44px;
+    }
+
+    .timeline-story__timeline::before,
+    .timeline-story__marker {
+      left: 20px;
+    }
+    .timeline-story__marker {
+        left: -22px;
+    }
+
+    .timeline-story__marker {
+      width: 18px;
+      height: 18px;
+    }
+
+    .timeline-story__content {
+      margin-left: 16px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Timeline story",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "HOW WE GOT HERE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Story"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "event",
+      "name": "Timeline event",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year / Label",
+          "default": "2024"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Describe what happened here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Timeline story",
+      "blocks": [
+        { "type": "event" },
+        { "type": "event" },
+        { "type": "event" },
+        { "type": "event" }
+      ]
+    }
+  ]
+}
+{% endschema %}

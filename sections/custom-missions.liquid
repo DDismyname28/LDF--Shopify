@@ -1,0 +1,227 @@
+<section class="mission-columns">
+  <div class="mission-columns__inner">
+    <div class="mission-columns__top">
+      <div class="mission-columns__eyebrow">
+        {{ section.settings.eyebrow }}
+      </div>
+
+      <div class="mission-columns__quote">
+        “{{ section.settings.quote }}”
+      </div>
+    </div>
+
+    <div class="mission-columns__divider"></div>
+
+    <div class="mission-columns__grid">
+      <div class="mission-columns__item">
+        <h3>{{ section.settings.col_1_heading }}</h3>
+        <div class="mission-columns__text">
+          {{ section.settings.col_1_text | newline_to_br }}
+        </div>
+        <div class="mission-columns__meta">
+          {{ section.settings.col_1_meta }}
+        </div>
+      </div>
+
+      <div class="mission-columns__item">
+        <h3>{{ section.settings.col_2_heading }}</h3>
+        <div class="mission-columns__text">
+          {{ section.settings.col_2_text | newline_to_br }}
+        </div>
+      </div>
+
+      <div class="mission-columns__item">
+        <h3>{{ section.settings.col_3_heading }}</h3>
+        <div class="mission-columns__text">
+          {{ section.settings.col_3_text | newline_to_br }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mission-columns {
+    background: var(--cream);
+    padding: 38px 24px 58px;
+    font-family: var(--font-body);
+  }
+
+  .mission-columns__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .mission-columns__top {
+    text-align: center;
+  }
+
+  .mission-columns__eyebrow {
+    color: rgba(70, 65, 55, 0.55);
+    font-size: 11px;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .mission-columns__quote {
+    color: #34435e;
+    font-size: 24px;
+    line-height: 1.35;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 500;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .mission-columns__divider {
+    height: 1px;
+    background: rgba(80, 70, 55, 0.18);
+    margin: 26px 0 24px;
+  }
+
+  .mission-columns__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mission-columns__item {
+    padding: 0 42px;
+    border-left: 1px solid rgba(80, 70, 55, 0.18);
+  }
+
+  .mission-columns__item:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .mission-columns__item:last-child {
+    border-left-color: rgba(80, 70, 55, 0.5);
+  }
+
+  .mission-columns__item h3 {
+    color: var(--crimson);
+    font-size: 13px;
+    line-height: 1.2;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+
+  .mission-columns__text {
+    color: rgba(45, 45, 45, 0.72);
+    font-size: 16px;
+    line-height: 1.42;
+    max-width: 310px;
+  }
+
+  .mission-columns__meta {
+    color: rgba(80, 70, 55, 0.48);
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  @media screen and (max-width: 900px) {
+    .mission-columns {
+      padding: 36px 22px 44px;
+    }
+
+    .mission-columns__quote {
+      font-size: 22px;
+    }
+
+    .mission-columns__grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .mission-columns__item,
+    .mission-columns__item:first-child,
+    .mission-columns__item:last-child {
+      border-left: none;
+      padding: 0;
+    }
+
+    .mission-columns__item {
+      border-top: 1px solid rgba(80, 70, 55, 0.18);
+      padding-top: 24px;
+    }
+
+    .mission-columns__item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .mission-columns__text {
+      max-width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Mission columns",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "OUR MISSION"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Mission quote",
+      "default": "Lighting the path to customer success through personalized relationships and innovative products."
+    },
+    {
+      "type": "text",
+      "id": "col_1_heading",
+      "label": "Column 1 heading",
+      "default": "WHAT WE DO"
+    },
+    {
+      "type": "textarea",
+      "id": "col_1_text",
+      "label": "Column 1 text",
+      "default": "Wholesale distributor of Christmas,\nlandscape, and permanent lighting.\nFree trainings, design help, and fast\nwarranty support."
+    },
+    {
+      "type": "text",
+      "id": "col_1_meta",
+      "label": "Column 1 small text",
+      "default": "13,000+ SKUs · 3 Distribution Centers"
+    },
+    {
+      "type": "text",
+      "id": "col_2_heading",
+      "label": "Column 2 heading",
+      "default": "WHY WE DO IT"
+    },
+    {
+      "type": "textarea",
+      "id": "col_2_text",
+      "label": "Column 2 text",
+      "default": "We're not just selling lights — we're\nhelping people build income streams\nand real businesses. Every product,\ntraining, and support call is built\naround that belief."
+    },
+    {
+      "type": "text",
+      "id": "col_3_heading",
+      "label": "Column 3 heading",
+      "default": "WHO WE SERVE"
+    },
+    {
+      "type": "textarea",
+      "id": "col_3_text",
+      "label": "Column 3 text",
+      "default": "Decorators, designers, installers,\nholiday and landscape professionals,\nmunicipalities, and commercial\nvenues. Contractor-first —\nno retail competition."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mission columns"
+    }
+  ]
+}
+{% endschema %}

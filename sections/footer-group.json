@@ -11,6 +11,15 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "custom_footer_Wkp7zd": {
+      "type": "custom-footer",
+      "name": "Custom footer",
+      "settings": {
+        "logo": "shopify://shop_images/Lights_For_Decorators_PrimaryLogo_White.png",
+        "tagline": "Tagline / brand statement",
+        "button_text": "SUBSCRIBE"
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -30,14 +39,14 @@
           "type": "link_list",
           "settings": {
             "heading": "Popular Collections",
-            "menu": "footer-menu"
+            "menu": ""
           }
         },
         "6883615a-521f-4327-a7c7-ff0f768a9228": {
           "type": "link_list",
           "settings": {
             "heading": "Information",
-            "menu": "footer-menu"
+            "menu": ""
           }
         },
         "461fde0a-cd9d-4263-a0b6-af045ee444fa": {
@@ -56,7 +65,9 @@
         "6883615a-521f-4327-a7c7-ff0f768a9228",
         "461fde0a-cd9d-4263-a0b6-af045ee444fa"
       ],
+      "disabled": true,
       "settings": {
+        "color_scheme": "accent-2",
         "enable_follow_on_shop": true,
         "social_heading": "",
         "show_social": true,
@@ -70,7 +81,6 @@
         "payment_enable": true,
         "show_copyright": true,
         "scroll-to-top": true,
-        "color_scheme": "accent-2",
         "margin_top": 0,
         "padding_top": 20,
         "padding_bottom": 20
@@ -78,6 +88,7 @@
     }
   },
   "order": [
+    "custom_footer_Wkp7zd",
     "footer"
   ]
 }
