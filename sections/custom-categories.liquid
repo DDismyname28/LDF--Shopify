@@ -28,29 +28,22 @@
         {% endif %}
       {% endfor %}
     </div>
-      {% if section.settings.link_text != blank %}
-  <div class="custom-category-grid__link-wrap">
-    <a href="{{ section.settings.link_url }}" class="custom-category-grid__link">
-      {{ section.settings.link_text }} →
-    </a>
-  </div>
-{% endif %}
 
   </div>
-
 </section>
 
 <style>
   .custom-category-grid {
-    background: var(--cream);
-    padding: 0px 10px;
+    background: #f8f6f2;
+    padding: 8px 10px;
   }
 
   .custom-category-grid__inner {
     max-width: 1280px;
     margin: 0 auto;
     background: var(--cream);
-
+    border: 1px solid #d7d1c8;
+    border-radius: 4px;
     padding: 30px 38px 34px;
   }
 
@@ -148,23 +141,6 @@
       font-size: 24px;
     }
   }
-
-  .custom-category-grid__link-wrap {
-  text-align: center;
-  margin-top: 22px;
-  }
-
-  .custom-category-grid__link {
-    color: var(--crimson);
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: var(--font-weight-bold);
-    text-decoration: none;
-  }
-
-  .custom-category-grid__link:hover {
-    text-decoration: underline;
-  }
 </style>
 
 {% schema %}
@@ -183,17 +159,6 @@
       "id": "heading",
       "label": "Heading",
       "default": "Shop by Category"
-    },
-    {
-      "type": "text",
-      "id": "link_text",
-      "label": "Link text",
-      "default": "Download Full Catalog"
-    },
-    {
-      "type": "url",
-      "id": "link_url",
-      "label": "Link URL"
     }
   ],
   "blocks": [
