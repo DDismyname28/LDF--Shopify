@@ -39,9 +39,7 @@
         "bb7cc531-cdf1-403c-a5ac-749f3f3b22d0",
         "a4678b0b-d560-489a-9ae3-2b365a609b0b"
       ],
-      "disabled": true,
       "settings": {
-        "color_scheme": "background-1",
         "image_layout": "left",
         "image_fit": "cover",
         "limit_display": 0,
@@ -69,14 +67,14 @@
         "f4_close": false,
         "show_on_homepage": true,
         "show_on_product_category": false,
-        "show_on_all": false
+        "show_on_all": false,
+        "color_scheme": "background-1"
       }
     },
     "c9050c6e-373e-40fa-83c8-a4926e614f17": {
       "type": "promotional-popup",
       "disabled": true,
       "settings": {
-        "color_scheme": "accent-1",
         "image_fit": "contain",
         "image_position": "left",
         "heading": "Add promotion Here",
@@ -106,7 +104,8 @@
         "f4_close": false,
         "show_on_homepage": true,
         "show_on_product_category": false,
-        "show_on_all": false
+        "show_on_all": false,
+        "color_scheme": "accent-1"
       }
     }
   },

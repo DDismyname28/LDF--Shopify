@@ -3,22 +3,16 @@
     <h2>{{ section.settings.heading }}</h2>
     <p>{{ section.settings.text }}</p>
 
-    <div class="custom-cta-banner__buttons">
-      <a href="{{ section.settings.button_link }}" class="custom-cta-banner__button">
-        {{ section.settings.button_text }}
-      </a>
-
-      <a href="{{ section.settings.secondary_button_link }}" class="custom-cta-banner__button custom-cta-banner__button--secondary">
-        {{ section.settings.secondary_button_text }}
-      </a>
-    </div>
+    <a href="{{ section.settings.button_link }}" class="custom-cta-banner__button">
+      {{ section.settings.button_text }}
+    </a>
   </div>
 </section>
 
 <style>
   .custom-cta-banner {
-    background: var(--forest);
-    padding: 0px 10px;
+    background: #f8f6f2;
+    padding: 8px 10px;
   }
 
   .custom-cta-banner__inner {
@@ -58,7 +52,7 @@
     min-width: 255px;
     height: 50px;
     background: var(--crimson);
-    color: var(--cream);
+    color: #fff;
     border-radius: 4px;
 
     display: inline-flex;
@@ -70,27 +64,6 @@
     font-weight: var(--font-weight-bold);
     text-decoration: none;
   }
-
-  .custom-cta-banner__button:hover {
-    color: #E8F9FF !important;
-  }
-
-  .custom-cta-banner__buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .custom-cta-banner__button--secondary {
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.6);
-    }
-
-    .custom-cta-banner__button--secondary:hover {
-      border-color: #fff;
-    }
 
   @media screen and (max-width: 700px) {
     .custom-cta-banner__inner {
@@ -106,17 +79,10 @@
       font-size: 14px;
     }
 
-
-    .custom-cta-banner__buttons {
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-}
-
-.custom-cta-banner__button {
-  width: 100%;
-  max-width: 280px;
-}
+    .custom-cta-banner__button {
+      width: 100%;
+      max-width: 280px;
+    }
   }
 </style>
 
@@ -146,18 +112,7 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
-    },
-    {
-  "type": "text",
-  "id": "secondary_button_text",
-  "label": "Secondary button text",
-  "default": "Wholesale Login"
-},
-{
-  "type": "url",
-  "id": "secondary_button_link",
-  "label": "Secondary button link"
-}
+    }
   ],
   "presets": [
     {
