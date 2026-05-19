@@ -1,57 +1,62 @@
-{% unless template == 'index'
-  or template contains 'product'
-  or template contains 'collection' and collection.handle %}
+{% unless template == 'index' or template contains 'product' or template contains 'collection' and collection.handle %}
+  <div class="page-width breadcrumb_main">
+    <nav class="breadcrumb row" aria-label="breadcrumbs">
+      <div class="col-12 breadcrumb_colmun">
+        <a href="{{ routes.root_url }}" title="{{ 'wbcustomlabel.wballtext.home' | t }}">
+          {{ 'wbcustomlabel.wballtext.home' | t }}
+        </a>
 
-<div class="page-width breadcrumb_main">
-  <nav class="breadcrumb row" aria-label="breadcrumbs">
-
-    <div class="col-12 breadcrumb_colmun">
-
-      <a href="{{ routes.root_url }}" title="{{ 'wbcustomlabel.wballtext.home' | t }}">
-        {{ 'wbcustomlabel.wballtext.home' | t }}
-      </a>
-
-      {% if template contains 'page' %}
-
-        <span aria-hidden="true">
-          {% render 'icon-arrow-right' %}
-        </span>
-
-        <span>{{ page.title }}</span>
-
-      {% elsif template contains 'collection' and collection.handle %}
-
-        <span aria-hidden="true">
-          {% render 'icon-arrow-right' %}
-        </span>
-
-        {% if current_tags %}
-
-          {% capture url %}
-            /collections/{{ collection.handle }}
-          {% endcapture %}
-
-          {{ collection.title | link_to: url }}
-
+        {% if template contains 'page' %}
           <span aria-hidden="true">
             {% render 'icon-arrow-right' %}
           </span>
 
-          <span>{{ current_tags | join: " + " }}</span>
+          <span>{{ page.title }}</span>
 
-        {% else %}
+        {% elsif template contains 'collection' and collection.handle %}
+          <span aria-hidden="true">
+            {% render 'icon-arrow-right' %}
+          </span>
 
-          <span>{{ collection.title }}</span>
+          {% if current_tags %}
+            {% capture url %}
+            /collections/{{ collection.handle }}
+          {% endcapture %}
 
-        {% endif %}
+            {{ collection.title | link_to: url }}
 
-      {% elsif template == 'blog' %}
+            <span aria-hidden="true">
+              {% render 'icon-arrow-right' %}
+            </span>
 
-        <span aria-hidden="true">
-          {% render 'icon-arrow-right' %}
-        </span>
+            <span>{{ current_tags | join: ' + ' }}</span>
 
-        {% if current_tags %}
+          {% else %}
+            <span>{{ collection.title }}</span>
+          {% endif %}
+
+        {% elsif template == 'blog' %}
+          <span aria-hidden="true">
+            {% render 'icon-arrow-right' %}
+          </span>
+
+          {% if current_tags %}
+            {{ blog.title | link_to: blog.url }}
+
+            <span aria-hidden="true">
+              {% render 'icon-arrow-right' %}
+            </span>
+
+            <span>{{ current_tags | join: ' + ' }}</span>
+
+          {% else %}
+            <span>{{ blog.title }}</span>
+          {% endif %}
+
+        {% elsif template == 'article' %}
+          <span aria-hidden="true">
+            {% render 'icon-arrow-right' %}
+          </span>
 
           {{ blog.title | link_to: blog.url }}
 
@@ -59,41 +64,16 @@
             {% render 'icon-arrow-right' %}
           </span>
 
-          <span>{{ current_tags | join: " + " }}</span>
+          <span>{{ article.title }}</span>
 
         {% else %}
+          <span aria-hidden="true">
+            {% render 'icon-arrow-right' %}
+          </span>
 
-          <span>{{ blog.title }}</span>
-
+          <span>{{ page_title }}</span>
         {% endif %}
-
-      {% elsif template == 'article' %}
-
-        <span aria-hidden="true">
-          {% render 'icon-arrow-right' %}
-        </span>
-
-        {{ blog.title | link_to: blog.url }}
-
-        <span aria-hidden="true">
-          {% render 'icon-arrow-right' %}
-        </span>
-
-        <span>{{ article.title }}</span>
-
-      {% else %}
-
-        <span aria-hidden="true">
-          {% render 'icon-arrow-right' %}
-        </span>
-
-        <span>{{ page_title }}</span>
-
-      {% endif %}
-
-    </div>
-
-  </nav>
-</div>
-
+      </div>
+    </nav>
+  </div>
 {% endunless %}

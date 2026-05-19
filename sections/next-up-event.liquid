@@ -104,469 +104,7 @@
   </section>
 {% endif %}
 
-{% comment %}
-  {% assign events = shop.metaobjects.events_and_trainings.values %}
 
-  {% if events != blank %}
-    <!-- FILTER BUTTONS -->
-    <div class="event-filters">
-      <!-- CATEGORY FILTERS -->
-      <div class="filter-group">
-        <button class="filter-btn active" data-category="all">All Categories</button>
-
-        {% assign categories = '' %}
-
-        {% for event in events %}
-          {% assign category = event.category.value %}
-
-          {% unless categories contains category %}
-            {% assign categories = categories | append: category | append: ',' %}
-
-            <button
-              class="filter-btn"
-              data-category="{{ category | handleize }}"
-            >
-              {{ category }}
-            </button>
-          {% endunless %}
-        {% endfor %}
-      </div>
-
-      <!-- MONTH FILTERS -->
-      <div class="filter-group">
-        <button class="month-btn active" data-month="all">All Months</button>
-
-        {% assign months = '' %}
-
-        {% for event in events %}
-          {% assign month = event.event_date.value | date: '%B' %}
-
-          {% unless months contains month %}
-            {% assign months = months | append: month | append: ',' %}
-
-            <button
-              class="month-btn"
-              data-month="{{ month | downcase }}"
-            >
-              {{ month }}
-            </button>
-          {% endunless %}
-        {% endfor %}
-      </div>
-    </div>
-
-    <!-- EVENTS -->
-    <section class="next-up-event">
-      {% for event in events %}
-        {% assign category = event.category.value | handleize %}
-        {% assign month = event.event_date.value | date: '%B' | downcase %}
-
-        <div
-          class="event-wrapper"
-          data-category="{{ category }}"
-          data-month="{{ month }}"
-        >
-          <div class="event-image">
-            {% if event.category.value != blank %}
-              <span class="event-tag">
-                {{ event.category.value }}
-              </span>
-            {% endif %}
-
-            {% if event.featured_image.value != blank %}
-              <img
-                src="{{ event.featured_image.value | image_url: width: 900 }}"
-                alt="{{ event.title.value }}"
-              >
-            {% endif %}
-          </div>
-
-          <div class="event-details">
-            <h4 class="next-up">NEXT UP</h4>
-
-            <h2 class="event-title">
-              {{ event.title.value }}
-            </h2>
-
-            <p class="event-meta">
-              📅 {{ event.event_date.value | date: '%B %d, %Y' }} · 📍 {{ event.location.value }} · ⏰
-              {{ event.time.value }}
-            </p>
-
-            <p class="event-description">
-              {{ event.description.value }}
-            </p>
-
-            {% if event.registration_url.value != blank %}
-              <a
-                href="{{ event.registration_url.value }}"
-                class="register-btn"
-              >
-                REGISTER NOW ➜
-              </a>
-            {% endif %}
-          </div>
-        </div>
-      {% endfor %}
-    </section>
-  {% endif %}
-
-  <style>
-    .event-filters {
-      margin-bottom: 30px;
-    }
-
-    .filter-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .filter-btn,
-    .month-btn {
-      padding: 10px 18px;
-      border: 1px solid #ccc;
-      background: #fff;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .filter-btn.active,
-    .month-btn.active {
-      background: #000;
-      color: #fff;
-    }
-
-    .event-wrapper {
-      margin-bottom: 40px;
-      border: 1px solid #eee;
-      padding: 20px;
-    }
-
-    .event-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-  </style>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      let activeCategory = 'all';
-      let activeMonth = 'all';
-
-      const eventCards = document.querySelectorAll('.event-wrapper');
-
-      const categoryButtons = document.querySelectorAll('.filter-btn');
-      const monthButtons = document.querySelectorAll('.month-btn');
-
-      function filterEvents() {
-        eventCards.forEach((card) => {
-          const cardCategory = card.dataset.category;
-          const cardMonth = card.dataset.month;
-
-          const categoryMatch = activeCategory === 'all' || cardCategory === activeCategory;
-
-          const monthMatch = activeMonth === 'all' || cardMonth === activeMonth;
-
-          if (categoryMatch && monthMatch) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      }
-
-      categoryButtons.forEach((button) => {
-        button.addEventListener('click', function () {
-          categoryButtons.forEach((btn) => btn.classList.remove('active'));
-
-          this.classList.add('active');
-
-          activeCategory = this.dataset.category;
-
-          filterEvents();
-        });
-      });
-
-      monthButtons.forEach((button) => {
-        button.addEventListener('click', function () {
-          monthButtons.forEach((btn) => btn.classList.remove('active'));
-
-          this.classList.add('active');
-
-          activeMonth = this.dataset.month;
-
-          filterEvents();
-        });
-      });
-    });
-  </script>
-{% endcomment %}
-
-{% comment %}
-  {% assign events = shop.metaobjects.events_and_trainings.values %}
-  {% assign today = 'now' | date: '%Y-%m-%d' %}
-
-  {% if events != blank %}
-    <!-- MAIN TABS -->
-    <div class="event-tabs">
-      <button class="event-tab-btn active" data-tab="upcoming">Upcoming Events</button>
-
-      <button class="event-tab-btn" data-tab="past">Past Events</button>
-    </div>
-
-    <!-- FILTERS -->
-    <div class="event-filters">
-      <!-- CATEGORY FILTER -->
-      <div class="filter-group">
-        <button class="filter-btn active" data-category="all">All Categories</button>
-
-        {% assign categories = '' %}
-
-        {% for event in events %}
-          {% assign category = event.category.value %}
-
-          {% unless categories contains category %}
-            {% assign categories = categories | append: category | append: ',' %}
-
-            <button
-              class="filter-btn"
-              data-category="{{ category | handleize }}"
-            >
-              {{ category }}
-            </button>
-          {% endunless %}
-        {% endfor %}
-      </div>
-
-      <!-- MONTH FILTER -->
-      <div class="filter-group">
-        <button class="month-btn active" data-month="all">All Months</button>
-
-        {% assign months = '' %}
-
-        {% for event in events %}
-          {% assign month = event.event_date.value | date: '%B' %}
-
-          {% unless months contains month %}
-            {% assign months = months | append: month | append: ',' %}
-
-            <button
-              class="month-btn"
-              data-month="{{ month | downcase }}"
-            >
-              {{ month }}
-            </button>
-          {% endunless %}
-        {% endfor %}
-      </div>
-    </div>
-
-    <!-- EVENTS -->
-    <section class="next-up-event">
-      {% for event in events %}
-        {% assign category = event.category.value | handleize %}
-        {% assign month = event.event_date.value | date: '%B' | downcase %}
-        {% assign event_date = event.event_date.value | date: '%Y-%m-%d' %}
-
-        {% if event_date >= today %}
-          {% assign event_status = 'upcoming' %}
-        {% else %}
-          {% assign event_status = 'past' %}
-        {% endif %}
-
-        <div
-          class="event-wrapper"
-          data-category="{{ category }}"
-          data-month="{{ month }}"
-          data-status="{{ event_status }}"
-        >
-          <div class="event-image">
-            {% if event.category.value != blank %}
-              <span class="event-tag">
-                {{ event.category.value }}
-              </span>
-            {% endif %}
-
-            {% if event.featured_image.value != blank %}
-              <img
-                src="{{ event.featured_image.value | image_url: width: 900 }}"
-                alt="{{ event.title.value | escape }}"
-              >
-            {% endif %}
-          </div>
-
-          <div class="event-details">
-            <h4 class="next-up">
-              {% if event_status == 'upcoming' %}
-                NEXT UP
-              {% else %}
-                PAST EVENT
-              {% endif %}
-            </h4>
-
-            <h2 class="event-title">
-              {{ event.title.value }}
-            </h2>
-
-            <p class="event-meta">
-              📅 {{ event.event_date.value | date: '%B %d, %Y' }} · 📍 {{ event.location.value }} · ⏰
-              {{ event.time.value }}
-            </p>
-
-            <p class="event-description">
-              {{ event.description.value }}
-            </p>
-
-            {% if event.registration_url.value != blank and event_status == 'upcoming' %}
-              <a
-                href="{{ event.registration_url.value }}"
-                class="register-btn"
-              >
-                REGISTER NOW ➜
-              </a>
-            {% endif %}
-          </div>
-        </div>
-      {% endfor %}
-    </section>
-  {% endif %}
-
-  <style>
-    .event-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 25px;
-    }
-
-    .event-tab-btn {
-      padding: 12px 22px;
-      border: none;
-      background: #e5e5e5;
-      cursor: pointer;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-
-    .event-tab-btn.active {
-      background: #000;
-      color: #fff;
-    }
-
-    .event-filters {
-      margin-bottom: 30px;
-    }
-
-    .filter-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .filter-btn,
-    .month-btn {
-      padding: 10px 18px;
-      border: 1px solid #ccc;
-      background: #fff;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .filter-btn.active,
-    .month-btn.active {
-      background: #000;
-      color: #fff;
-    }
-
-    .event-wrapper {
-      margin-bottom: 40px;
-      border: 1px solid #eee;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    .event-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-  </style>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      let activeCategory = 'all';
-      let activeMonth = 'all';
-      let activeStatus = 'upcoming';
-
-      const eventCards = document.querySelectorAll('.event-wrapper');
-
-      const categoryButtons = document.querySelectorAll('.filter-btn');
-      const monthButtons = document.querySelectorAll('.month-btn');
-      const tabButtons = document.querySelectorAll('.event-tab-btn');
-
-      function filterEvents() {
-        eventCards.forEach((card) => {
-          const cardCategory = card.dataset.category;
-          const cardMonth = card.dataset.month;
-          const cardStatus = card.dataset.status;
-
-          const categoryMatch = activeCategory === 'all' || cardCategory === activeCategory;
-
-          const monthMatch = activeMonth === 'all' || cardMonth === activeMonth;
-
-          const statusMatch = cardStatus === activeStatus;
-
-          if (categoryMatch && monthMatch && statusMatch) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      }
-
-      categoryButtons.forEach((button) => {
-        button.addEventListener('click', function () {
-          categoryButtons.forEach((btn) => btn.classList.remove('active'));
-
-          this.classList.add('active');
-
-          activeCategory = this.dataset.category;
-
-          filterEvents();
-        });
-      });
-
-      monthButtons.forEach((button) => {
-        button.addEventListener('click', function () {
-          monthButtons.forEach((btn) => btn.classList.remove('active'));
-
-          this.classList.add('active');
-
-          activeMonth = this.dataset.month;
-
-          filterEvents();
-        });
-      });
-
-      tabButtons.forEach((button) => {
-        button.addEventListener('click', function () {
-          tabButtons.forEach((btn) => btn.classList.remove('active'));
-
-          this.classList.add('active');
-
-          activeStatus = this.dataset.tab;
-
-          filterEvents();
-        });
-      });
-
-      filterEvents();
-    });
-  </script>
-{% endcomment %}
 
 {% assign events = shop.metaobjects.events_and_trainings.values %}
 {% assign today_timestamp = 'now' | date: '%s' %}
@@ -760,11 +298,43 @@
     {% endfor %}
 
   </section>
+    <div class="load-more-wrapper" style="text-align:center; margin: 20px 0;">
+      <button id="load-more-btn" class="load-more-btn">
+        Load More Events
+      </button>
+    </div>
 </section>
 
 {% endif %}
 
+
+<section class="register-section">
+  <span class="register-label register-label--primary">Register to Attend</span>
+  <h3 class="register-title">Save your Spot</h3>
+  <div class="register-wrapper">
+    <div class="form-wrapper">
+      <img src="https://cdn.shopify.com/s/files/1/0680/4150/7113/files/register-hero.jpg?v=1712877375" alt="Register for LFD Events">
+    </div>
+    <div class="content-wrapper ">
+      <span class="register-label">What to Expect</span>
+      <ul class="expectation-list">
+        <li>Hands-on product demonstrations</li>
+        <li>Meet the LFD team in person</li>
+        <li>Training on installation techniques</li>
+        <li>Exclusive event-only pricing</li>
+        <li>Network with other installers</li>
+        <li>New product previews</li>
+      </ul >
+      <span class="register-label cant-make-it">Can't make it?</span> <span class="register-btn">Sign up for event updates <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8L22 12L18 16"/>
+                <path d="M2 12H22"/>
+              </svg></span>
+    </div  >
+  </div>
+</section>
+
 <style>
+
   .event-tabs {
     display: flex;
     gap: 10px;
@@ -934,6 +504,9 @@
     letter-spacing: 0.08em;
     border: none;
   }
+  .featured-register-btn:hover {
+    background: #8a181b;
+  }
   .featured-register-btn svg {
     margin-left: 8px;
     align-items: center;
@@ -992,6 +565,10 @@
     background: #F0ECE4;
     border: 1px solid #c8c2b8;
   }
+  .month-btn:hover,
+  .filter-btn:hover{
+    background: #8a181b;
+  }
   .filter-btn.active,
   .month-btn.active {
     background: #a91f23;
@@ -1016,7 +593,7 @@
   .event-month {
     display: block;
     font-size: 12px;
-    background: red;
+    background: #a91f23;
     padding: 20px;
     padding-bottom: 0;
     border-top-right-radius: 3px;
@@ -1025,7 +602,7 @@
   }
   .event-day {
     display: block;
-    background: red;
+    background: #a91f23;
     padding: 20px;
     padding-top: 0;
     border-bottom-left-radius: 3px;
@@ -1072,6 +649,84 @@
   .event-category.category-seasonal {
     background-color: #978c7b;
   }
+  #load-more-btn {
+    padding: 14px 28px;
+    border-radius: 3px;
+    background: none;
+    text-transform: uppercase;
+    color: #384863;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    border: 1.5px solid #384863;
+  }
+  #load-more-btn:hover {
+    color: #f8f6f2;
+  }
+  .register-section {
+    max-width: var(--page-width);
+    margin: auto;
+    padding: 40px;
+    background: #f0ece4;
+    border: 1px solid #c8c2b8;
+    border-radius: 3px;
+  }
+  .content-wrapper {
+    padding-left: 40px;
+    color: #000000;
+  }
+  .registration-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .registration-wrapper .form-wrapper,
+  .content-wrapper {
+    padding: 20px;
+    background: #ffffff;
+  }
+  .form-wrapper,
+  .content-wrapper {
+    width: 49%;
+  }
+  .content-wrapper {
+    border: 1px solid #c8c2b8;
+    border-radius: 3px;
+  }
+  .register-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #a91f23;  
+  }
+  .register-label--primary {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #978c7b;
+  }
+  .register-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #384863;
+  }
+  .cant-make-it {
+    font-style: italic;
+    text-transform: inherit;
+    color: #978c7b;
+  }
+  .register-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .register-btn {
+    padding: 0 10px;
+    color: #a91f23;
+    font-weight: 700;
+  }
+  .page-events .breadcrumb_main {
+    display: none;
+  }
 </style>
 
 <script>
@@ -1080,6 +735,10 @@ document.addEventListener('DOMContentLoaded', function () {
   let activeCategory = 'all';
   let activeMonth = 'all';
   let activeStatus = 'upcoming';
+
+  // 👇 LOAD MORE SETTINGS
+  let visibleLimit = 2;
+  const increment = 5;
 
   const eventCards = document.querySelectorAll('.event-wrapper');
 
@@ -1092,9 +751,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const eventsCount = document.getElementById('events-count');
   const eventsStatusLabel = document.getElementById('events-status-label');
 
+  const loadMoreBtn = document.getElementById('load-more-btn');
+
   function filterEvents() {
 
     let visibleCount = 0;
+    let shownCount = 0;
 
     eventCards.forEach(card => {
 
@@ -1113,14 +775,24 @@ document.addEventListener('DOMContentLoaded', function () {
       const statusMatch =
         cardStatus === activeStatus;
 
-      if (categoryMatch && monthMatch && statusMatch) {
-        card.style.display = '';
+      const isMatch = categoryMatch && monthMatch && statusMatch;
+
+      if (isMatch) {
         visibleCount++;
+
+        if (shownCount < visibleLimit) {
+          card.style.display = '';
+          shownCount++;
+        } else {
+          card.style.display = 'none';
+        }
+
       } else {
         card.style.display = 'none';
       }
     });
 
+    // update counter
     if (eventsCount) {
       eventsCount.textContent = visibleCount;
     }
@@ -1129,38 +801,70 @@ document.addEventListener('DOMContentLoaded', function () {
       eventsStatusLabel.textContent = activeStatus;
     }
 
+    // empty state
     if (noEventsMessage) {
       noEventsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
     }
+
+    // load more button logic
+    if (loadMoreBtn) {
+      if (shownCount >= visibleCount) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'inline-block';
+        loadMoreBtn.textContent = 'Load More Events';
+      }
+    }
   }
 
+  // CATEGORY FILTER
   categoryButtons.forEach(btn => {
     btn.addEventListener('click', function () {
       categoryButtons.forEach(b => b.classList.remove('active'));
       this.classList.add('active');
+
       activeCategory = this.dataset.category;
+
+      visibleLimit = 1; // reset on filter change
       filterEvents();
     });
   });
 
+  // MONTH FILTER
   monthButtons.forEach(btn => {
     btn.addEventListener('click', function () {
       monthButtons.forEach(b => b.classList.remove('active'));
       this.classList.add('active');
+
       activeMonth = this.dataset.month;
+
+      visibleLimit = 1; // reset on filter change
       filterEvents();
     });
   });
 
+  // TAB FILTER (UPCOMING / PAST)
   tabButtons.forEach(btn => {
     btn.addEventListener('click', function () {
       tabButtons.forEach(b => b.classList.remove('active'));
       this.classList.add('active');
+
       activeStatus = this.dataset.tab;
+
+      visibleLimit = 1; // reset on filter change
       filterEvents();
     });
   });
 
+  // LOAD MORE BUTTON
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', function () {
+      visibleLimit += increment;
+      filterEvents();
+    });
+  }
+
+  // initial run
   filterEvents();
 
 });
