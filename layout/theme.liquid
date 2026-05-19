@@ -8,7 +8,6 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
-
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -16,7 +15,7 @@
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
- 
+
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
@@ -54,7 +53,9 @@
 
     {% # custom variables %}
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&display=swap" rel="stylesheet">
+
+    {% # Icon Library %}
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
       :root {
@@ -64,7 +65,6 @@
         --navy: {{ settings.navy }};
         --font-body: 'Lato', sans-serif;
         --font-heading: 'Lato', sans-serif;
-        --font-accent: 'Radley', serif;
 
         --font-weight-regular: 400;
         --font-weight-bold: 700;
@@ -138,7 +138,7 @@
 
       :root {
       --color-wbprogscolor: {{ settings.wbprogscolor }};
-      --border--color: #818181; 
+      --border--color: #818181;
       --border-width: 1px;
       --border-style: solid;
       --white-color: #ffffff;
@@ -153,7 +153,7 @@
 
       --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
       --font-heading-style: {{ settings.type_header_font.style }};
-      --font-heading-weight: {{ settings.type_header_font.weight }}; 
+      --font-heading-weight: {{ settings.type_header_font.weight }};
       --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
       --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
 
@@ -248,7 +248,7 @@
         --buttons-shadow-vertical-offset: {{ settings.buttons_shadow_vertical_offset }}px;
         --buttons-shadow-blur-radius: {{ settings.buttons_shadow_blur }}px;
         --buttons-border-offset: {% if settings.buttons_radius > 0 or settings.buttons_shadow_opacity > 0 %}0.3{% else %}0{% endif %}px;
- 
+
         --inputs-radius: {{ settings.inputs_radius }}px;
         --inputs-border-width: {{ settings.inputs_border_thickness }}px;
         --inputs-border-opacity: {{ settings.inputs_border_opacity | divided_by: 100.0 }};
@@ -269,7 +269,7 @@
 
         --sale-bg-color: {{ settings.sale_badge_bg_color }};
         --sale-text-color: {{ settings.sale_badge_text_color }};
-        
+
         --percentage-sale-bg-color: {{ settings.percentage_badge_bg_color }};
         --percentage-sale-text-color: {{ settings.percentage_badge_text_color }};
 
@@ -305,7 +305,7 @@
           font-size: calc(var(--font-body-scale) * 16px);
         }
       }
-    {% endstyle %} 
+    {% endstyle %}
     <link rel="preload" as="style" href="{{ 'base.css' | asset_url }}">
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {%- unless settings.type_body_font.system? -%}
@@ -318,12 +318,18 @@
       <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
     {%- if settings.predictive_search_enabled -%}
-      <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
+      <link
+        rel="stylesheet"
+        href="{{ 'component-predictive-search.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
     {%- endif -%}
-    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-    if (Shopify.designMode) {
-      document.documentElement.classList.add('shopify-design-mode');
-    } 
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
     </script>
     {% style %}
       {% if settings.button_font_reduce %}
@@ -335,7 +341,7 @@
         }
       {% endif %}
       {% if settings.title_font_reduce %}
-        @media (min-width: 1200px) {          
+        @media (min-width: 1200px) {
           .wbproductdes .card__heading {
             font-size: calc(var(--font-body-scale) * 16px) !important;
           }
@@ -353,16 +359,18 @@
           }
         }
       {% endif %}
-    {% endstyle %} 
+    {% endstyle %}
   </head>
   <body class="gradient {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} page-{{ template.name }}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-      <span>{{ "accessibility.skip_to_text" | t }}</span>
+      <span>{{ 'accessibility.skip_to_text' | t }}</span>
     </a>
     {% sections 'header-group' %}
     {% sections 'overlay-group' %}
     <main id="MainContent" class="content-for-layout focus-none" tabindex="-1">
-      {% render 'breadcrumbs' %}
+      {% unless template.suffix == 'events' %}
+        {% render 'breadcrumbs' %}
+      {% endunless %}
       {{ content_for_layout }}
     </main>
     {% sections 'footer-group' %}
@@ -382,18 +390,18 @@
         cart_change_url: '{{ routes.cart_change_url }}',
         cart_update_url: '{{ routes.cart_update_url }}',
         cart_url: '{{ routes.cart_url }}',
-        predictive_search_url: '{{ routes.predictive_search_url }}'
+        predictive_search_url: '{{ routes.predictive_search_url }}',
       };
       window.cartStrings = {
         error: `{{ 'sections.cart.cart_error' | t }}`,
-        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`
-      }
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+      };
       window.variantStrings = {
         addToCart: `{{ 'products.product.add_to_cart' | t }}`,
         soldOut: `{{ 'products.product.sold_out' | t }}`,
         unavailable: `{{ 'products.product.unavailable' | t }}`,
         unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
-      }
+      };
       window.quickOrderListStrings = {
         itemsAdded: `{{ 'sections.quick_order_list.items_added.other' | t: quantity: '[quantity]' }}`,
         itemAdded: `{{ 'sections.quick_order_list.items_added.one' | t: quantity: '[quantity]' }}`,
@@ -410,11 +418,14 @@
         recipientFormExpanded: `{{ 'recipient.form.expanded' | t }}`,
         recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
-      }
+      };
     </script>
-    
+
     <script src="{{ 'wbcustom.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'popup.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>
