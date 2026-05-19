@@ -1,0 +1,58 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "featured_event": {
+      "type": "next-up-event",
+      "settings": {}
+    },
+    "rich_text_HtVcKE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_FUTHYi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Don't miss an event.",
+            "heading_size": "h1"
+          }
+        },
+        "text_Enice7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sign up and we'll let you know when new events are added —</p>",
+            "text_style": "body",
+            "custom_text": "trainings, trade shows, and seasonal markets near you.",
+            "show_icon": "present-icon",
+            "content_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FUTHYi",
+        "text_Enice7"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "full_width": false,
+        "color_scheme": "",
+        "space_around": 0,
+        "desktop_content_size": "large",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "padding_top": 24,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "featured_event",
+    "rich_text_HtVcKE"
+  ]
+}
