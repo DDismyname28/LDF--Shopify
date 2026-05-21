@@ -362,7 +362,9 @@
     {% sections 'header-group' %}
     {% sections 'overlay-group' %}
     <main id="MainContent" class="content-for-layout focus-none" tabindex="-1">
-      {% render 'breadcrumbs' %}
+      {% unless template.name == 'product' or template.suffix == 'events' %}
+        {% render 'breadcrumbs' %}
+      {% endunless %}
       {{ content_for_layout }}
     </main>
     {% sections 'footer-group' %}

@@ -253,6 +253,17 @@
         "eyebrow": "WHERE WE ARE",
         "heading": "3 Distribution Centers"
       }
+    },
+    "custom_events_cta_3HwEPN": {
+      "type": "custom-events-cta",
+      "name": "Events CTA",
+      "settings": {
+        "eyebrow": "MEET US IN PERSON",
+        "heading": "Come find us at an event near you.",
+        "text": "Trade shows, trainings, workshops, and seasonal markets — we love meeting\nthe people who install the lights. See where we'll be next.",
+        "button_text": "VIEW UPCOMING EVENTS →",
+        "button_link": ""
+      }
     }
   },
   "order": [
@@ -262,6 +273,7 @@
     "custom_values_DierJ3",
     "custom_timeline_G7TPJb",
     "custom_team_section_fqQffV",
-    "custom_distribution_EYHYPn"
+    "custom_distribution_EYHYPn",
+    "custom_events_cta_3HwEPN"
   ]
 }

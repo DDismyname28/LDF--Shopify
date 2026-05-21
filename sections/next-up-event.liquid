@@ -18,89 +18,90 @@
 
 {% if latest_event != blank %}
   <section class="events-section featured-section">
-    
-    <span class="next-up-label">NEXT UP</span>
-    <div class="featured-event-wrapper">
-      <div class="featured-event-image">
-        {% if latest_event.category.value != blank %}
-          <span class="featured-event-tag">{{ latest_event.category.value }}</span>
-        {% endif %}
+    <section class="box-wrapper">
+      <span class="next-up-label">NEXT UP</span>
+      <div class="featured-event-wrapper">
+        <div class="featured-event-image">
+          {% if latest_event.category.value != blank %}
+            <span class="featured-event-tag">{{ latest_event.category.value }}</span>
+          {% endif %}
 
-        {% if latest_event.featured_image.value != blank %}
-          <img
-            src="{{ latest_event.featured_image.value | image_url: width: 900 }}"
-            alt="{{ latest_event.title.value }}"
-          >
-        {% endif %}
+          {% if latest_event.featured_image.value != blank %}
+            <img
+              src="{{ latest_event.featured_image.value | image_url: width: 900 }}"
+              alt="{{ latest_event.title.value }}"
+            >
+          {% endif %}
+        </div>
+
+        <div class="featured-event-details">
+          <h3 class="featured-event-title">{{ latest_event.title.value }}</h3>
+          <p class="featured-event-meta">
+
+            <!-- DATE -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>
+            </svg>
+
+            {{ latest_event.event_date.value | date: "%B %d, %Y" }}
+
+
+            <!-- LOCATION -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pinned-icon lucide-map-pinned"><path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"/><circle cx="12" cy="8" r="2"/><path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"/></svg>
+
+            {{ latest_event.location.value }}
+
+
+            <!-- TIME (converted to 12-hour format) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/>
+            </svg>
+
+            {% assign time_parts = latest_event.time.value | split: ':' %}
+            {% assign hour = time_parts[0] | plus: 0 %}
+            {% assign minute = time_parts[1] %}
+
+            {% if hour == 0 %}
+              {% assign display_hour = 12 %}
+              {% assign period = "AM" %}
+            {% elsif hour < 12 %}
+              {% assign display_hour = hour %}
+              {% assign period = "AM" %}
+            {% elsif hour == 12 %}
+              {% assign display_hour = 12 %}
+              {% assign period = "PM" %}
+            {% else %}
+              {% assign display_hour = hour | minus: 12 %}
+              {% assign period = "PM" %}
+            {% endif %}
+
+            {{ display_hour }}:{{ minute }} {{ period }}
+
+          </p>
+
+          <p class="featured-event-description">
+            {{ latest_event.description.value }}
+          </p>
+
+          {% if latest_event.registration_url.value != blank %}
+            <button href="{{ latest_event.registration_url.value }}" class="featured-register-btn"> REGISTER NOW <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-move-right-icon lucide-move-right"
+                >
+                  <path d="M18 8L22 12L18 16"/><path d="M2 12H22"/>
+                </svg> </button>
+          {% endif %}
+        </div>
       </div>
-
-      <div class="featured-event-details">
-        <h3 class="featured-event-title">{{ latest_event.title.value }}</h3>
-        <p class="featured-event-meta">
-
-  <!-- DATE -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>
-  </svg>
-
-  {{ latest_event.event_date.value | date: "%B %d, %Y" }}
-
-
-  <!-- LOCATION -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pinned-icon lucide-map-pinned"><path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"/><circle cx="12" cy="8" r="2"/><path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"/></svg>
-
-  {{ latest_event.location.value }}
-
-
-  <!-- TIME (converted to 12-hour format) -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/>
-  </svg>
-
-  {% assign time_parts = latest_event.time.value | split: ':' %}
-  {% assign hour = time_parts[0] | plus: 0 %}
-  {% assign minute = time_parts[1] %}
-
-  {% if hour == 0 %}
-    {% assign display_hour = 12 %}
-    {% assign period = "AM" %}
-  {% elsif hour < 12 %}
-    {% assign display_hour = hour %}
-    {% assign period = "AM" %}
-  {% elsif hour == 12 %}
-    {% assign display_hour = 12 %}
-    {% assign period = "PM" %}
-  {% else %}
-    {% assign display_hour = hour | minus: 12 %}
-    {% assign period = "PM" %}
-  {% endif %}
-
-  {{ display_hour }}:{{ minute }} {{ period }}
-
-</p>
-
-        <p class="featured-event-description">
-          {{ latest_event.description.value }}
-        </p>
-
-        {% if latest_event.registration_url.value != blank %}
-          <button href="{{ latest_event.registration_url.value }}" class="featured-register-btn"> REGISTER NOW <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-move-right-icon lucide-move-right"
-              >
-                <path d="M18 8L22 12L18 16"/><path d="M2 12H22"/>
-              </svg> </button>
-        {% endif %}
-      </div>
-    </div>
+    </section>
   </section>
 {% endif %}
 
@@ -114,223 +115,227 @@
 {% if events != blank %}
 
 <section class="events-tab events-section">
-
-  <!-- MAIN TABS -->
-  <div class="event-tabs">
-    <button class="event-tab-btn active" data-tab="upcoming">
-      Upcoming Events
-    </button>
-
-    <button class="event-tab-btn" data-tab="past">
-      Past Events
-    </button>
-  </div>
-
-  <!-- FILTERS -->
-  <div class="event-filters">
-
-    <p class="filter-label">Filter by Type</p>
-    <div class="filter-group">
-
-      <button class="filter-btn active" data-category="all">
-        All Categories
+  <section class="box-wrapper">
+    <!-- MAIN TABS -->
+    <div class="event-tabs">
+      <button class="event-tab-btn active" data-tab="upcoming">
+        Upcoming Events
       </button>
 
-      {% assign categories = '' %}
-
-      {% for event in events %}
-        {% assign category = event.category.value %}
-
-        {% unless categories contains category %}
-          {% assign categories = categories | append: category | append: ',' %}
-
-          <button
-            class="filter-btn"
-            data-category="{{ category | handleize }}"
-          >
-            {{ category }}
-          </button>
-        {% endunless %}
-      {% endfor %}
-
+      <button class="event-tab-btn" data-tab="past">
+        Past Events
+      </button>
     </div>
 
-    <p class="filter-label">Filter by Month</p>
-    <div class="filter-group">
+    <!-- FILTERS -->
+    <div class="event-filters">
 
-      <button class="month-btn active" data-month="all">
-        All Months
-      </button>
+      <p class="filter-label">Filter by Type</p>
+      <div class="filter-group">
 
-      {% for month_name in month_names %}
+        <button class="filter-btn active" data-category="all">
+          All Categories
+        </button>
 
-        {% assign month_exists = false %}
+        {% assign categories = '' %}
 
         {% for event in events %}
-          {% assign event_month = event.event_date.value | date: '%B' %}
+          {% assign category = event.category.value %}
 
-          {% if event_month == month_name %}
-            {% assign month_exists = true %}
-          {% endif %}
+          {% unless categories contains category %}
+            {% assign categories = categories | append: category | append: ',' %}
+
+            <button
+              class="filter-btn"
+              data-category="{{ category | handleize }}"
+            >
+              {{ category }}
+            </button>
+          {% endunless %}
         {% endfor %}
 
-        {% if month_exists %}
-          <button
-            class="month-btn"
-            data-month="{{ month_name | downcase }}"
-          >
-            {{ month_name }}
-          </button>
+      </div>
+
+      <p class="filter-label">Filter by Month</p>
+      <div class="filter-group">
+
+        <button class="month-btn active" data-month="all">
+          All Months
+        </button>
+
+        {% for month_name in month_names %}
+
+          {% assign month_exists = false %}
+
+          {% for event in events %}
+            {% assign event_month = event.event_date.value | date: '%B' %}
+
+            {% if event_month == month_name %}
+              {% assign month_exists = true %}
+            {% endif %}
+          {% endfor %}
+
+          {% if month_exists %}
+            <button
+              class="month-btn"
+              data-month="{{ month_name | downcase }}"
+            >
+              {{ month_name }}
+            </button>
+          {% endif %}
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+    <!-- COUNTER -->
+    <div class="events-count-wrapper">
+      <span class="events-count-text">
+        Showing
+        <span id="events-count">0</span>
+        <span id="events-status-label">upcoming</span>
+        events in
+        <span id="events-year">{{ 'now' | date: '%Y' }}</span>
+      </span>
+    </div>
+
+    <!-- EMPTY STATE -->
+    <div class="no-events-message" style="display:none;">
+      No events found for this filter.
+    </div>
+
+    <!-- EVENTS LIST -->
+    <section class="event-lists-section">
+
+      {% for event in events %}
+
+        {% assign category = event.category.value | handleize %}
+        {% assign month = event.event_date.value | date: '%B' | downcase %}
+        {% assign event_date_raw = event.event_date.value %}
+
+        {% assign event_timestamp = event_date_raw | date: '%s' %}
+
+        {% if event_date_raw != blank and event_timestamp >= today_timestamp %}
+          {% assign event_status = 'upcoming' %}
+        {% else %}
+          {% assign event_status = 'past' %}
         {% endif %}
+
+        <div
+          class="event-wrapper"
+          data-category="{{ category }}"
+          data-month="{{ month }}"
+          data-status="{{ event_status }}"
+        >
+
+          <!-- DATE BOX -->
+          <div class="event-date-box">
+            <span class="event-month">
+              {{ event.event_date.value | date: '%b' }}
+            </span>
+
+            <span class="event-day">
+              {{ event.event_date.value | date: '%d' }}
+            </span>
+          </div>
+
+          <!-- CONTENT -->
+          <div class="event-content">
+
+            {% if event.category.value != blank %}
+
+              {% assign category_handle = event.category.value | handleize %}
+
+              <p class="event-category
+                {% case category_handle %}
+                  {% when 'training' %}category-training
+                  {% when 'trade-show' %}category-trade-show
+                  {% when 'workshop' %}category-workshop
+                  {% when 'seasonal-market' %}category-seasonal
+                  {% when 'industry' %}category-seasonal
+                  {% when 'omni-rgb' %}category-omni-rgb
+                {% endcase %}
+              ">
+                {{ event.category.value }}
+              </p>
+
+            {% endif %}
+
+            <p class="event-location-time">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"/>
+                <circle cx="12" cy="8" r="2"/>
+                <path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"/>
+              </svg>
+
+              {{ event.location.value }}
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="13" r="8"/>
+                <path d="M12 9v4l2 2"/>
+              </svg>
+
+              {{ event.event_date.value | date: '%I:%M %p' }}
+            </p>
+
+            <p class="event-description">
+              {{ event.description.value }}
+            </p>
+
+            {% if event.registration_url.value != blank %}
+              <a href="{{ event.registration_url.value }}" class="event-register-link">
+                RSVP / Register
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8L22 12L18 16"/>
+                  <path d="M2 12H22"/>
+                </svg>
+              </a>
+            {% endif %}
+
+          </div>
+        </div>
 
       {% endfor %}
 
-    </div>
-
-  </div>
-
-  <!-- COUNTER -->
-  <div class="events-count-wrapper">
-    <span class="events-count-text">
-      Showing
-      <span id="events-count">0</span>
-      <span id="events-status-label">upcoming</span>
-      events in
-      <span id="events-year">{{ 'now' | date: '%Y' }}</span>
-    </span>
-  </div>
-
-  <!-- EMPTY STATE -->
-  <div class="no-events-message" style="display:none;">
-    No events found for this filter.
-  </div>
-
-  <!-- EVENTS LIST -->
-  <section class="event-lists-section">
-
-    {% for event in events %}
-
-      {% assign category = event.category.value | handleize %}
-      {% assign month = event.event_date.value | date: '%B' | downcase %}
-      {% assign event_date_raw = event.event_date.value %}
-
-      {% assign event_timestamp = event_date_raw | date: '%s' %}
-
-      {% if event_date_raw != blank and event_timestamp >= today_timestamp %}
-        {% assign event_status = 'upcoming' %}
-      {% else %}
-        {% assign event_status = 'past' %}
-      {% endif %}
-
-      <div
-        class="event-wrapper"
-        data-category="{{ category }}"
-        data-month="{{ month }}"
-        data-status="{{ event_status }}"
-      >
-
-        <!-- DATE BOX -->
-        <div class="event-date-box">
-          <span class="event-month">
-            {{ event.event_date.value | date: '%b' }}
-          </span>
-
-          <span class="event-day">
-            {{ event.event_date.value | date: '%d' }}
-          </span>
-        </div>
-
-        <!-- CONTENT -->
-        <div class="event-content">
-
-          {% if event.category.value != blank %}
-
-            {% assign category_handle = event.category.value | handleize %}
-
-            <p class="event-category
-              {% case category_handle %}
-                {% when 'training' %}category-training
-                {% when 'trade-show' %}category-trade-show
-                {% when 'workshop' %}category-workshop
-                {% when 'seasonal-market' %}category-seasonal
-                {% when 'industry' %}category-seasonal
-              {% endcase %}
-            ">
-              {{ event.category.value }}
-            </p>
-
-          {% endif %}
-
-          <p class="event-location-time">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"/>
-              <circle cx="12" cy="8" r="2"/>
-              <path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"/>
-            </svg>
-
-            {{ event.location.value }}
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="13" r="8"/>
-              <path d="M12 9v4l2 2"/>
-            </svg>
-
-            {{ event.event_date.value | date: '%I:%M %p' }}
-          </p>
-
-          <p class="event-description">
-            {{ event.description.value }}
-          </p>
-
-          {% if event.registration_url.value != blank %}
-            <a href="{{ event.registration_url.value }}" class="event-register-link">
-              RSVP / Register
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 8L22 12L18 16"/>
-                <path d="M2 12H22"/>
-              </svg>
-            </a>
-          {% endif %}
-
-        </div>
+    </section>
+      <div class="load-more-wrapper" style="text-align:center; margin: 20px 0;">
+        <button id="load-more-btn" class="load-more-btn">
+          Load More Events
+        </button>
       </div>
-
-    {% endfor %}
-
-  </section>
-    <div class="load-more-wrapper" style="text-align:center; margin: 20px 0;">
-      <button id="load-more-btn" class="load-more-btn">
-        Load More Events
-      </button>
-    </div>
+  </section>   
 </section>
 
 {% endif %}
 
 
 <section class="register-section">
-  <span class="register-label register-label--primary">Register to Attend</span>
-  <h3 class="register-title">Save your Spot</h3>
-  <div class="register-wrapper">
-    <div class="form-wrapper">
-      <img src="https://cdn.shopify.com/s/files/1/0680/4150/7113/files/register-hero.jpg?v=1712877375" alt="Register for LFD Events">
+  <section class="box-wrapper">
+    <span class="register-label register-label--primary">Register to Attend</span>
+    <h3 class="register-title">Save your Spot</h3>
+    <div class="register-wrapper">
+      <div class="form-wrapper">
+        <img src="https://cdn.shopify.com/s/files/1/0680/4150/7113/files/register-hero.jpg?v=1712877375" alt="Register for LFD Events">
+      </div>
+      <div class="content-wrapper ">
+        <span class="register-label">What to Expect</span>
+        <ul class="expectation-list">
+          <li>Hands-on product demonstrations</li>
+          <li>Meet the LFD team in person</li>
+          <li>Training on installation techniques</li>
+          <li>Exclusive event-only pricing</li>
+          <li>Network with other installers</li>
+          <li>New product previews</li>
+        </ul >
+        <span class="register-label cant-make-it">Can't make it?</span> <span class="register-btn">Sign up for event updates <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8L22 12L18 16"/>
+                  <path d="M2 12H22"/>
+                </svg></span>
+      </div  >
     </div>
-    <div class="content-wrapper ">
-      <span class="register-label">What to Expect</span>
-      <ul class="expectation-list">
-        <li>Hands-on product demonstrations</li>
-        <li>Meet the LFD team in person</li>
-        <li>Training on installation techniques</li>
-        <li>Exclusive event-only pricing</li>
-        <li>Network with other installers</li>
-        <li>New product previews</li>
-      </ul >
-      <span class="register-label cant-make-it">Can't make it?</span> <span class="register-btn">Sign up for event updates <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 8L22 12L18 16"/>
-                <path d="M2 12H22"/>
-              </svg></span>
-    </div  >
-  </div>
+  <section class="box-wrapper">
 </section>
 
 <style>
@@ -405,13 +410,13 @@
 
   /* Events Hero */
   .events-wrapper {
-    font-family:'Lato', sans-serif;
+    font-family: var(--font-body);
     color: #ffffff;
   }
   .section-header {
-    max-width: var(--page-width);
+    max-width: 100%;
     margin: auto;
-    background: #a91f23 !important;
+    background: var(--crimson) !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -423,7 +428,7 @@
   }
   .section-header h1 {
     font-size: 36px;
-    font-weight: 900;
+    font-weight: var(--font-weight-black);
     color: #ffffff;
   }
   .section-header p,
@@ -439,7 +444,7 @@
     text-transform: uppercase;
   }
   .events-section {
-    max-width: var(--page-width);
+    max-width: 100%;
     margin: auto;
     color: #ffffff;
     margin-bottom: 24px;
@@ -449,8 +454,8 @@
   /* Featured Section */
   .featured-section {
     border: 1px solid #c8c2b8;
-    background-color: #f0ece4;
-    border-radius: 3px;
+    background-color: var(--cream);
+    max-width:100%;
   }
   .featured-section img {
     width: 280px;
@@ -460,6 +465,7 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    gap: 20px;
     align-items: center;
   }
   .featured-event-image {
@@ -468,7 +474,7 @@
   }  
   .featured-event-tag {
       position: absolute;
-      background: #a91f23;
+      background: var(--crimson);
       padding: 5px 8px;
       top: 0;
       left: 0;
@@ -476,15 +482,20 @@
       font-size: 12px;
       border-radius: 3px;
   }
+  .box-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
   .featured-event-details {
     padding: 0px 40px;
   }
   .featured-event-details h3 {
     font-size: 36px;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
   }
   .featured-event-meta {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     color: #978c7b;
     font-size: 16px;
@@ -497,11 +508,11 @@
   .featured-register-btn {
     padding: 14px 28px;
     border-radius: 3px;
-    background: #a91f23;
+    background: var(--crimson);
     text-transform: uppercase;
     color: #ffffff;
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
+    font-family:  var(--font-body);
+    font-weight: var(--font-weight-bold);
     font-size: 13px;
     letter-spacing: 0.08em;
     border: none;
@@ -516,12 +527,12 @@
   /* Events Counts Wrapper*/
   .events-count-wrapper {
     color: #978c7b;
-    padding: 0 40px;
+    padding: 0;
   }
   #events-count,
   #events-status-label {
     color: #000;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
   }
 
   /* Tabs Event Section */
@@ -532,7 +543,7 @@
   }
   .event-tabs {
     border-bottom: 2px solid #c8c2b8;
-    padding: 0 40px;
+    padding: 0;
     margin-bottom: 0;
   }
   .event-tab-btn {
@@ -540,17 +551,17 @@
     background: none;
     margin-bottom: -2px;
     background: none;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
   } 
   .event-tab-btn.active {
-    color: #a91f23;
-    border-bottom: 2px solid #a91f23;
-    font-weight: 700;
+    color: var(--crimson);
+    border-bottom: 2px solid var(--crimson);
+    font-weight: var(--font-weight-bold);
     background: none;
     border-radius: 0;
   }
   .event-filters {
-    padding: 0 40px;
+    padding: 0;
   }
   .filter-label {
     color: #978c7b;
@@ -564,7 +575,7 @@
     color: #978c7b;
     border-radius: 3px;
     text-transform: uppercase;
-    background: #F0ECE4;
+    background: var(--cream);
     border: 1px solid #c8c2b8;
   }
   .month-btn:hover,
@@ -573,18 +584,18 @@
   }
   .filter-btn.active,
   .month-btn.active {
-    background: #a91f23;
+    background: var(--crimson);
     color: #ffffff;
   }
 
   /* Event Lists Section*/
   .event-lists-section {
-    padding: 40px;
+    padding: 40px 0;
   }
   .event-lists-section .event-wrapper {
     display: flex;
     padding: 0;
-    background: #F0ECE4;
+    background: var(--cream);
     border: 1px solid #c8c2b8;
     border-radius: 3px;
   }
@@ -595,7 +606,7 @@
   .event-month {
     display: block;
     font-size: 12px;
-    background: #a91f23;
+    background: var(--crimson);
     padding: 20px;
     padding-bottom: 0;
     border-top-right-radius: 3px;
@@ -604,19 +615,20 @@
   }
   .event-day {
     display: block;
-    background: #a91f23;
+    background: var(--crimson);
     padding: 20px;
     padding-top: 0;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     font-size: 28px;
-    font-weight: 900;
+    font-weight: var(--font-weight-black);
     margin-top: -12px;
   }
   .event-location-time {
     font-size: 16px;
     color: #978c7b;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
   }
   .event-location-time svg {
@@ -628,8 +640,8 @@
     padding-left: 0;
   }
   .event-content a {
-    color: #a91f23;
-    font-weight: 700;
+    color: var(--crimson);
+    font-weight: var(--font-weight-bold);
   }
   .event-category {
     padding: 5px 8px;
@@ -640,39 +652,41 @@
     color: #ffffff;
   }
   .event-category.category-training {
-    background-color: #a91f23;
+    background-color: var(--crimson);
   }
   .event-category.category-trade-show {
-    background-color: #384863;
+    background-color: var(--navy);
   }
   .event-category.category-workshop {
-    background-color: #2e3d34;
+    background-color: var(--forest);
   }
   .event-category.category-seasonal {
     background-color: #978c7b;
+  }
+  .event-category.category-omni-rgb {
+    background-color: #1fa87d;
   }
   #load-more-btn {
     padding: 14px 28px;
     border-radius: 3px;
     background: none;
     text-transform: uppercase;
-    color: #384863;
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
+    color: var(--navy);
+    font-family:  var(--font-body);
+    font-weight: var(--font-weight-bold);
     font-size: 13px;
     letter-spacing: 0.08em;
-    border: 1.5px solid #384863;
+    border: 1.5px solid var(--navy);
   }
   #load-more-btn:hover {
     color: #f8f6f2;
   }
   .register-section {
-    max-width: var(--page-width);
+    max-width: 100%;
     margin: auto;
     padding: 40px;
-    background: #f0ece4;
+    background: var(--cream);
     border: 1px solid #c8c2b8;
-    border-radius: 3px;
   }
   .content-wrapper {
     padding-left: 40px;
@@ -699,7 +713,7 @@
   .register-label {
     font-size: 12px;
     text-transform: uppercase;
-    color: #a91f23;  
+    color: var(--crimson);  
   }
   .register-label--primary {
     font-size: 12px;
@@ -708,8 +722,8 @@
   }
   .register-title {
     font-size: 28px;
-    font-weight: 700;
-    color: #384863;
+    font-weight: var(--font-weight-bold);
+    color: var(--navy);
   }
   .cant-make-it {
     font-style: italic;
@@ -723,8 +737,8 @@
   }
   .register-btn {
     padding: 0 10px;
-    color: #a91f23;
-    font-weight: 700;
+    color: var(--crimson);
+    font-weight: var(--font-weight-bold);
   }
   .page-events .breadcrumb_main {
     display: none;
@@ -733,15 +747,14 @@
   /* Dont Miss Event Section */
   #shopify-section-template--26746161660209__rich_text_HtVcKE {
     margin: auto;
-    max-width: var(--page-width);
+    max-width: 100%;
     padding: 40px !important;
-    background: #2e3d34;
-    border-radius: 4px;
+    background: var(--forest);
     margin-top: 24px;
     margin-bottom: 24px;
   }
   #shopify-section-template--26746161660209__rich_text_HtVcKE .rich-text {
-    background: #2e3d34;
+    background: var(--forest);
   }
   #shopify-section-template--26746161660209__rich_text_HtVcKE .rich-text__wrapper {
     margin: auto;
@@ -752,19 +765,43 @@
   }
   #shopify-section-template--26746161660209__rich_text_HtVcKE .rich-text__heading {
     color: #ffffff;
-    font-family: 'Lato', sans-serif;
+    font-family:  var(--font-body);
     font-size: 28px;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
   }
   #shopify-section-template--26746161660209__rich_text_HtVcKE .rich-text__text {
-    font-family: 'Lato', sans-serif;
+    font-family:  var(--font-body);
     font-size: 16px;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     color: #F8F6F2 !important;
     opacity: 65%;
   }
   #shopify-section-template--26746161660209__rich_text_HtVcKE .rich-text__text p {
     color: #F8F6F2 !important;
+  }
+  @media (max-width: 1420px){
+  .featured-event-details {
+        padding: 10px 0;
+      }
+  }
+  @media (max-width: 1400px) {
+    .event-tabs,
+    .event-filters {
+     padding: 0 40px;
+    }
+  }
+  @media (max-width: 767px) {
+    .featured-event-details {
+      padding: 40px 0;
+    }
+    .event-tabs,
+    .event-filters,
+    .events-count-wrapper {
+      padding: 0 40px;
+    }
+    .form-wrapper, .content-wrapper {
+      width: 100%;
+    }
   }
 </style>
 

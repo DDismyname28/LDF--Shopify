@@ -35,12 +35,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-body);
     font-size: 12px;
     margin-bottom: 20px;
     padding: 10px 40px;
     border: 1px solid #c8c2b8;
-    background-color: #f0ece4;
+    background-color: var(--cream);
     border-radius: 4px;
     margin: 0 auto;
   }
@@ -49,8 +49,8 @@
     text-decoration: none;
   }
   .breadcrumb-left .product-title {
-    color: #384863;
-    font-weight: bold;
+    color: var(--navy);
+    font-weight: var(--font-weight-bold);
     font-size: 12px;
   }
   .breadcrumb-left .divider {
@@ -63,10 +63,36 @@
   }
   .sku-label,
   .sku-value {
-    font-weight: regular;
+    font-weight: var(--font-weight-regular);
     color: #978c7b;
   }
   .sku-label {
     margin-right: 5px;
+  }
+
+  /* Desktop (1025px and up) */
+  @media (min-width: 1025px) {
+    #shopify-section-template--26708638925105__product_breadcrumb_sku {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 40px;
+    }
+  }
+
+  /* Tablet (768px - 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .breadcrumb-sku-wrapper {
+      max-width: var(--page-width);
+      margin: 0 15px;
+    }
+  }
+
+  /* Mobile (0 - 767px) */
+  @media (max-width: 767px) {
+    .breadcrumb-sku-wrapper {
+      flex-wrap: wrap;
+      max-width: var(--page-width);
+      margin: 0 15px;
+    }
   }
 </style>

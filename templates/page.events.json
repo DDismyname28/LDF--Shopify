@@ -40,7 +40,7 @@
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "color_scheme": "",
         "space_around": 0,
         "desktop_content_size": "large",

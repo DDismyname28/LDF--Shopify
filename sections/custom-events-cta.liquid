@@ -1,0 +1,136 @@
+<section class="events-cta">
+  <div class="events-cta__inner">
+    <div class="events-cta__eyebrow">
+      {{ section.settings.eyebrow }}
+    </div>
+
+    <h2>{{ section.settings.heading }}</h2>
+
+    <div class="events-cta__text">
+      {{ section.settings.text | newline_to_br }}
+    </div>
+
+    {% if section.settings.button_text != blank %}
+      <a href="{{ section.settings.button_link }}" class="events-cta__button">
+        {{ section.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .events-cta {
+    background: var(--forest);
+    padding: 44px 24px;
+    text-align: center;
+  }
+
+  .events-cta__inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .events-cta__eyebrow {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 12px;
+  }
+
+  .events-cta h2 {
+    font-family: var(--font-heading);
+    font-size: 34px;
+    line-height: 1.2;
+    color: #fff;
+    margin: 0 0 18px;
+  }
+
+  .events-cta__text {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.68);
+    margin: 0 auto 24px;
+    max-width: 660px;
+  }
+
+  .events-cta__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 330px;
+    height: 52px;
+    background: var(--crimson);
+    color: #fff;
+    border-radius: 3px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none !important;
+    text-transform: uppercase;
+  }
+
+  .events-cta__button:hover {
+    color: #fff !important;
+    opacity: 0.9;
+  }
+
+  @media screen and (max-width: 700px) {
+    .events-cta {
+      padding: 42px 18px;
+    }
+
+    .events-cta h2 {
+      font-size: 28px;
+    }
+
+    .events-cta__button {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Events CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "MEET US IN PERSON"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Come find us at an event near you."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Trade shows, trainings, workshops, and seasonal markets — we love meeting\nthe people who install the lights. See where we'll be next."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "VIEW UPCOMING EVENTS →"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Events CTA"
+    }
+  ]
+}
+{% endschema %}
